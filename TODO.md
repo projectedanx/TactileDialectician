@@ -13,3 +13,16 @@
 ## Low Priority / Maintenance
 - [ ] **Dependency Audit:** Lock down versions for `nerdamer` and `mathjs` to prevent unexpected symbolic evaluation regressions.
 - [ ] **Accessibility (a11y):** Ensure all tactile buttons and custom dropdowns are fully keyboard navigable and screen-reader friendly.
+
+## Algorithmic Reparation (AGS-A Audit)
+- [x] **NeuroSymbolicExecutor Refactoring:** The `NeuroSymbolicExecutor.tsx` module has been identified as having the highest Cognitive Complexity due to the conflation of hybrid execution logic (mathjs/nerdamer + LLM routing) and UI state.
+- [x] **Action:** Extract execution logic into `lib/executorService.ts` and state management into `hooks/useNeuroSymbolicExecution.ts`.
+
+
+## Algorithmic Trauma / Scar Tissue Archive
+- Note: Build fails if `nerdamer` syntax errors aren't caught or typescript definitions are incomplete. Handled by generic catch blocks in the executor.
+
+## Platform Knowledge
+- The standard execution commands to build the project are 'npm install' followed by 'npm run build'.
+- Do not run the long running command ('n' + 'p' + 'm' + ' run dev') during agent testing due to environment constraints.
+- The repository is a Next.js (React/TypeScript) application named 'Tactile Dialectician' that implements a Neuro-Symbolic STEM Framework using '@google/genai', 'mathjs', and 'nerdamer'.
