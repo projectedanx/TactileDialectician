@@ -4,6 +4,9 @@ import { useState } from 'react';
 import { GoogleGenAI, Type } from '@google/genai';
 import { Search, Loader2, AlertTriangle, CheckCircle2 } from 'lucide-react';
 
+/**
+ * Defines the structure of a disambiguated symbol result returned by the LLM.
+ */
 interface DisambiguationResult {
   symbol: string;
   meaning: string;
@@ -14,6 +17,12 @@ interface DisambiguationResult {
 
 import { parseAIError } from '@/utils/errorHandling';
 
+/**
+ * Renders the Disambiguation Engine, which classifies and resolves polysemous STEM symbols based on epistemic domains.
+ * It sends user input to an LLM, requesting strict domain-bound interpretations of mathematical entities.
+ *
+ * @returns {JSX.Element} The rendered Disambiguation Engine component.
+ */
 export default function DisambiguationEngine() {
   const [input, setInput] = useState('');
   const [context, setContext] = useState('Auto');

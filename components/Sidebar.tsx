@@ -8,11 +8,23 @@ import {
   Workflow
 } from 'lucide-react';
 
+/**
+ * Defines the properties required by the Sidebar component.
+ */
 interface SidebarProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
 }
 
+/**
+ * Renders the global navigation sidebar for the Tactile Dialectician interface.
+ * Controls the active viewing state across different neuro-symbolic modules.
+ *
+ * @param {SidebarProps} props - The props object.
+ * @param {string} props.activeTab - The currently active tab identifier.
+ * @param {function} props.setActiveTab - State setter function to mutate the active tab.
+ * @returns {JSX.Element} The rendered Sidebar component.
+ */
 export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
   const tabs = [
     { id: 'workflow', label: 'Automated Workflow', icon: Workflow },

@@ -4,6 +4,9 @@ import { useState, useMemo } from 'react';
 import { GoogleGenAI, Type } from '@google/genai';
 import { Cpu, Loader2, Fingerprint, Network, SplitSquareHorizontal, Library, ArrowRightLeft, AlertTriangle, Copy, Check } from 'lucide-react';
 
+/**
+ * Defines the FoNE (Form, Nature, Effect) semantic embedding profile for a tokenized symbol.
+ */
 interface FoNEEmbedding {
   operator_class: string;
   domain_weight_physics: number;
@@ -12,6 +15,9 @@ interface FoNEEmbedding {
   tensor_rank_effect: string;
 }
 
+/**
+ * Defines the structure of the atomic tokenization analysis for a specific symbol.
+ */
 interface TokenAnalysis {
   symbol: string;
   fragmented_bytes: string[];
@@ -132,6 +138,13 @@ const PREDEFINED_LIBRARY: TokenAnalysis[] = [
 
 import { parseAIError } from '@/utils/errorHandling';
 
+/**
+ * Renders the Atomic Tokenization Module.
+ * This component acts as a translation proxy that intercepts fragmented BPE tokens for complex STEM symbols
+ * and replaces them with atomic semantic embeddings (FoNE framework) to preserve structural integrity before LLM processing.
+ *
+ * @returns {JSX.Element} The rendered Atomic Tokenization Module component.
+ */
 export default function AtomicTokenizationModule() {
   const [inputMode, setInputMode] = useState<'extract' | 'list'>('extract');
   const [input, setInput] = useState('∇·F = ρ/ε₀ + ∂E/∂t');

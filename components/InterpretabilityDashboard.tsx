@@ -7,6 +7,12 @@ import ReactMarkdown from 'react-markdown';
 
 import { parseAIError } from '@/utils/errorHandling';
 
+/**
+ * Renders the Interpretability Dashboard, an interface for grounding abstract symbols or concepts in recent literature.
+ * Initiates external search queries to retrieve and summarize academic or technical context.
+ *
+ * @returns {JSX.Element} The rendered Interpretability Dashboard component.
+ */
 export default function InterpretabilityDashboard() {
   const [query, setQuery] = useState('');
   const [result, setResult] = useState('');
