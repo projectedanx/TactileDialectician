@@ -21,3 +21,11 @@
 *Move from a dashboard to a ubiquitous environment.*
 - **VS Code / Cursor Extension:** Port the Atomic Tokenization and Disambiguation engines directly into the developer's text editor.
 - **Continuous Background Auditing:** The system silently watches the user's code/math, offering non-intrusive "Twinning" suggestions when it detects high Intent Divergence.
+
+## Phase 5: Deep Epistemic Mechanics (Ideation & Planning)
+*Detailed epic breakdowns available in `docs/planning`.*
+- **Epic 1: Temporal Causality Mapping:** DAG-based memory for disambiguation over time.
+- **Epic 2: Symbiotic LaTeX Engine:** Double-buffered streaming to eliminate UI jitter during generation.
+- **Epic 3: Epistemic Escrow Visualization:** UI to graph deterministic vs. probabilistic divergence.
+- **Epic 4: Cross-Domain Topological Blending:** Forcing isomorphic translations between physics, math, and ML.
+- **Epic 5: The Paraconsistent Debugger:** Dev tools to inspect parallel speculative execution threads.
