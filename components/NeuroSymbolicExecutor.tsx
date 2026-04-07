@@ -17,6 +17,9 @@ import 'nerdamer/Solve.js';
 
 import { parseAIError } from '@/utils/errorHandling';
 
+/**
+ * Defines the structure of an execution trace step within the neuro-symbolic pipeline.
+ */
 interface TraceStep {
   type: 'direct' | 'llm_reasoning' | 'tool_call' | 'final_result' | 'error';
   content: string;
@@ -24,6 +27,13 @@ interface TraceStep {
   details?: string;
 }
 
+/**
+ * Renders the Neuro-Symbolic Executor.
+ * A hybrid routing engine that attempts deterministic symbolic computation via `nerdamer` or `mathjs`
+ * before falling back to high-reasoning LLM tool-calling for complex problem solving.
+ *
+ * @returns {JSX.Element} The rendered Neuro-Symbolic Executor component.
+ */
 export default function NeuroSymbolicExecutor() {
   const [input, setInput] = useState(() => {
     if (typeof window !== 'undefined') {

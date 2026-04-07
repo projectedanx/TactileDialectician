@@ -1,28 +1,77 @@
-# Atlas Framework: Tactile Dialectician v1
+# Tactile Dialectician: Neuro-Symbolic STEM Framework
 
-## 1. [MISE-EN-SCÈNE] (Contextual Stage Setting)
-This repository houses the **Tactile Dialectician**, a neuro-symbolic reasoning engine and STEM assistant built on the Atlas Framework. It rejects the linear, waterfall approach to problem-solving in favor of a recursive, multi-causal OODA loop (Observe, Orient, Decide, Act).
+## Overview
+The **Tactile Dialectician** is an advanced, hybrid AI-reasoning interface built on the Atlas Framework. Designed for rigorous STEM collaboration, the system rejects linear problem-solving in favor of a recursive, multi-causal OODA loop architecture. It mitigates the hallucination risks of pure LLMs by injecting deterministic mathematical computation and strict symbol disambiguation into the reasoning pipeline.
 
-## Core Modules
-* **Atomic Tokenization Module:** Mitigates BPE fragmentation by injecting FoNE-inspired semantic embeddings for complex STEM symbols. Acts as a "Translation Proxy" to generate token-efficient, unambiguous payloads for primary LLMs.
-* **Neuro-Symbolic Executor:** A hybrid routing engine that attempts deterministic symbolic computation (via `nerdamer`/`mathjs`) before falling back to high-reasoning LLM tool-calling (Gemini 3.1 Pro Preview).
-* **Disambiguation Engine:** A multi-lens classifier for resolving polysemy across STEM domains.
-* **Interpretability Dashboard:** Audits reasoning paths and grounds symbols in recent literature via Google Search.
-* **Dialectical Chat:** A high-reasoning STEM collaboration interface with native LaTeX support.
+## Architectural Modules
 
-## Tech Stack
-* **Framework:** Next.js 15 (App Router), React 19
+The application is structured around several distinct epistemic modules:
+
+1. **Automated Workflow Orchestrator (`AutomatedWorkflow.tsx`)**
+   - Chains the distinct reasoning modules together.
+   - Takes a complex expression, runs it through disambiguation, tokenization, execution, and interpretability phases, and generates a unified "Context Bundle" injected directly into the Dialectical Chat.
+
+2. **Atomic Tokenization Module (`AtomicTokenizationModule.tsx`)**
+   - Solves BPE (Byte Pair Encoding) fragmentation for complex mathematical symbols (e.g., ∇, ∫, ⊗).
+   - Operates as a translation proxy, mapping raw symbols to semantic FoNE (Form, Nature, Effect) embeddings, preserving operator class and tensor rank integrity before LLM consumption.
+
+3. **Neuro-Symbolic Executor (`NeuroSymbolicExecutor.tsx`)**
+   - A dual-engine hybrid routing system.
+   - It attempts deterministic symbolic evaluation via `mathjs` and `nerdamer` first. If computation exceeds deterministic bounds, it seamlessly falls back to high-reasoning LLM tool-calling (via Gemini 3.1 Pro Preview).
+
+4. **Symbol Disambiguation Engine (`DisambiguationEngine.tsx`)**
+   - Resolves polysemy in STEM notation (e.g., does "λ" mean wavelength, eigenvalue, or failure rate?).
+   - Forces strict domain-bound interpretations based on the current epistemic context (Physics, Pure Math, Machine Learning).
+
+5. **Interpretability Dashboard (`InterpretabilityDashboard.tsx`)**
+   - Grounds abstract mathematical concepts in recent literature.
+   - Utilizes Google Search grounding to retrieve academic context and generate source-backed intuition summaries.
+
+6. **Dialectical Chat (`Chatbot.tsx`)**
+   - The primary interface for high-reasoning collaboration.
+   - Natively supports LaTeX and maintains persistent local context, allowing users to dialectically probe the outputs of the automated workflows.
+
+## Technology Stack
+
+* **Core Framework:** Next.js 15 (App Router), React 19
+* **Language:** TypeScript
 * **Styling:** Tailwind CSS v4
-* **AI/LLM:** `@google/genai` (Gemini 3.1 Pro Preview, Gemini 3 Flash Preview)
-* **Computation:** `nerdamer`, `mathjs`
-* **Markdown/Math:** `react-markdown`, `remark-math`, `rehype-katex`
+* **AI/LLM Provider:** `@google/genai` (Gemini 3.1 Pro / 3.0 Flash Previews)
+* **Symbolic Engines:** `nerdamer`, `mathjs`
+* **Formatting:** `react-markdown`, `remark-math`, `rehype-katex`
 
-## Setup & Installation
-1. Clone the repository.
-2. Install dependencies: `npm install`
-3. Configure your environment:
-   Create a `.env` file and add your Gemini API key:
-   ```env
-   NEXT_PUBLIC_GEMINI_API_KEY=your_api_key_here
-   ```
-4. Run the development server: `npm run dev`
+## Local Development Setup
+
+### 1. Prerequisites
+Ensure you have Node.js (v18+ recommended) and `npm` installed.
+
+### 2. Installation
+Clone the repository and install the dependencies:
+```bash
+git clone <repository_url>
+cd tactile-dialectician
+npm install
+```
+
+### 3. Environment Configuration
+The application relies heavily on the Gemini API for high-reasoning tasks. You must provide a valid API key.
+
+Create a `.env` or `.env.local` file in the root directory:
+```env
+NEXT_PUBLIC_GEMINI_API_KEY=your_gemini_api_key_here
+```
+
+### 4. Running the Application
+Start the development server:
+```bash
+npm run dev
+```
+Navigate to `http://localhost:3000` to interact with the Tactile Dialectician.
+
+## Developer Notes
+- **Documentation:** All public components, interfaces, and hooks are rigorously documented via JSDoc.
+- **Error Handling:** The `parseAIError` utility in `utils/errorHandling.ts` standardizes the interception of both network failures and deterministic parsing errors, preventing ungraceful UI crashes.
+- **Responsive Design:** Managed globally via Tailwind and the custom `useIsMobile` hook.
+
+---
+*Built for the Atlas Framework.*

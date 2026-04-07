@@ -7,6 +7,9 @@ import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
+/**
+ * Defines the structure of a chat message within the Dialectical Chat interface.
+ */
 interface Message {
   role: 'user' | 'model';
   content: string;
@@ -14,6 +17,14 @@ interface Message {
 
 import { parseAIError } from '@/utils/errorHandling';
 
+/**
+ * Renders the Dialectical Chat interface, a high-reasoning STEM collaboration interface using Gemini.
+ * Supports persistent local storage, LaTeX rendering, and advanced "Thinking" models.
+ *
+ * @param {Object} props - The component properties.
+ * @param {string} [props.initialQuery] - An optional initial query string to prepopulate the chat.
+ * @returns {JSX.Element} The rendered Chatbot component.
+ */
 export default function Chatbot({ initialQuery }: { initialQuery?: string }) {
   const [messages, setMessages] = useState<Message[]>(() => {
     if (typeof window !== 'undefined') {
