@@ -16,12 +16,21 @@ import {
 } from 'lucide-react';
 import { parseAIError } from '@/utils/errorHandling';
 
+/**
+ * Defines the properties for the AutomatedWorkflow component.
+ */
 interface AutomatedWorkflowProps {
   onComplete: (contextBundle: string) => void;
 }
 
+/**
+ * Defines the possible execution states for a single workflow pipeline step.
+ */
 type StepStatus = 'idle' | 'running' | 'success' | 'error';
 
+/**
+ * Defines the structure and state of an individual step in the automated reasoning pipeline.
+ */
 interface WorkflowStep {
   id: string;
   title: string;
@@ -31,6 +40,15 @@ interface WorkflowStep {
   error?: string;
 }
 
+/**
+ * Renders the Automated Workflow Orchestrator, chaining together disambiguation, tokenization,
+ * execution, and interpretability modules into a single pipeline.
+ * Generates a comprehensive context bundle to feed into the Dialectical Chat.
+ *
+ * @param {Object} props - The component properties.
+ * @param {function(string): void} props.onComplete - Callback function executed when the pipeline completes, returning the context bundle.
+ * @returns {JSX.Element} The rendered Automated Workflow component.
+ */
 export default function AutomatedWorkflow({ onComplete }: AutomatedWorkflowProps) {
   const [input, setInput] = useState('∇·F = ρ/ε₀ + ∂E/∂t');
   const [domainContext, setDomainContext] = useState('Physics');

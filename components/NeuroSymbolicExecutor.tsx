@@ -4,8 +4,34 @@ import { Calculator, Play, Loader2, BrainCircuit, CheckCircle2, XCircle, Activit
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-import { useNeuroSymbolicExecution } from '@/hooks/useNeuroSymbolicExecution';
+import * as math from 'mathjs';
+import nerdamer from 'nerdamer';
+// @ts-ignore
+import 'nerdamer/Algebra.js';
+// @ts-ignore
+import 'nerdamer/Calculus.js';
+// @ts-ignore
+import 'nerdamer/Solve.js';
 
+import { parseAIError } from '@/utils/errorHandling';
+
+/**
+ * Defines the structure of an execution trace step within the neuro-symbolic pipeline.
+ */
+interface TraceStep {
+  type: 'direct' | 'llm_reasoning' | 'tool_call' | 'final_result' | 'error';
+  content: string;
+  status?: 'success' | 'failure' | 'pending';
+  details?: string;
+}
+
+/**
+ * Renders the Neuro-Symbolic Executor.
+ * A hybrid routing engine that attempts deterministic symbolic computation via `nerdamer` or `mathjs`
+ * before falling back to high-reasoning LLM tool-calling for complex problem solving.
+ *
+ * @returns {JSX.Element} The rendered Neuro-Symbolic Executor component.
+ */
 export default function NeuroSymbolicExecutor() {
   const {
     input, setInput, trace, loading, discoverLoading, successRate, savedResults,

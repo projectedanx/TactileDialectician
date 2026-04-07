@@ -9,6 +9,12 @@ import Chatbot from '@/components/Chatbot';
 import AtomicTokenizationModule from '@/components/AtomicTokenizationModule';
 import AutomatedWorkflow from '@/components/AutomatedWorkflow';
 
+/**
+ * The main entry point for the Tactile Dialectician application.
+ * Manages the state of the active tab and orchestrates transitions between the various neuro-symbolic modules.
+ *
+ * @returns {JSX.Element} The rendered Home view.
+ */
 export default function Home() {
   const [activeTab, setActiveTab] = useState('workflow');
   const [chatQuery, setChatQuery] = useState('');
