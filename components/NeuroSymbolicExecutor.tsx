@@ -1,4 +1,5 @@
 'use client';
+import { useNeuroSymbolicExecution } from "../hooks/useNeuroSymbolicExecution";
 
 import { Calculator, Play, Loader2, BrainCircuit, CheckCircle2, XCircle, Activity, Wrench, Globe, Save, Bookmark, Trash2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
