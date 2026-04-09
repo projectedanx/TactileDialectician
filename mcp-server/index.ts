@@ -1,11 +1,24 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import * as math from "mathjs";
+import { create, all } from "mathjs";
 import nerdamer from "nerdamer";
 import "nerdamer/Calculus.js";
 import "nerdamer/Algebra.js";
 import "nerdamer/Solve.js";
+
+const math = create(all);
+const limitedEvaluate = math.evaluate;
+
+math.import({
+  'import':     function () { throw new Error('Function import is disabled') },
+  'createUnit': function () { throw new Error('Function createUnit is disabled') },
+  'evaluate':   function () { throw new Error('Function evaluate is disabled') },
+  'parse':      function () { throw new Error('Function parse is disabled') },
+  'simplify':   function () { throw new Error('Function simplify is disabled') },
+  'derivative': function () { throw new Error('Function derivative is disabled') },
+  'resolve':    function () { throw new Error('Function resolve is disabled') },
+}, { override: true });
 
 const server = new McpServer({
   name: "korsakov-neurosymbolic-server",
@@ -72,7 +85,7 @@ server.tool(
   },
   async ({ expression }) => {
     try {
-      const result = math.evaluate(expression).toString();
+      const result = limitedEvaluate(expression).toString();
       return {
         content: [{ type: "text", text: JSON.stringify({ status: "EXECUTED", result }) }],
       };
