@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { GoogleGenAI, Type } from '@google/genai';
 import { 
   Play, 
@@ -34,7 +34,7 @@ type StepStatus = 'idle' | 'running' | 'success' | 'error';
 interface WorkflowStep {
   id: string;
   title: string;
-  icon: any;
+  icon: React.ElementType;
   status: StepStatus;
   result?: any;
   error?: string;
@@ -389,7 +389,7 @@ ${tokenizationData.map((t: any) => `- **${t.symbol}** -> [MATH_ENTITY_${t.fone_e
   );
 }
 
-function SparklesIcon(props: any) {
+function SparklesIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
