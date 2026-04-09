@@ -6,6 +6,7 @@ import { Send, Loader2, Bot, User, Sparkles } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 
 /**
  * Defines the structure of a chat message within the Dialectical Chat interface.
@@ -128,7 +129,26 @@ export default function Chatbot({ initialQuery }: { initialQuery?: string }) {
                 ) : (
                   <ReactMarkdown
                     remarkPlugins={[remarkMath]}
-                    rehypePlugins={[rehypeKatex]}
+                    rehypePlugins={[
+                      rehypeKatex,
+                      [
+                        rehypeSanitize,
+                        {
+                          ...defaultSchema,
+                          attributes: {
+                            ...defaultSchema.attributes,
+                            div: [...(defaultSchema.attributes?.div || []), ['className', /^math/, /^katex/], 'style'],
+                            span: [...(defaultSchema.attributes?.span || []), ['className'], 'style'],
+                            math: ['xmlns', 'display'],
+                            annotation: ['encoding'],
+                          },
+                          tagNames: [
+                            ...(defaultSchema.tagNames || []),
+                            'math', 'semantics', 'mrow', 'mi', 'mo', 'mn', 'msup', 'msub', 'msubsup', 'mfrac', 'msqrt', 'mroot', 'mstyle', 'merror', 'mpadded', 'mphantom', 'mfenced', 'menclose', 'mspace', 'munderover', 'mover', 'munder', 'mtable', 'mtr', 'mtd', 'mlabeledtr', 'annotation'
+                          ]
+                        }
+                      ]
+                    ]}
                   >
                     {msg.content}
                   </ReactMarkdown>
