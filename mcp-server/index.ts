@@ -46,7 +46,7 @@ server.tool(
       return {
         content: [{ type: "text", text: JSON.stringify({ status: "EXECUTED", result }) }],
       };
-    } catch (err: any) {
+    } catch (err: unknown) {
       return {
         content: [
           {
@@ -56,7 +56,7 @@ server.tool(
               fault_category: "GENERAL_PROGRAMMING",
               structured_detail: {
                 violation: "PARSING_ERROR",
-                error: String(err.message || err),
+                error: String((err as Error).message || err),
               },
               retry_viable: true,
               suggested_decomposition: "Verify mathematical syntax. Ensure no unsupported Python/SymPy functions are used.",
@@ -89,7 +89,7 @@ server.tool(
       return {
         content: [{ type: "text", text: JSON.stringify({ status: "EXECUTED", result }) }],
       };
-    } catch (err: any) {
+    } catch (err: unknown) {
       return {
         content: [
           {
@@ -99,7 +99,7 @@ server.tool(
               fault_category: "GENERAL_PROGRAMMING",
               structured_detail: {
                 violation: "EVALUATION_ERROR",
-                error: String(err.message || err),
+                error: String((err as Error).message || err),
               },
               retry_viable: true,
               suggested_decomposition: "Verify mathematical syntax. Ensure variables are defined or operations are valid for mathjs.",
