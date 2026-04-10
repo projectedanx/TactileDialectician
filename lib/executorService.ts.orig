@@ -84,7 +84,7 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
     iterations++;
     history.push(response.candidates?.[0]?.content);
 
-    const functionResponses = await Promise.all(response.functionCalls.map(async (call) => {
+    const functionResponses = response.functionCalls.map(call => {
       let resultStr = '';
       let isSuccess = false;
       try {
@@ -118,7 +118,7 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
           response: { result: resultStr }
         }
       };
-    }));
+    });
 
     history.push({ role: 'user', parts: functionResponses });
 
