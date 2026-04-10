@@ -40,6 +40,21 @@ interface WorkflowStep {
   error?: string;
 }
 
+interface DisambiguationData {
+  symbol: string;
+  meaning: string;
+  domain: string;
+}
+
+interface TokenizationData {
+  symbol: string;
+  atomic_token_id: number;
+  fone_embedding: {
+    operator_class: string;
+    tensor_rank_effect: string;
+  };
+}
+
 /**
  * Renders the Automated Workflow Orchestrator, chaining together disambiguation, tokenization,
  * execution, and interpretability modules into a single pipeline.
@@ -125,7 +140,7 @@ export default function AutomatedWorkflow({ onComplete }: AutomatedWorkflowProps
       updateStep('tokenization', { status: 'running' });
       if (signal.aborted) throw new Error('Aborted');
 
-      const symbolsToTokenize = disambiguationData.map((d: any) => d.symbol).join(', ');
+      const symbolsToTokenize = disambiguationData.map((d: DisambiguationData) => d.symbol).join(', ');
       
       const tokenizationResponse = await ai.models.generateContent({
         model,
@@ -221,10 +236,10 @@ export default function AutomatedWorkflow({ onComplete }: AutomatedWorkflowProps
 **Domain:** ${domainContext}
 
 ## 1. Disambiguation Engine
-${disambiguationData.map((d: any) => `- **${d.symbol}**: ${d.meaning}`).join('\n')}
+${disambiguationData.map((d: DisambiguationData) => `- **${d.symbol}**: ${d.meaning}`).join('\n')}
 
 ## 2. Atomic Tokenization (Translation Proxy)
-${tokenizationData.map((t: any) => `- **${t.symbol}** -> [MATH_ENTITY_${t.fone_embedding.operator_class.toUpperCase().replace(/[^A-Z0-9]/g, '_')}_${t.atomic_token_id}] (${t.fone_embedding.tensor_rank_effect})`).join('\n')}
+${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTITY_${t.fone_embedding.operator_class.toUpperCase().replace(/[^A-Z0-9]/g, '_')}_${t.atomic_token_id}] (${t.fone_embedding.tensor_rank_effect})`).join('\n')}
 
 ## 3. Neuro-Symbolic Execution
 **Path:** ${executorData.execution_path}
