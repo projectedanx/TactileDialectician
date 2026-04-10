@@ -255,6 +255,8 @@ export default function AtomicTokenizationModule() {
     }
   };
 
+  const resultsMap = useMemo(() => new Map(results.map(r => [r.symbol, r])), [results]);
+
   const sequenceTokens = useMemo(() => {
     if (results.length === 0 || inputMode !== 'extract') return [];
     
@@ -263,7 +265,7 @@ export default function AtomicTokenizationModule() {
     
     for (let i = 0; i < input.length; i++) {
       const char = input[i];
-      const symbolAnalysis = results.find(r => r.symbol === char);
+      const symbolAnalysis = resultsMap.get(char);
       
       if (symbolAnalysis) {
         if (currentWord) {
@@ -289,7 +291,7 @@ export default function AtomicTokenizationModule() {
       tokens.push({ text: currentWord, isSymbol: false });
     }
     return tokens;
-  }, [input, results, inputMode]);
+  }, [input, results, inputMode, resultsMap]);
 
   const standardTokenCount = sequenceTokens.reduce((acc, t) => acc + (t.isSymbol && t.bytes ? t.bytes.length : (t.text.trim() ? 1 : 0)), 0);
   const atomicTokenCount = sequenceTokens.reduce((acc, t) => acc + (t.text.trim() || t.isSymbol ? 1 : 0), 0);
@@ -303,7 +305,7 @@ export default function AtomicTokenizationModule() {
 
     sequenceTokens.forEach(token => {
       if (token.isSymbol) {
-        const symbolAnalysis = results.find(r => r.symbol === token.text);
+        const symbolAnalysis = resultsMap.get(token.text);
         if (symbolAnalysis) {
           const identifier = `MATH_ENTITY_${symbolAnalysis.fone_embedding.operator_class.toUpperCase().replace(/[^A-Z0-9]/g, '_')}_${symbolAnalysis.atomic_token_id}`;
           translatedEquation += `[${identifier}]`;
@@ -332,7 +334,7 @@ export default function AtomicTokenizationModule() {
       translated_equation: translatedEquation,
       semantic_map: semanticMap
     };
-  }, [input, results, inputMode, sequenceTokens]);
+  }, [input, results, inputMode, sequenceTokens, resultsMap]);
 
   const handleCopyPayload = () => {
     if (translationPayload) {
