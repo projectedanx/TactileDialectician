@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI, ThinkingLevel } from '@google/genai';
+import { GoogleGenAI, ThinkingLevel, Chat } from '@google/genai';
 import { Send, Loader2, Bot, User, Sparkles } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
@@ -61,7 +61,7 @@ export default function Chatbot({ initialQuery }: { initialQuery?: string }) {
     scrollToBottom();
   }, [messages]);
 
-  const chatRef = useRef<any>(null);
+  const chatRef = useRef<Chat | null>(null);
 
   const handleSend = async () => {
     if (!input.trim() || loading) return;
