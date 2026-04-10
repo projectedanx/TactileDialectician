@@ -255,7 +255,13 @@ export default function AtomicTokenizationModule() {
     }
   };
 
-  const resultsMap = useMemo(() => new Map(results.map(r => [r.symbol, r])), [results]);
+  const resultsMap = useMemo(() => {
+    const map = new Map<string, TokenAnalysis>();
+    for (const r of results) {
+      map.set(r.symbol, r);
+    }
+    return map;
+  }, [results]);
 
   const sequenceTokens = useMemo(() => {
     if (results.length === 0 || inputMode !== 'extract') return [];
@@ -291,7 +297,7 @@ export default function AtomicTokenizationModule() {
       tokens.push({ text: currentWord, isSymbol: false });
     }
     return tokens;
-  }, [input, results, inputMode, resultsMap]);
+  }, [input, results.length, resultsMap, inputMode]);
 
   const standardTokenCount = sequenceTokens.reduce((acc, t) => acc + (t.isSymbol && t.bytes ? t.bytes.length : (t.text.trim() ? 1 : 0)), 0);
   const atomicTokenCount = sequenceTokens.reduce((acc, t) => acc + (t.text.trim() || t.isSymbol ? 1 : 0), 0);
@@ -334,7 +340,7 @@ export default function AtomicTokenizationModule() {
       translated_equation: translatedEquation,
       semantic_map: semanticMap
     };
-  }, [input, results, inputMode, sequenceTokens, resultsMap]);
+  }, [input, results.length, inputMode, sequenceTokens, resultsMap]);
 
   const handleCopyPayload = () => {
     if (translationPayload) {

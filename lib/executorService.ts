@@ -92,11 +92,11 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
       let isSuccess = false;
       try {
         if (call.name === 'symbolic_compute') {
-          const expr = (call.args as any).expression;
+          const expr = (call.args as { expression: string }).expression;
           resultStr = nerdamer(expr).evaluate().text();
           isSuccess = true;
         } else if (call.name === 'numeric_compute') {
-          const expr = (call.args as any).expression;
+          const expr = (call.args as { expression: string }).expression;
           resultStr = math.evaluate(expr).toString();
           isSuccess = true;
         } else {
