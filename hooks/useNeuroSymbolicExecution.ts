@@ -4,37 +4,34 @@ import { parseAIError } from '@/utils/errorHandling';
 import { GoogleGenAI } from '@google/genai';
 
 export const useNeuroSymbolicExecution = () => {
-  const [input, setInput] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('tactile_neuro_input') || '';
-    }
-    return '';
-  });
-  const [trace, setTrace] = useState<TraceStep[]>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('tactile_neuro_trace');
-      if (saved) {
-        try {
-          return JSON.parse(saved);
-        } catch (e) {}
-      }
-    }
-    return [];
-  });
+  const [input, setInput] = useState('');
+  const [trace, setTrace] = useState<TraceStep[]>([]);
   const [loading, setLoading] = useState(false);
   const [discoverLoading, setDiscoverLoading] = useState(false);
   const [successRate, setSuccessRate] = useState<number | null>(null);
-  const [savedResults, setSavedResults] = useState<{query: string, result: string, date: string}[]>(() => {
+  const [savedResults, setSavedResults] = useState<{query: string, result: string, date: string}[]>([]);
+
+  // Load from localStorage on mount only
+  useEffect(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('tactile_saved_results');
-      if (saved) {
+      const savedInput = localStorage.getItem('tactile_neuro_input');
+      if (savedInput) setInput(savedInput);
+
+      const savedTrace = localStorage.getItem('tactile_neuro_trace');
+      if (savedTrace) {
         try {
-          return JSON.parse(saved);
+          setTrace(JSON.parse(savedTrace));
+        } catch (e) {}
+      }
+
+      const savedRes = localStorage.getItem('tactile_saved_results');
+      if (savedRes) {
+        try {
+          setSavedResults(JSON.parse(savedRes));
         } catch (e) {}
       }
     }
-    return [];
-  });
+  }, []);
 
   const traceRef = useRef<TraceStep[]>([]);
   traceRef.current = trace;
