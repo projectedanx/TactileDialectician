@@ -1,11 +1,8 @@
 import { GoogleGenAI, ThinkingLevel, Type, FunctionDeclaration } from '@google/genai';
 import * as math from 'mathjs';
 import nerdamer from 'nerdamer';
-// @ts-ignore
 import 'nerdamer/Algebra.js';
-// @ts-ignore
 import 'nerdamer/Calculus.js';
-// @ts-ignore
 import 'nerdamer/Solve.js';
 
 export interface TraceStep {
