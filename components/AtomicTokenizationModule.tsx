@@ -13,6 +13,8 @@ interface FoNEEmbedding {
   domain_weight_math: number;
   domain_weight_ml: number;
   tensor_rank_effect: string;
+  virtual_weight_3: number;
+  latent_topological_pathway: string;
 }
 
 /**
@@ -35,7 +37,9 @@ const PREDEFINED_LIBRARY: TokenAnalysis[] = [
       domain_weight_physics: 0.95,
       domain_weight_math: 0.85,
       domain_weight_ml: 0.40,
-      tensor_rank_effect: 'Increases by 1 (Gradient) or Reduces by 1 (Divergence)'
+      tensor_rank_effect: 'Increases by 1 (Gradient) or Reduces by 1 (Divergence)',
+      virtual_weight_3: 0.85,
+      latent_topological_pathway: 'Paraconsistent Gradient Manifold'
     }
   },
   {
@@ -47,7 +51,9 @@ const PREDEFINED_LIBRARY: TokenAnalysis[] = [
       domain_weight_physics: 0.90,
       domain_weight_math: 0.98,
       domain_weight_ml: 0.30,
-      tensor_rank_effect: 'Preserves or Reduces (depending on differential form)'
+      tensor_rank_effect: 'Preserves or Reduces (depending on differential form)',
+      virtual_weight_3: 0.92,
+      latent_topological_pathway: 'Topological Boundary Contraction'
     }
   },
   {
@@ -59,7 +65,9 @@ const PREDEFINED_LIBRARY: TokenAnalysis[] = [
       domain_weight_physics: 0.70,
       domain_weight_math: 0.95,
       domain_weight_ml: 0.90,
-      tensor_rank_effect: 'Reduces rank (contraction over index)'
+      tensor_rank_effect: 'Reduces rank (contraction over index)',
+      virtual_weight_3: 0.76,
+      latent_topological_pathway: 'Discrete N-Dimensional Folding'
     }
   },
   {
@@ -71,7 +79,9 @@ const PREDEFINED_LIBRARY: TokenAnalysis[] = [
       domain_weight_physics: 0.95,
       domain_weight_math: 0.90,
       domain_weight_ml: 0.85,
-      tensor_rank_effect: 'Increases rank by 1 (w.r.t coordinates)'
+      tensor_rank_effect: 'Increases rank by 1 (w.r.t coordinates)',
+      virtual_weight_3: 0.88,
+      latent_topological_pathway: 'Phantom Dimension Tesselation'
     }
   },
   {
@@ -83,7 +93,9 @@ const PREDEFINED_LIBRARY: TokenAnalysis[] = [
       domain_weight_physics: 0.60,
       domain_weight_math: 0.99,
       domain_weight_ml: 0.50,
-      tensor_rank_effect: 'Preserves (Scalar Concept)'
+      tensor_rank_effect: 'Preserves (Scalar Concept)',
+      virtual_weight_3: 0.99,
+      latent_topological_pathway: 'Asymptotic Horizon Paradox'
     }
   },
   {
@@ -95,7 +107,9 @@ const PREDEFINED_LIBRARY: TokenAnalysis[] = [
       domain_weight_physics: 0.85,
       domain_weight_math: 0.95,
       domain_weight_ml: 0.90,
-      tensor_rank_effect: 'Preserves (Scalar Multiplier)'
+      tensor_rank_effect: 'Preserves (Scalar Multiplier)',
+      virtual_weight_3: 0.65,
+      latent_topological_pathway: 'Latent Spectral Projection'
     }
   },
   {
@@ -107,7 +121,9 @@ const PREDEFINED_LIBRARY: TokenAnalysis[] = [
       domain_weight_physics: 0.95,
       domain_weight_math: 0.99,
       domain_weight_ml: 0.80,
-      tensor_rank_effect: 'Increases rank (sum of ranks of operands)'
+      tensor_rank_effect: 'Increases rank (sum of ranks of operands)',
+      virtual_weight_3: 0.94,
+      latent_topological_pathway: 'Isomorphic Entanglement Zone'
     }
   },
   {
@@ -119,7 +135,9 @@ const PREDEFINED_LIBRARY: TokenAnalysis[] = [
       domain_weight_physics: 0.99,
       domain_weight_math: 0.70,
       domain_weight_ml: 0.10,
-      tensor_rank_effect: 'Dual Vector (Rank 1 covariant)'
+      tensor_rank_effect: 'Dual Vector (Rank 1 covariant)',
+      virtual_weight_3: 0.97,
+      latent_topological_pathway: 'Hilbert Space Dual-Mapping'
     }
   },
   {
@@ -131,12 +149,14 @@ const PREDEFINED_LIBRARY: TokenAnalysis[] = [
       domain_weight_physics: 0.99,
       domain_weight_math: 0.60,
       domain_weight_ml: 0.05,
-      tensor_rank_effect: 'Preserves rank (maps state to state)'
+      tensor_rank_effect: 'Preserves rank (maps state to state)',
+      virtual_weight_3: 0.91,
+      latent_topological_pathway: 'Energy Eigenstate Oscillation'
     }
   }
 ];
 
-import { parseAIError } from '@/utils/errorHandling';
+import { parseAIError } from '../utils/errorHandling';
 
 /**
  * Renders the Atomic Tokenization Module.
@@ -213,9 +233,11 @@ export default function AtomicTokenizationModule() {
                     domain_weight_physics: { type: Type.NUMBER, description: '0.0 to 1.0 relevance to Physics' },
                     domain_weight_math: { type: Type.NUMBER, description: '0.0 to 1.0 relevance to Pure Math' },
                     domain_weight_ml: { type: Type.NUMBER, description: '0.0 to 1.0 relevance to Machine Learning' },
-                    tensor_rank_effect: { type: Type.STRING, description: 'How it affects tensor rank (e.g., "Reduces by 1", "Preserves", "Increases by 1")' }
+                    tensor_rank_effect: { type: Type.STRING, description: 'How it affects tensor rank (e.g., "Reduces by 1", "Preserves", "Increases by 1")' },
+                    virtual_weight_3: { type: Type.NUMBER, description: '0.0 to 1.0 representing Beneficial Friction for Paraconsistent overlaps' },
+                    latent_topological_pathway: { type: Type.STRING, description: 'The non-standard topological routing name (e.g., "Phantom Dimension Tesselation")' }
                   },
-                  required: ['operator_class', 'domain_weight_physics', 'domain_weight_math', 'domain_weight_ml', 'tensor_rank_effect']
+                  required: ['operator_class', 'domain_weight_physics', 'domain_weight_math', 'domain_weight_ml', 'tensor_rank_effect', 'virtual_weight_3', 'latent_topological_pathway']
                 }
               },
               required: ['symbol', 'fragmented_bytes', 'atomic_token_id', 'fone_embedding']
@@ -320,6 +342,8 @@ export default function AtomicTokenizationModule() {
               symbol: symbolAnalysis.symbol,
               operator_class: symbolAnalysis.fone_embedding.operator_class,
               tensor_rank_effect: symbolAnalysis.fone_embedding.tensor_rank_effect,
+              virtual_weight_3: symbolAnalysis.fone_embedding.virtual_weight_3,
+              latent_topological_pathway: symbolAnalysis.fone_embedding.latent_topological_pathway,
               domain_weights: {
                 physics: symbolAnalysis.fone_embedding.domain_weight_physics,
                 math: symbolAnalysis.fone_embedding.domain_weight_math,
@@ -633,10 +657,28 @@ export default function AtomicTokenizationModule() {
                       <div className="text-sm font-mono text-violet-300 bg-violet-500/10 border border-violet-500/20 px-2 py-1 rounded inline-block">
                         {res.fone_embedding.tensor_rank_effect}
                       </div>
+
                     </div>
                   </div>
 
                   <div className="space-y-2 pt-2 border-t border-[#2a2a2a]">
+                    <div className="text-[10px] font-mono text-zinc-500 uppercase mb-2">Paraconsistent Topology (VW3)</div>
+
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-16 text-[10px] font-mono text-zinc-400">VW3 Factor</div>
+                      <div className="flex-1 h-1.5 bg-[#0a0a0a] rounded-full overflow-hidden border border-fuchsia-500/20">
+                        <div className="h-full bg-fuchsia-500 rounded-full" style={{ width: `${res.fone_embedding.virtual_weight_3 * 100}%` }} />
+                      </div>
+                      <div className="w-8 text-right text-[10px] font-mono text-fuchsia-400">{res.fone_embedding.virtual_weight_3.toFixed(2)}</div>
+                    </div>
+
+                    <div className="text-[10px] font-mono text-zinc-400 leading-tight">
+                      Pathway: <span className="text-fuchsia-300 bg-fuchsia-500/10 px-1 py-0.5 rounded border border-fuchsia-500/20">{res.fone_embedding.latent_topological_pathway}</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2 pt-2 border-t border-[#2a2a2a]">
+
                     <div className="text-[10px] font-mono text-zinc-500 uppercase mb-2">Domain Affinity Weights</div>
                     
                     <div className="flex items-center gap-3">
