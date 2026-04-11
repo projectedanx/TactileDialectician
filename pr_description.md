@@ -1,0 +1,3 @@
+🎯 **What:** The testing gap for the `useNeuroSymbolicExecution` custom React hook has been addressed. The hook was lacking unit tests, making any future refactoring risky. This PR adds a comprehensive test suite.
+📊 **Coverage:** The new tests cover state initialization (including proper reading from mocked `localStorage`), input state handlers, and robust mocking for dependencies such as `GoogleGenAI` and the `executeDeterministic`/`executeLLM` fallback logic. Edge cases like empty inputs, AI API rejections, and direct parser failures are also tested.
+✨ **Result:** Test coverage for the custom hook is now comprehensive. All 10 new tests pass smoothly in a simulated `jsdom` environment using `vitest`, ensuring zero regressions to the core UI neuro-symbolic logic.
