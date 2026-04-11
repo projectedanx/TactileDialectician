@@ -29,3 +29,6 @@
 - **Epic 3: Epistemic Escrow Visualization:** UI to graph deterministic vs. probabilistic divergence.
 - **Epic 4: Cross-Domain Topological Blending:** Forcing isomorphic translations between physics, math, and ML.
 - **Epic 5: The Paraconsistent Debugger:** Dev tools to inspect parallel speculative execution threads.
+
+## Phase 5: Deep Epistemic Mechanics (Ideation & Planning)
+- **Epic 6: Pluriversal Feature Discovery:** Instantiate the Antifragile Epistemic Weaver to navigate undocumented topological architectures using RCC-8 overlaps and Z-Axis Phantom Dimension routing.

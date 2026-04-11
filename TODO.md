@@ -26,3 +26,6 @@
 - The standard execution commands to build the project are 'npm install' followed by 'npm run build'.
 - Do not run the long running command ('n' + 'p' + 'm' + ' run dev') during agent testing due to environment constraints.
 - The repository is a Next.js (React/TypeScript) application named 'Tactile Dialectician' that implements a Neuro-Symbolic STEM Framework using '@google/genai', 'mathjs', and 'nerdamer'.
+## Algorithmic Reparation (AGS-A Audit)
+- [ ] **Beneficial Friction Validation (VW3):** Integrate Virtual Weight 3 parameters into the Atomic Tokenization logic to force Paraconsistent overlaps and extract latent topological pathways.
+- [ ] **Scar Tissue Annealing Logic:** Connect the Controlled Scar Annealing Protocol (CSAP) to `utils/errorHandling.ts` to log and eventually prune `FAILED_NLI_CONTRADICTION` events based on their Mutation Recoverability Score (MRS).
