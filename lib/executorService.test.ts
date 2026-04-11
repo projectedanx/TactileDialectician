@@ -157,5 +157,34 @@ describe('executorService', () => {
       expect(result.success).toBe(false);
       expect(result.error).toBeDefined();
     });
+
+    it('evaluates complex mathematical expressions correctly', () => {
+      const result = executeDeterministic('diff(x^2, x)');
+      expect(result).toEqual({ success: true, result: '2*x' });
+    });
+
+    it('evaluates numeric simplifications correctly', () => {
+      const result = executeDeterministic('2 + 2 * 3');
+      expect(result).toEqual({ success: true, result: '8' });
+    });
+
+    it('returns evaluated value even when empty string input parses to 0', () => {
+      const result = executeDeterministic('');
+      expect(result).toEqual({ success: true, result: '0' });
+    });
+
+    it('returns error when input contains only whitespace', () => {
+      // nerdamer("   ") throws error
+      const result = executeDeterministic('   ');
+      expect(result.success).toBe(false);
+      expect(result.error).toBeDefined();
+    });
+
+    it('does not catch unsupported functions natively and may evaluate them as variables', () => {
+      // Nerdamer parses 'unsupportedFunc(x)' and evaluates it as 'unsupportedFunc*x' (treating as variable multiplied by x)
+      // Because this is different from the original string 'unsupportedFunc(x)', executeDeterministic returns success.
+      const result = executeDeterministic('unsupportedFunc(x)');
+      expect(result).toEqual({ success: true, result: 'unsupportedFunc*x' });
+    });
   });
 });
