@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI, Type } from '@google/genai';
 import { 
   Play, 
@@ -65,9 +65,28 @@ interface TokenizationData {
  * @returns {JSX.Element} The rendered Automated Workflow component.
  */
 export default function AutomatedWorkflow({ onComplete }: AutomatedWorkflowProps) {
-  const [input, setInput] = useState('∇·F = ρ/ε₀ + ∂E/∂t');
-  const [domainContext, setDomainContext] = useState('Physics');
+    const [input, setInput] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('tactile_workflow_input') || '∇·F = ρ/ε₀ + ∂E/∂t';
+    }
+    return '∇·F = ρ/ε₀ + ∂E/∂t';
+  });
+    const [domainContext, setDomainContext] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('tactile_workflow_domain') || 'Physics';
+    }
+    return 'Physics';
+  });
   const [isRunning, setIsRunning] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem('tactile_workflow_input', input);
+  }, [input]);
+
+  useEffect(() => {
+    localStorage.setItem('tactile_workflow_domain', domainContext);
+  }, [domainContext]);
+
   
   const [steps, setSteps] = useState<WorkflowStep[]>([
     { id: 'disambiguation', title: 'Disambiguation Engine', icon: BookOpen, status: 'idle' },
