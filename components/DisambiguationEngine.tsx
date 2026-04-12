@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GoogleGenAI, Type } from '@google/genai';
 import { Search, Loader2, AlertTriangle, CheckCircle2 } from 'lucide-react';
 
@@ -25,7 +25,37 @@ import { parseAIError } from '@/utils/errorHandling';
  */
 export default function DisambiguationEngine() {
   const [input, setInput] = useState('');
-  const [context, setContext] = useState('Auto');
+    const [context, setContext] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedContexts = JSON.parse(localStorage.getItem('tactile_disambig_contexts') || '[]');
+      if (savedContexts.length > 0) {
+        // Calculate most frequent
+        const frequency: Record<string, number> = {};
+        let maxFreq = 0;
+        let mostFrequent = 'Auto';
+        savedContexts.forEach((c: string) => {
+          if (c === 'Auto') return;
+          frequency[c] = (frequency[c] || 0) + 1;
+          if (frequency[c] > maxFreq) {
+            maxFreq = frequency[c];
+            mostFrequent = c;
+          }
+        });
+        return maxFreq > 0 ? mostFrequent : 'Auto';
+      }
+    }
+    return 'Auto';
+  });
+
+  useEffect(() => {
+    if (context !== 'Auto') {
+      const savedContexts = JSON.parse(localStorage.getItem('tactile_disambig_contexts') || '[]');
+      savedContexts.push(context);
+      // Keep last 10
+      if (savedContexts.length > 10) savedContexts.shift();
+      localStorage.setItem('tactile_disambig_contexts', JSON.stringify(savedContexts));
+    }
+  }, [context]);
   const [results, setResults] = useState<DisambiguationResult[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');

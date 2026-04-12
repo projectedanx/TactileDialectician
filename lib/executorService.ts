@@ -27,7 +27,8 @@ export const executeDeterministic = (input: string): { success: boolean, result?
 export const executeLLM = async (
   input: string,
   updateTrace: (step: TraceStep) => void,
-  incrementOps: (successful: boolean) => void
+  incrementOps: (successful: boolean) => void,
+  onStreamChunk?: (chunk: string) => void
 ): Promise<string> => {
   const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY });
 
@@ -68,7 +69,7 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
 
   updateTrace({ type: 'llm_reasoning', content: 'Engaging LLM attention mechanisms to probe structure and intent...', status: 'pending' });
 
-  let response = await ai.models.generateContent({
+  let streamResponse = await ai.models.generateContentStream({
     model: 'gemini-3.1-pro-preview',
     contents: history,
     config: {
@@ -76,6 +77,29 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
       tools: [{ functionDeclarations: [symbolicComputeTool, numericComputeTool] }]
     }
   });
+
+  let aggregatedText = '';
+  let responseParts: any[] = [];
+  let functionCalls: any[] = [];
+
+  for await (const chunk of streamResponse) {
+    if (chunk.text) {
+      aggregatedText += chunk.text;
+      if (onStreamChunk) onStreamChunk(aggregatedText);
+    }
+    if (chunk.functionCalls) {
+      functionCalls.push(...chunk.functionCalls);
+    }
+    if (chunk.candidates?.[0]?.content?.parts) {
+      responseParts.push(...chunk.candidates[0].content.parts);
+    }
+  }
+
+  let response = {
+    text: aggregatedText,
+    functionCalls: functionCalls,
+    candidates: [{ content: { parts: responseParts } }]
+  };
 
   let maxIterations = 5;
   let iterations = 0;
@@ -123,7 +147,7 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
     history.push({ role: 'user', parts: functionResponses });
 
     updateTrace({ type: 'llm_reasoning', content: `Synthesizing result from tool outputs (Iteration ${iterations})...`, status: 'pending' });
-    response = await ai.models.generateContent({
+    streamResponse = await ai.models.generateContentStream({
       model: 'gemini-3.1-pro-preview',
       contents: history,
       config: {
@@ -131,6 +155,29 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
         tools: [{ functionDeclarations: [symbolicComputeTool, numericComputeTool] }]
       }
     });
+
+    aggregatedText = '';
+    responseParts = [];
+    functionCalls = [];
+
+    for await (const chunk of streamResponse) {
+      if (chunk.text) {
+        aggregatedText += chunk.text;
+        if (onStreamChunk) onStreamChunk(aggregatedText);
+      }
+      if (chunk.functionCalls) {
+        functionCalls.push(...chunk.functionCalls);
+      }
+      if (chunk.candidates?.[0]?.content?.parts) {
+        responseParts.push(...chunk.candidates[0].content.parts);
+      }
+    }
+
+    response = {
+      text: aggregatedText,
+      functionCalls: functionCalls,
+      candidates: [{ content: { parts: responseParts } }]
+    };
   }
 
   let finalResult = '';

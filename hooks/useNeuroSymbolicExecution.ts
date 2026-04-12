@@ -105,7 +105,18 @@ export const useNeuroSymbolicExecution = () => {
         updateTrace({ type: 'direct', content: 'Direct symbolic parsing failed or inapplicable. Falling back to hybrid LLM routing.', status: 'failure' });
       }
 
-      const finalResult = await executeLLM(input, updateTrace, incrementOps);
+            const onStreamChunk = (chunkText: string) => {
+        setTrace(prev => {
+          const newTrace = [...prev];
+          const lastIndex = newTrace.length - 1;
+          if (lastIndex >= 0 && newTrace[lastIndex].type === 'llm_reasoning') {
+             newTrace[lastIndex] = { ...newTrace[lastIndex], content: chunkText };
+          }
+          return newTrace;
+        });
+      };
+
+      const finalResult = await executeLLM(input, updateTrace, incrementOps, onStreamChunk);
 
       updateTrace({ type: 'final_result', content: finalResult, status: 'success' });
 

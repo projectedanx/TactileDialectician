@@ -3,11 +3,11 @@ import { executeLLM, executeDeterministic } from './executorService';
 import { GoogleGenAI } from '@google/genai';
 
 vi.mock('@google/genai', () => {
-  const mockGenerateContent = vi.fn();
+  const mockGenerateContentStream = vi.fn();
   return {
     GoogleGenAI: vi.fn().mockImplementation(() => ({
       models: {
-        generateContent: mockGenerateContent
+        generateContentStream: mockGenerateContentStream
       }
     })),
     ThinkingLevel: { HIGH: 'HIGH' },
@@ -16,24 +16,23 @@ vi.mock('@google/genai', () => {
 });
 
 describe('executorService', () => {
-  let mockGenerateContent: any;
+  let mockGenerateContentStream: any;
   let updateTrace: any;
   let incrementOps: any;
 
   beforeEach(() => {
     vi.clearAllMocks();
     const ai = new GoogleGenAI({ apiKey: 'test' });
-    mockGenerateContent = ai.models.generateContent;
+    mockGenerateContentStream = ai.models.generateContentStream;
     updateTrace = vi.fn();
     incrementOps = vi.fn();
   });
 
   describe('executeLLM', () => {
     it('returns text result without function calls', async () => {
-      mockGenerateContent.mockResolvedValueOnce({
-        text: 'The final answer is 42',
-        candidates: [{ content: { parts: [{ text: 'The final answer is 42' }] } }]
-      });
+      mockGenerateContentStream.mockImplementationOnce(() => Promise.resolve([
+        { text: 'The final answer is 42', candidates: [{ content: { parts: [{ text: 'The final answer is 42' }] } }] }
+      ]));
 
       const result = await executeLLM('what is 6 * 7?', updateTrace, incrementOps);
 
@@ -46,14 +45,13 @@ describe('executorService', () => {
     });
 
     it('handles numeric_compute tool calls', async () => {
-      mockGenerateContent
-        .mockResolvedValueOnce({
-          functionCalls: [{ name: 'numeric_compute', args: { expression: '6 * 7' } }],
-          candidates: [{ content: { parts: [{ text: 'Thinking...' }] } }]
-        })
-        .mockResolvedValueOnce({
-          candidates: [{ content: { parts: [{ text: 'The answer is 42' }] } }]
-        });
+      mockGenerateContentStream
+        .mockImplementationOnce(() => Promise.resolve([
+          { functionCalls: [{ name: 'numeric_compute', args: { expression: '6 * 7' } }], candidates: [{ content: { parts: [{ text: 'Thinking...' }] } }] }
+        ]))
+        .mockImplementationOnce(() => Promise.resolve([
+          { text: 'The answer is 42', candidates: [{ content: { parts: [{ text: 'The answer is 42' }] } }] }
+        ]));
 
       const result = await executeLLM('6 * 7', updateTrace, incrementOps);
 
@@ -66,14 +64,13 @@ describe('executorService', () => {
     });
 
     it('handles symbolic_compute tool calls', async () => {
-      mockGenerateContent
-        .mockResolvedValueOnce({
-          functionCalls: [{ name: 'symbolic_compute', args: { expression: 'diff(x^2, x)' } }],
-          candidates: [{ content: { parts: [{ text: 'Thinking...' }] } }]
-        })
-        .mockResolvedValueOnce({
-          candidates: [{ content: { parts: [{ text: 'The derivative is 2*x' }] } }]
-        });
+      mockGenerateContentStream
+        .mockImplementationOnce(() => Promise.resolve([
+          { functionCalls: [{ name: 'symbolic_compute', args: { expression: 'diff(x^2, x)' } }], candidates: [{ content: { parts: [{ text: 'Thinking...' }] } }] }
+        ]))
+        .mockImplementationOnce(() => Promise.resolve([
+          { text: 'The derivative is 2*x', candidates: [{ content: { parts: [{ text: 'The derivative is 2*x' }] } }] }
+        ]));
 
       const result = await executeLLM('derivative of x^2', updateTrace, incrementOps);
 
@@ -86,14 +83,13 @@ describe('executorService', () => {
     });
 
     it('handles unknown tool calls gracefully', async () => {
-      mockGenerateContent
-        .mockResolvedValueOnce({
-          functionCalls: [{ name: 'unknown_tool', args: {} }],
-          candidates: [{ content: { parts: [{ text: 'Thinking...' }] } }]
-        })
-        .mockResolvedValueOnce({
-          candidates: [{ content: { parts: [{ text: 'Done' }] } }]
-        });
+      mockGenerateContentStream
+        .mockImplementationOnce(() => Promise.resolve([
+          { functionCalls: [{ name: 'unknown_tool', args: {} }], candidates: [{ content: { parts: [{ text: 'Thinking...' }] } }] }
+        ]))
+        .mockImplementationOnce(() => Promise.resolve([
+          { text: 'Done', candidates: [{ content: { parts: [{ text: 'Done' }] } }] }
+        ]));
 
       const result = await executeLLM('do something unknown', updateTrace, incrementOps);
 
@@ -107,14 +103,13 @@ describe('executorService', () => {
     });
 
     it('handles tool call exceptions gracefully', async () => {
-      mockGenerateContent
-        .mockResolvedValueOnce({
-          functionCalls: [{ name: 'numeric_compute', args: { expression: 'invalid_syntax(' } }],
-          candidates: [{ content: { parts: [{ text: 'Thinking...' }] } }]
-        })
-        .mockResolvedValueOnce({
-          candidates: [{ content: { parts: [{ text: 'Fixed' }] } }]
-        });
+      mockGenerateContentStream
+        .mockImplementationOnce(() => Promise.resolve([
+          { functionCalls: [{ name: 'numeric_compute', args: { expression: 'invalid_syntax(' } }], candidates: [{ content: { parts: [{ text: 'Thinking...' }] } }] }
+        ]))
+        .mockImplementationOnce(() => Promise.resolve([
+          { text: 'Fixed', candidates: [{ content: { parts: [{ text: 'Fixed' }] } }] }
+        ]));
 
       const result = await executeLLM('invalid syntax', updateTrace, incrementOps);
 
@@ -127,15 +122,13 @@ describe('executorService', () => {
     });
 
     it('limits tool call iterations to maxIterations', async () => {
-      mockGenerateContent.mockImplementation(() => Promise.resolve({
-        functionCalls: [{ name: 'numeric_compute', args: { expression: '1+1' } }],
-        candidates: [{ content: { parts: [{ text: 'Looping...' }] } }],
-        text: 'Looping fallback'
-      }));
+      mockGenerateContentStream.mockImplementation(() => Promise.resolve([
+        { text: 'Looping fallback', functionCalls: [{ name: 'numeric_compute', args: { expression: '1+1' } }], candidates: [{ content: { parts: [{ text: 'Looping...' }] } }] }
+      ]));
 
       const result = await executeLLM('loop forever', updateTrace, incrementOps);
 
-      expect(mockGenerateContent).toHaveBeenCalledTimes(6); // 1 initial + 5 iterations
+      expect(mockGenerateContentStream).toHaveBeenCalledTimes(6); // 1 initial + 5 iterations
       expect(incrementOps).toHaveBeenCalledTimes(5);
       expect(result).toBe('Looping...');
     });
@@ -174,15 +167,12 @@ describe('executorService', () => {
     });
 
     it('returns error when input contains only whitespace', () => {
-      // nerdamer("   ") throws error
       const result = executeDeterministic('   ');
       expect(result.success).toBe(false);
       expect(result.error).toBeDefined();
     });
 
     it('does not catch unsupported functions natively and may evaluate them as variables', () => {
-      // Nerdamer parses 'unsupportedFunc(x)' and evaluates it as 'unsupportedFunc*x' (treating as variable multiplied by x)
-      // Because this is different from the original string 'unsupportedFunc(x)', executeDeterministic returns success.
       const result = executeDeterministic('unsupportedFunc(x)');
       expect(result).toEqual({ success: true, result: 'unsupportedFunc*x' });
     });
