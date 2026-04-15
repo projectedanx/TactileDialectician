@@ -15,6 +15,7 @@
 - [ ] **Accessibility (a11y):** Ensure all tactile buttons and custom dropdowns are fully keyboard navigable and screen-reader friendly.
 
 ## Algorithmic Reparation (AGS-A Audit)
+- [x] **Topological Boundries (VULCAN Audit):** Established the Modular Monolith with MCP Sidecar architecture. Documented C4 Models, DDD boundaries, and ADRs in `docs/architecture` to prevent Semantic Saponification while resisting unwarranted microservice complexity.
 - [x] **NeuroSymbolicExecutor Refactoring:** The `NeuroSymbolicExecutor.tsx` module has been identified as having the highest Cognitive Complexity due to the conflation of hybrid execution logic (mathjs/nerdamer + LLM routing) and UI state.
 - [x] **Action:** Extract execution logic into `lib/executorService.ts` and state management into `hooks/useNeuroSymbolicExecution.ts`.
 
@@ -27,5 +28,6 @@
 - Do not run the long running command ('n' + 'p' + 'm' + ' run dev') during agent testing due to environment constraints.
 - The repository is a Next.js (React/TypeScript) application named 'Tactile Dialectician' that implements a Neuro-Symbolic STEM Framework using '@google/genai', 'mathjs', and 'nerdamer'.
 ## Algorithmic Reparation (AGS-A Audit)
+- [x] **Topological Boundries (VULCAN Audit):** Established the Modular Monolith with MCP Sidecar architecture. Documented C4 Models, DDD boundaries, and ADRs in `docs/architecture` to prevent Semantic Saponification while resisting unwarranted microservice complexity.
 - [x] **Beneficial Friction Validation (VW3):** Integrate Virtual Weight 3 parameters into the Atomic Tokenization logic to force Paraconsistent overlaps and extract latent topological pathways.
 - [x] **Scar Tissue Annealing Logic:** Connect the Controlled Scar Annealing Protocol (CSAP) to `utils/errorHandling.ts` to log and eventually prune `FAILED_NLI_CONTRADICTION` events based on their Mutation Recoverability Score (MRS).

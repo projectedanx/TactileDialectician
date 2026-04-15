@@ -1,0 +1,93 @@
+# Domain-Driven Design (DDD) Context Map for Tactile Dialectician
+# Enforces strict isolation between Probabilistic Reasoning, Deterministic Execution, and Epistemic Translation.
+
+domains:
+  # 1. Epistemic Translation Context
+  - name: "Epistemic Translation Context"
+    type: "Core Domain"
+    description: "Responsible for breaking down raw user input into semantic, conflict-free topological maps."
+    aggregate_roots:
+      - name: "FoNEEmbedding"
+        description: "The fundamental unit of meaning (Form, Nature, Effect)."
+        entities:
+          - "AtomicToken"
+          - "DisambiguatedSymbol"
+        value_objects:
+          - "VirtualWeight3"
+          - "TensorRank"
+          - "OperatorClass"
+    domain_events:
+      - "SymbolDisambiguated"
+      - "TokenizationComplete"
+
+  # 2. Neuro-Symbolic Routing Context
+  - name: "Neuro-Symbolic Routing Context"
+    type: "Core Domain"
+    description: "The OODA loop orchestrator. Determines the path of execution based on computational complexity."
+    aggregate_roots:
+      - name: "ExecutionTrace"
+        description: "A state machine recording the sequence of deterministic or probabilistic attempts."
+        entities:
+          - "StepResult"
+          - "FailurePattern"
+        value_objects:
+          - "ConfidenceScore"
+          - "MutationRecoverabilityScore (MRS)"
+    domain_events:
+      - "ExecutionPathDetermined"
+      - "FallbackTriggered"
+      - "CSAPContradictionLogged"
+
+  # 3. Deterministic Sandbox Context
+  - name: "Deterministic Sandbox Context"
+    type: "Generic Subdomain"
+    description: "The isolated MCP sidecar. Contains no business logic, only physical mathematical laws."
+    aggregate_roots:
+      - name: "MathSandbox"
+        description: "The execution environment for mathjs and nerdamer."
+        entities: []
+        value_objects:
+          - "ParseResult"
+          - "EvaluationError"
+    domain_events:
+      - "ComputationCompleted"
+      - "SyntaxFaultDetected"
+
+  # 4. Dialectical Interface Context
+  - name: "Dialectical Interface Context"
+    type: "Supporting Subdomain"
+    description: "The user-facing chat and visual dashboards."
+    aggregate_roots:
+      - name: "ChatSession"
+        description: "A persistent chain of interactions between the STEM User and the Dialectician."
+        entities:
+          - "ChatMessage"
+          - "ContextBundle"
+        value_objects:
+          - "LaTeXPayload"
+          - "InterpretabilitySummary"
+    domain_events:
+      - "ContextBundleInjected"
+      - "MessageSent"
+
+# Context Boundaries (Conway's Law Enforcement)
+# Defines the strict API/Event contracts preventing Semantic Saponification.
+relationships:
+  - upstream: "Epistemic Translation Context"
+    downstream: "Neuro-Symbolic Routing Context"
+    relationship_type: "Customer-Supplier"
+    integration_pattern: "ContextBundle Payload (In-process State Transfer)"
+    anti_corruption_layer: false
+
+  - upstream: "Neuro-Symbolic Routing Context"
+    downstream: "Deterministic Sandbox Context"
+    relationship_type: "Conformist"
+    integration_pattern: "Model Context Protocol (MCP) / stdio"
+    anti_corruption_layer: true
+    acl_details: "The ExecutorService wraps the MCP stdio calls, translating network faults into Domain-Specific CSAP errors."
+
+  - upstream: "Neuro-Symbolic Routing Context"
+    downstream: "Dialectical Interface Context"
+    relationship_type: "Customer-Supplier"
+    integration_pattern: "React Props / State Hydration"
+    anti_corruption_layer: false
