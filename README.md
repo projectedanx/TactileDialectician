@@ -3,6 +3,9 @@
 ## Overview
 The **Tactile Dialectician** is an advanced, hybrid AI-reasoning interface built on the Atlas Framework. Designed for rigorous STEM collaboration, the system rejects linear problem-solving in favor of a recursive, multi-causal OODA loop architecture. It mitigates the hallucination risks of pure LLMs by injecting deterministic mathematical computation and strict symbol disambiguation into the reasoning pipeline.
 
+## Architecture Deliverables
+The system topography, including Domain-Driven Design Context Maps and C4 Models, has been rigorously documented. Please see `docs/architecture` for ADRs and structural blueprints.
+
 ## Architectural Modules
 
 The application is structured around several distinct epistemic modules:
