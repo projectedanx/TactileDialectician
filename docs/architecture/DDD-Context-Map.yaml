@@ -91,3 +91,21 @@ relationships:
     relationship_type: "Customer-Supplier"
     integration_pattern: "React Props / State Hydration"
     anti_corruption_layer: false
+
+  LexisSovereignContext:
+    Type: Core Domain
+    Description: Subsystem for computational ghostwriting and autonomous book co-authorship using SCOS principles.
+    Responsibilities:
+      - Manage the Epistemic Matrix (G, G-, C, T, H) to enforce invariant voice.
+      - Execute the Petzold Loop (THINK -> WRITE -> REVIEW).
+      - Maintain the Symbolic Scar Archive to prevent context rot.
+      - Perform Draft-Conditioned Constrained Decoding (DCCD).
+    Key Aggregates:
+      - EpistemicMatrix
+      - ChapterManifest
+      - VoiceCalibrationMatrix
+      - SymbolicScar
+    Bounded Context Interactions:
+      - Consumes: User Input (voice memos, notes)
+      - Produces: Publishable Artifacts (Markdown drafts, JSON manifests)
+      - Interacts with: NeuroSymbolicExecutor (for LLM generation and strict schema validation)

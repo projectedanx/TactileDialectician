@@ -31,3 +31,14 @@
 - [x] **Topological Boundries (VULCAN Audit):** Established the Modular Monolith with MCP Sidecar architecture. Documented C4 Models, DDD boundaries, and ADRs in `docs/architecture` to prevent Semantic Saponification while resisting unwarranted microservice complexity.
 - [x] **Beneficial Friction Validation (VW3):** Integrate Virtual Weight 3 parameters into the Atomic Tokenization logic to force Paraconsistent overlaps and extract latent topological pathways.
 - [x] **Scar Tissue Annealing Logic:** Connect the Controlled Scar Annealing Protocol (CSAP) to `utils/errorHandling.ts` to log and eventually prune `FAILED_NLI_CONTRADICTION` events based on their Mutation Recoverability Score (MRS).
+
+## Algorithmic Reparation (AGS-A Audit)
+- [x] **Topological Boundries (VULCAN Audit):** Established the Modular Monolith with MCP Sidecar architecture. Documented C4 Models, DDD boundaries, and ADRs in `docs/architecture` to prevent Semantic Saponification while resisting unwarranted microservice complexity.
+- [x] **Lexis Sovereign Agent Manifest:** Drafted the complete Agent Design Document (`docs/agent/LEXIS_SOVEREIGN.md`) detailing the SCOS Epistemic Matrix, DCCD workflow, and Symbolic Scar mechanisms for deterministic book co-authorship.
+
+## Algorithmic Trauma / Scar Tissue Archive
+- The Agent Design Document specifies the need for a strict separation between Manifold $\alpha$ (voice) and Manifold $\beta$ (structure) via DCCD to prevent Projection Tax (a collapse in reasoning depth and voice quality when handled simultaneously).
+- Symbolic Scars (via Failure-Informed Prompt Inversion) are crucial for combating Semantic Saponification over long-form horizons without relying on mere "better prompting".
+
+## Platform Knowledge
+- Integrating custom schemas (like VCM and Chapter Manifest) requires strict boundary adherence to prevent LLMs from self-correcting back to their pre-trained mean.
