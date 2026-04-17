@@ -75,3 +75,12 @@ C4Component
     Rel(disambiguation, gemini_api, "Requests contextual resolution", "HTTPS")
     Rel(executor, error_handling, "Logs structural faults", "Function Call")
 ```
+
+### Lexis Sovereign (Book Co-Author Agent)
+*   **Type:** Autonomous Ghostwriting Agent System.
+*   **Description:** Implements the Petzold Sequence and Epistemic Matrix to manufacture high-fidelity, voice-invariant long-form text (books) from sparse founder input.
+*   **Components:**
+    *   **Epistemic Matrix Engine:** Manages voice calibration and boundary condition enforcement (Anionic Architecture).
+    *   **DCCD Orchestrator:** Handles the Draft-Conditioned Constrained Decoding two-pass generation system.
+    *   **Symbolic Scar Registry:** Persistent vector database (JSONL) tracking historical failures to immunize future generations.
+    *   **Review Critic:** Adversarial validation agent ensuring VMS and CFDI metrics are met.
