@@ -377,31 +377,31 @@ export default function AtomicTokenizationModule() {
   return (
     <div className="p-8 max-w-5xl mx-auto h-full overflow-y-auto">
       <div className="mb-8">
-        <h2 className="text-3xl font-mono font-bold text-cyan-400 mb-2">Atomic Tokenization Module</h2>
-        <p className="text-zinc-400 font-mono text-sm">Mitigate BPE fragmentation and inject FoNE-inspired semantic embeddings for STEM symbols.</p>
+        <h2 className="text-display-lg font-mono font-bold text-primary mb-2">Atomic Tokenization Module</h2>
+        <p className="text-on-surface-muted font-mono text-sm">Mitigate BPE fragmentation and inject FoNE-inspired semantic embeddings for STEM symbols.</p>
       </div>
 
-      <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-6 mb-8 shadow-lg">
+      <div className="bg-surface-raised border border-border rounded-none p-6 mb-8 ">
         <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-4 border-b border-[#2a2a2a] pb-4">
+          <div className="flex items-center gap-4 border-b border-border pb-4">
             <button 
               onClick={() => { setInputMode('extract'); setInput('∇·F = ρ/ε₀ + ∂E/∂t'); }}
               aria-label="Switch to Auto-Extract from Equation mode"
-              className={`text-xs font-mono uppercase tracking-wider px-3 py-1.5 rounded-md transition-colors ${inputMode === 'extract' ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/30' : 'text-zinc-500 hover:text-zinc-300'}`}
+              className={`text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-none transition-colors ${inputMode === 'extract' ? 'bg-primary/10 text-primary border border-primary/30' : 'text-on-surface-muted hover:text-on-surface'}`}
             >
               Auto-Extract from Equation
             </button>
             <button 
               onClick={() => { setInputMode('list'); setInput('∇, ∂, Σ, ∫, ∞, λ, ⊗, ⟨ψ|, Ĥ'); }}
               aria-label="Switch to Explicit Symbol List mode"
-              className={`text-xs font-mono uppercase tracking-wider px-3 py-1.5 rounded-md transition-colors ${inputMode === 'list' ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/30' : 'text-zinc-500 hover:text-zinc-300'}`}
+              className={`text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-none transition-colors ${inputMode === 'list' ? 'bg-primary/10 text-primary border border-primary/30' : 'text-on-surface-muted hover:text-on-surface'}`}
             >
               Explicit Symbol List
             </button>
           </div>
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
-              <label htmlFor="symbol-input" className="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2">
+              <label htmlFor="symbol-input" className="block text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-2">
                 {inputMode === 'extract' ? 'Raw Sequence Input' : 'Comma-Separated Symbols'}
               </label>
               <input
@@ -410,18 +410,18 @@ export default function AtomicTokenizationModule() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder={inputMode === 'extract' ? "e.g., ∇·F, ∂y/∂x, Σ(x_i - μ)²" : "e.g., ∇, ∂, Σ, ∫, ∞, λ"}
-                className="w-full bg-[#0a0a0a] border border-[#333] rounded-lg px-4 py-3 text-cyan-300 font-mono focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full bg-surface border border-border rounded-none px-4 py-4 text-on-surface font-mono focus:outline-none focus:border-primary transition-colors"
                 onKeyDown={(e) => e.key === 'Enter' && handleAnalyze()}
                 aria-label={inputMode === 'extract' ? 'Raw Sequence Input' : 'Comma-Separated Symbols'}
               />
             </div>
             <div className="w-full md:w-48">
-              <label htmlFor="domain-context" className="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2">Domain Context</label>
+              <label htmlFor="domain-context" className="block text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-2">Domain Context</label>
               <select
                 id="domain-context"
                 value={domainContext}
                 onChange={(e) => setDomainContext(e.target.value)}
-                className="w-full bg-[#0a0a0a] border border-[#333] rounded-lg px-4 py-3 text-zinc-300 font-mono focus:outline-none focus:border-cyan-500 transition-colors appearance-none"
+                className="w-full bg-surface border border-border rounded-none px-4 py-4 text-on-surface font-mono focus:outline-none focus:border-primary transition-colors appearance-none"
                 aria-label="Select Domain Context"
               >
                 <option value="Auto">Auto-Detect</option>
@@ -436,7 +436,7 @@ export default function AtomicTokenizationModule() {
                 onClick={handleAnalyze}
                 disabled={loading || !input.trim()}
                 aria-label="Tokenize Input"
-                className="h-[50px] px-6 bg-cyan-600 hover:bg-cyan-500 text-white font-mono rounded-lg flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-[50px] px-6 bg-primary hover:bg-primary/80 text-on-primary font-mono rounded-none flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" /> : <Cpu className="w-5 h-5" aria-hidden="true" />}
                 Tokenize
@@ -444,10 +444,10 @@ export default function AtomicTokenizationModule() {
             </div>
           </div>
           
-          <div className="mt-2 pt-4 border-t border-[#2a2a2a]">
+          <div className="mt-2 pt-4 border-t border-border">
             <div className="flex items-center gap-2 mb-3">
-              <Library className="w-4 h-4 text-zinc-400" aria-hidden="true" />
-              <span className="text-xs font-mono text-zinc-400 uppercase tracking-wider">Quick-Start Library</span>
+              <Library className="w-4 h-4 text-on-surface-muted" aria-hidden="true" />
+              <span className="text-xs font-mono text-on-surface-muted uppercase tracking-wider">Quick-Start Library</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {PREDEFINED_LIBRARY.map((item, idx) => (
@@ -460,7 +460,7 @@ export default function AtomicTokenizationModule() {
                     });
                   }}
                   aria-label={`Load analysis for ${item.symbol}`}
-                  className="w-10 h-10 bg-[#0a0a0a] hover:bg-cyan-500/10 border border-[#333] hover:border-cyan-500/30 rounded-lg flex items-center justify-center text-lg font-serif text-zinc-300 hover:text-cyan-400 transition-colors shadow-sm"
+                  className="w-12 h-12 bg-surface hover:bg-primary/80/10 border border-border hover:border-primary/30 rounded-none flex items-center justify-center text-lg font-serif text-on-surface hover:text-primary transition-colors shadow-sm"
                   title={`Load analysis for ${item.symbol}`}
                 >
                   {item.symbol}
@@ -472,7 +472,7 @@ export default function AtomicTokenizationModule() {
       </div>
 
       {error && (
-        <div className="bg-red-500/10 border border-red-500/20 p-4 rounded-lg mb-8">
+        <div className="bg-red-500/10 border border-red-500/20 p-4 rounded-none mb-8">
           <div className="flex items-start gap-3">
             <AlertTriangle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
             <div>
@@ -492,27 +492,27 @@ export default function AtomicTokenizationModule() {
       )}
 
       {results.length > 0 && inputMode === 'extract' && sequenceTokens.length > 0 && (
-        <div className="mb-8 bg-[#141414] border border-[#2a2a2a] rounded-xl p-6 shadow-2xl">
+        <div className="mb-8 bg-surface border border-border rounded-none p-6 shadow-2xl">
           <div className="flex items-center gap-2 mb-6">
-            <ArrowRightLeft className="w-5 h-5 text-cyan-400" />
-            <h3 className="text-sm font-mono text-zinc-300 uppercase tracking-wider">Sequence Tokenization Comparison</h3>
+            <ArrowRightLeft className="w-5 h-5 text-primary" />
+            <h3 className="text-sm font-mono text-on-surface uppercase tracking-wider">Sequence Tokenization Comparison</h3>
           </div>
           
           <div className="space-y-8">
             {/* Standard BPE */}
             <div>
-              <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-3">Standard BPE (Simulated)</h4>
+              <h4 className="text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-3">Standard BPE (Simulated)</h4>
               <div className="flex flex-wrap gap-2">
                 {sequenceTokens.map((token, idx) => {
                   if (token.isSymbol && token.bytes) {
                     return token.bytes.map((byte, bIdx) => (
-                      <div key={`std-${idx}-${bIdx}`} className="px-2 py-1.5 bg-red-500/10 border border-red-500/30 text-red-300 font-mono text-xs rounded-md">
+                      <div key={`std-${idx}-${bIdx}`} className="px-2 py-2 bg-red-500/10 border border-red-500/30 text-red-300 font-mono text-xs rounded-none">
                         {byte}
                       </div>
                     ));
                   } else if (token.text.trim()) {
                     return (
-                      <div key={`std-${idx}`} className="px-2 py-1.5 bg-[#2a2a2a] border border-[#333] text-zinc-300 font-mono text-xs rounded-md">
+                      <div key={`std-${idx}`} className="px-2 py-2 bg-[#2a2a2a] border border-border text-on-surface font-mono text-xs rounded-none">
                         {token.text}
                       </div>
                     );
@@ -524,18 +524,18 @@ export default function AtomicTokenizationModule() {
 
             {/* Atomic Tokenization */}
             <div>
-              <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-3">Atomic Tokenization</h4>
+              <h4 className="text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-3">Atomic Tokenization</h4>
               <div className="flex flex-wrap gap-2">
                 {sequenceTokens.map((token, idx) => {
                   if (token.isSymbol) {
                     return (
-                      <div key={`atm-${idx}`} className="px-3 py-1.5 bg-cyan-500/10 border border-cyan-500/50 text-cyan-300 font-mono text-xs rounded-md shadow-[0_0_8px_rgba(34,211,238,0.15)]">
+                      <div key={`atm-${idx}`} className="px-4 py-2 bg-primary/10 border border-primary/50 text-on-surface font-mono text-xs rounded-none shadow-[0_0_8px_rgba(34,211,238,0.15)]">
                         {token.text}
                       </div>
                     );
                   } else if (token.text.trim()) {
                     return (
-                      <div key={`atm-${idx}`} className="px-2 py-1.5 bg-[#2a2a2a] border border-[#333] text-zinc-300 font-mono text-xs rounded-md">
+                      <div key={`atm-${idx}`} className="px-2 py-2 bg-[#2a2a2a] border border-border text-on-surface font-mono text-xs rounded-none">
                         {token.text}
                       </div>
                     );
@@ -546,18 +546,18 @@ export default function AtomicTokenizationModule() {
             </div>
             
             {/* Metrics */}
-            <div className="pt-6 border-t border-[#2a2a2a] grid grid-cols-3 gap-4">
-              <div className="bg-[#0a0a0a] border border-[#333] p-4 rounded-lg flex flex-col items-center justify-center">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase mb-1">Standard Tokens</span>
+            <div className="pt-6 border-t border-border grid grid-cols-3 gap-4">
+              <div className="bg-surface border border-border p-4 rounded-none flex flex-col items-center justify-center">
+                <span className="text-[10px] font-mono text-on-surface-muted uppercase mb-1">Standard Tokens</span>
                 <span className="text-2xl font-mono text-red-400">{standardTokenCount}</span>
               </div>
-              <div className="bg-[#0a0a0a] border border-[#333] p-4 rounded-lg flex flex-col items-center justify-center">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase mb-1">Atomic Tokens</span>
-                <span className="text-2xl font-mono text-cyan-400">{atomicTokenCount}</span>
+              <div className="bg-surface border border-border p-4 rounded-none flex flex-col items-center justify-center">
+                <span className="text-[10px] font-mono text-on-surface-muted uppercase mb-1">Atomic Tokens</span>
+                <span className="text-2xl font-mono text-primary">{atomicTokenCount}</span>
               </div>
-              <div className="bg-[#0a0a0a] border border-[#333] p-4 rounded-lg flex flex-col items-center justify-center">
-                <span className="text-[10px] font-mono text-zinc-500 uppercase mb-1">Efficiency Gain</span>
-                <span className="text-2xl font-mono text-emerald-400">+{efficiencyGain}%</span>
+              <div className="bg-surface border border-border p-4 rounded-none flex flex-col items-center justify-center">
+                <span className="text-[10px] font-mono text-on-surface-muted uppercase mb-1">Efficiency Gain</span>
+                <span className="text-2xl font-mono text-primary">+{efficiencyGain}%</span>
               </div>
             </div>
           </div>
@@ -565,25 +565,25 @@ export default function AtomicTokenizationModule() {
       )}
 
       {translationPayload && (
-        <div className="mb-8 bg-[#141414] border border-[#2a2a2a] rounded-xl p-6 shadow-2xl">
+        <div className="mb-8 bg-surface border border-border rounded-none p-6 shadow-2xl">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <Network className="w-5 h-5 text-violet-400" />
-              <h3 className="text-sm font-mono text-zinc-300 uppercase tracking-wider">Translation Proxy Payload</h3>
+              <Network className="w-5 h-5 text-primary" />
+              <h3 className="text-sm font-mono text-on-surface uppercase tracking-wider">Translation Proxy Payload</h3>
             </div>
             <button
               onClick={handleCopyPayload}
-              className="flex items-center gap-2 px-3 py-1.5 bg-[#2a2a2a] hover:bg-[#333] border border-[#444] rounded-md text-xs font-mono text-zinc-300 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] hover:bg-[#333] border border-[#444] rounded-none text-xs font-mono text-on-surface transition-colors"
             >
-              {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+              {copied ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4" />}
               {copied ? 'Copied!' : 'Copy Payload'}
             </button>
           </div>
-          <p className="text-xs font-mono text-zinc-500 mb-4">
+          <p className="text-xs font-mono text-on-surface-muted mb-4">
             Use this structured, token-efficient payload to communicate with primary generation models, bypassing their flawed native tokenization for complex math symbols.
           </p>
-          <div className="bg-[#0a0a0a] border border-[#333] rounded-lg p-4 overflow-x-auto">
-            <pre className="text-xs font-mono text-zinc-300">
+          <div className="bg-surface border border-border rounded-none p-4 overflow-x-auto">
+            <pre className="text-xs font-mono text-on-surface">
               {JSON.stringify(translationPayload, null, 2)}
             </pre>
           </div>
@@ -592,27 +592,27 @@ export default function AtomicTokenizationModule() {
 
       {results.length > 0 && (
         <div className="space-y-6">
-          <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-wider mb-4">Tokenization & Embedding Profiles</h3>
+          <h3 className="text-sm font-mono text-on-surface-muted uppercase tracking-wider mb-4">Tokenization & Embedding Profiles</h3>
           
           {results.map((res, idx) => (
-            <div key={idx} className="bg-[#141414] border border-[#2a2a2a] rounded-xl overflow-hidden shadow-2xl flex flex-col lg:flex-row">
+            <div key={idx} className="bg-surface border border-border rounded-none overflow-hidden shadow-2xl flex flex-col lg:flex-row">
               
               {/* Symbol Display */}
-              <div className="lg:w-48 bg-[#0a0a0a] p-6 flex flex-col items-center justify-center border-b lg:border-b-0 lg:border-r border-[#2a2a2a]">
-                <span className="text-6xl font-serif text-cyan-400 mb-4 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">{res.symbol}</span>
-                <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest">Target Symbol</div>
+              <div className="lg:w-48 bg-surface p-6 flex flex-col items-center justify-center border-b lg:border-b-0 lg:border-r border-border">
+                <span className="text-6xl font-serif text-primary mb-4 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">{res.symbol}</span>
+                <div className="text-xs font-mono text-on-surface-muted uppercase tracking-widest">Target Symbol</div>
               </div>
 
               {/* Tokenization Comparison */}
-              <div className="flex-1 p-6 border-b lg:border-b-0 lg:border-r border-[#2a2a2a] flex flex-col justify-center">
+              <div className="flex-1 p-6 border-b lg:border-b-0 lg:border-r border-border flex flex-col justify-center">
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-3">
                     <SplitSquareHorizontal className="w-4 h-4 text-red-400" />
-                    <h4 className="text-xs font-mono text-zinc-400 uppercase tracking-wider">Standard BPE (Fragmented)</h4>
+                    <h4 className="text-xs font-mono text-on-surface-muted uppercase tracking-wider">Standard BPE (Fragmented)</h4>
                   </div>
                   <div className="flex gap-2 flex-wrap">
                     {res.fragmented_bytes.map((byte, i) => (
-                      <div key={i} className="px-3 py-1.5 bg-red-500/10 border border-red-500/30 text-red-300 font-mono text-sm rounded-md">
+                      <div key={i} className="px-4 py-2 bg-red-500/10 border border-red-500/30 text-red-300 font-mono text-sm rounded-none">
                         {byte}
                       </div>
                     ))}
@@ -622,15 +622,15 @@ export default function AtomicTokenizationModule() {
 
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <Fingerprint className="w-4 h-4 text-cyan-400" />
-                    <h4 className="text-xs font-mono text-zinc-400 uppercase tracking-wider">Atomic Tokenization</h4>
+                    <Fingerprint className="w-4 h-4 text-primary" />
+                    <h4 className="text-xs font-mono text-on-surface-muted uppercase tracking-wider">Atomic Tokenization</h4>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="px-4 py-2 bg-cyan-500/10 border border-cyan-500/50 text-cyan-300 font-mono text-sm rounded-md shadow-[0_0_10px_rgba(34,211,238,0.1)]">
+                    <div className="px-4 py-2 bg-primary/10 border border-primary/50 text-on-surface font-mono text-sm rounded-none shadow-[0_0_10px_rgba(34,211,238,0.1)]">
                       {res.symbol}
                     </div>
-                    <span className="text-zinc-500 font-mono text-sm">→</span>
-                    <div className="px-3 py-2 bg-[#2a2a2a] border border-[#333] text-zinc-300 font-mono text-sm rounded-md">
+                    <span className="text-on-surface-muted font-mono text-sm">→</span>
+                    <div className="px-4 py-2 bg-[#2a2a2a] border border-border text-on-surface font-mono text-sm rounded-none">
                       ID: {res.atomic_token_id}
                     </div>
                   </div>
@@ -638,71 +638,71 @@ export default function AtomicTokenizationModule() {
               </div>
 
               {/* FoNE Embedding Profile */}
-              <div className="flex-1 p-6 bg-[#1a1a1a]">
+              <div className="flex-1 p-6 bg-surface-raised">
                 <div className="flex items-center gap-2 mb-4">
-                  <Network className="w-4 h-4 text-violet-400" />
-                  <h4 className="text-xs font-mono text-zinc-400 uppercase tracking-wider">FoNE Semantic Embedding</h4>
+                  <Network className="w-4 h-4 text-primary" />
+                  <h4 className="text-xs font-mono text-on-surface-muted uppercase tracking-wider">FoNE Semantic Embedding</h4>
                 </div>
                 
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <div className="text-[10px] font-mono text-zinc-500 uppercase mb-1">Operator Class</div>
-                      <div className="text-sm font-mono text-violet-300 bg-violet-500/10 border border-violet-500/20 px-2 py-1 rounded inline-block">
+                      <div className="text-[10px] font-mono text-on-surface-muted uppercase mb-1">Operator Class</div>
+                      <div className="text-sm font-mono text-on-surface bg-primary/10 border border-primary/20 px-2 py-1 rounded inline-block">
                         {res.fone_embedding.operator_class}
                       </div>
                     </div>
                     <div>
-                      <div className="text-[10px] font-mono text-zinc-500 uppercase mb-1">Tensor Rank Effect</div>
-                      <div className="text-sm font-mono text-violet-300 bg-violet-500/10 border border-violet-500/20 px-2 py-1 rounded inline-block">
+                      <div className="text-[10px] font-mono text-on-surface-muted uppercase mb-1">Tensor Rank Effect</div>
+                      <div className="text-sm font-mono text-on-surface bg-primary/10 border border-primary/20 px-2 py-1 rounded inline-block">
                         {res.fone_embedding.tensor_rank_effect}
                       </div>
 
                     </div>
                   </div>
 
-                  <div className="space-y-2 pt-2 border-t border-[#2a2a2a]">
-                    <div className="text-[10px] font-mono text-zinc-500 uppercase mb-2">Paraconsistent Topology (VW3)</div>
+                  <div className="space-y-2 pt-2 border-t border-border">
+                    <div className="text-[10px] font-mono text-on-surface-muted uppercase mb-2">Paraconsistent Topology (VW3)</div>
 
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="w-16 text-[10px] font-mono text-zinc-400">VW3 Factor</div>
-                      <div className="flex-1 h-1.5 bg-[#0a0a0a] rounded-full overflow-hidden border border-fuchsia-500/20">
-                        <div className="h-full bg-fuchsia-500 rounded-full" style={{ width: `${res.fone_embedding.virtual_weight_3 * 100}%` }} />
+                      <div className="w-16 text-[10px] font-mono text-on-surface-muted">VW3 Factor</div>
+                      <div className="flex-1 h-1.5 bg-surface rounded-none overflow-hidden border border-fuchsia-500/20">
+                        <div className="h-full bg-fuchsia-500 rounded-none" style={{ width: `${res.fone_embedding.virtual_weight_3 * 100}%` }} />
                       </div>
                       <div className="w-8 text-right text-[10px] font-mono text-fuchsia-400">{res.fone_embedding.virtual_weight_3.toFixed(2)}</div>
                     </div>
 
-                    <div className="text-[10px] font-mono text-zinc-400 leading-tight">
+                    <div className="text-[10px] font-mono text-on-surface-muted leading-tight">
                       Pathway: <span className="text-fuchsia-300 bg-fuchsia-500/10 px-1 py-0.5 rounded border border-fuchsia-500/20">{res.fone_embedding.latent_topological_pathway}</span>
                     </div>
                   </div>
 
-                  <div className="space-y-2 pt-2 border-t border-[#2a2a2a]">
+                  <div className="space-y-2 pt-2 border-t border-border">
 
-                    <div className="text-[10px] font-mono text-zinc-500 uppercase mb-2">Domain Affinity Weights</div>
+                    <div className="text-[10px] font-mono text-on-surface-muted uppercase mb-2">Domain Affinity Weights</div>
                     
                     <div className="flex items-center gap-3">
-                      <div className="w-16 text-xs font-mono text-zinc-400">Physics</div>
-                      <div className="flex-1 h-1.5 bg-[#0a0a0a] rounded-full overflow-hidden">
-                        <div className="h-full bg-blue-500 rounded-full" style={{ width: `${res.fone_embedding.domain_weight_physics * 100}%` }} />
+                      <div className="w-16 text-xs font-mono text-on-surface-muted">Physics</div>
+                      <div className="flex-1 h-1.5 bg-surface rounded-none overflow-hidden">
+                        <div className="h-full bg-blue-500 rounded-none" style={{ width: `${res.fone_embedding.domain_weight_physics * 100}%` }} />
                       </div>
-                      <div className="w-8 text-right text-xs font-mono text-zinc-500">{res.fone_embedding.domain_weight_physics.toFixed(2)}</div>
+                      <div className="w-8 text-right text-xs font-mono text-on-surface-muted">{res.fone_embedding.domain_weight_physics.toFixed(2)}</div>
                     </div>
                     
                     <div className="flex items-center gap-3">
-                      <div className="w-16 text-xs font-mono text-zinc-400">Math</div>
-                      <div className="flex-1 h-1.5 bg-[#0a0a0a] rounded-full overflow-hidden">
-                        <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${res.fone_embedding.domain_weight_math * 100}%` }} />
+                      <div className="w-16 text-xs font-mono text-on-surface-muted">Math</div>
+                      <div className="flex-1 h-1.5 bg-surface rounded-none overflow-hidden">
+                        <div className="h-full bg-emerald-500 rounded-none" style={{ width: `${res.fone_embedding.domain_weight_math * 100}%` }} />
                       </div>
-                      <div className="w-8 text-right text-xs font-mono text-zinc-500">{res.fone_embedding.domain_weight_math.toFixed(2)}</div>
+                      <div className="w-8 text-right text-xs font-mono text-on-surface-muted">{res.fone_embedding.domain_weight_math.toFixed(2)}</div>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <div className="w-16 text-xs font-mono text-zinc-400">ML</div>
-                      <div className="flex-1 h-1.5 bg-[#0a0a0a] rounded-full overflow-hidden">
-                        <div className="h-full bg-amber-500 rounded-full" style={{ width: `${res.fone_embedding.domain_weight_ml * 100}%` }} />
+                      <div className="w-16 text-xs font-mono text-on-surface-muted">ML</div>
+                      <div className="flex-1 h-1.5 bg-surface rounded-none overflow-hidden">
+                        <div className="h-full bg-amber-500 rounded-none" style={{ width: `${res.fone_embedding.domain_weight_ml * 100}%` }} />
                       </div>
-                      <div className="w-8 text-right text-xs font-mono text-zinc-500">{res.fone_embedding.domain_weight_ml.toFixed(2)}</div>
+                      <div className="w-8 text-right text-xs font-mono text-on-surface-muted">{res.fone_embedding.domain_weight_ml.toFixed(2)}</div>
                     </div>
                   </div>
                 </div>

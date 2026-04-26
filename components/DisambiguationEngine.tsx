@@ -136,22 +136,22 @@ Identify all mathematical or scientific symbols and disambiguate their meaning s
   return (
     <div className="p-8 max-w-5xl mx-auto h-full overflow-y-auto">
       <div className="mb-8">
-        <h2 className="text-3xl font-mono font-bold text-emerald-400 mb-2">Symbol Disambiguation Engine</h2>
-        <p className="text-zinc-400 font-mono text-sm">Multi-lens classifier for resolving polysemy across STEM domains.</p>
+        <h2 className="text-display-lg font-mono font-bold text-primary mb-2">Symbol Disambiguation Engine</h2>
+        <p className="text-on-surface-muted font-mono text-sm">Multi-lens classifier for resolving polysemy across STEM domains.</p>
       </div>
 
-      <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-6 mb-8 shadow-lg">
-        <div className="flex flex-col gap-6">
+      <div className="bg-surface-raised border border-border rounded-none p-6 mb-8 ">
+        <div className="flex flex-col gap-8">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
-              <label htmlFor="disambiguate-input" className="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2">Expression / Symbol</label>
+              <label htmlFor="disambiguate-input" className="block text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-2">Expression / Symbol</label>
               <input
                 id="disambiguate-input"
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="e.g., V_i, W_i, ∇·F, λ, μ"
-                className="w-full bg-[#0a0a0a] border border-[#333] rounded-lg px-4 py-3 text-emerald-300 font-mono focus:outline-none focus:border-emerald-500 transition-colors"
+                className="w-full bg-surface border border-border rounded-none px-4 py-4 text-on-surface font-mono focus:outline-none focus:border-primary transition-colors"
                 onKeyDown={(e) => e.key === 'Enter' && handleDisambiguate()}
                 aria-label="Expression or Symbol to Disambiguate"
               />
@@ -161,7 +161,7 @@ Identify all mathematical or scientific symbols and disambiguate their meaning s
                 onClick={handleDisambiguate}
                 disabled={loading || !input.trim()}
                 aria-label="Analyze Symbol"
-                className="h-[50px] px-6 bg-emerald-600 hover:bg-emerald-500 text-white font-mono rounded-lg flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-[50px] px-6 bg-primary hover:bg-primary/80 text-on-primary font-mono rounded-none flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" /> : <Search className="w-5 h-5" aria-hidden="true" />}
                 Analyze
@@ -170,16 +170,16 @@ Identify all mathematical or scientific symbols and disambiguate their meaning s
           </div>
           
           <div>
-            <label className="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-3">Epistemic Domain Toggles</label>
+            <label className="block text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-3">Epistemic Domain Toggles</label>
             <div className="flex flex-wrap gap-2">
               {['Auto', 'Quantum Mechanics', 'Fluid Dynamics', 'Pure Mathematics', 'Machine Learning', 'Physics', 'Statistics'].map(domain => (
                 <button
                   key={domain}
                   onClick={() => setContext(domain)}
-                  className={`px-4 py-2 text-xs font-mono rounded-md border transition-colors ${
+                  className={`px-4 py-2 text-xs font-mono rounded-none border transition-colors ${
                     context === domain 
-                      ? 'bg-emerald-500/20 border-emerald-500 text-emerald-300' 
-                      : 'bg-[#0a0a0a] border-[#333] text-zinc-400 hover:border-[#555] hover:text-zinc-300'
+                      ? 'bg-emerald-500/20 border-primary text-on-surface'
+                      : 'bg-surface border-border text-on-surface-muted hover:border-[#555] hover:text-on-surface'
                   }`}
                 >
                   {domain}
@@ -191,7 +191,7 @@ Identify all mathematical or scientific symbols and disambiguate their meaning s
       </div>
 
       {error && (
-        <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-lg mb-8 flex items-center gap-3 font-mono text-sm">
+        <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-none mb-8 flex items-center gap-3 font-mono text-sm">
           <AlertTriangle className="w-5 h-5" />
           {error}
         </div>
@@ -199,36 +199,36 @@ Identify all mathematical or scientific symbols and disambiguate their meaning s
 
       {results.length > 0 && (
         <div className="space-y-4">
-          <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-wider mb-4">Disambiguation Results</h3>
+          <h3 className="text-sm font-mono text-on-surface-muted uppercase tracking-wider mb-4">Disambiguation Results</h3>
           <div className="grid grid-cols-1 gap-4">
             {results.map((res, idx) => (
-              <div key={idx} className="bg-[#141414] border border-[#2a2a2a] rounded-lg p-5 flex flex-col md:flex-row gap-6 relative overflow-hidden group hover:border-emerald-500/50 transition-colors">
-                <div className="absolute top-0 left-0 w-1 h-full bg-emerald-500/20 group-hover:bg-emerald-500 transition-colors" />
+              <div key={idx} className="bg-surface border border-border rounded-none p-5 flex flex-col md:flex-row gap-8 relative overflow-hidden group hover:border-primary/50 transition-colors">
+                <div className="absolute top-0 left-0 w-1 h-full bg-emerald-500/20 group-hover:bg-primary/80 transition-colors" />
                 
-                <div className="flex-shrink-0 flex flex-col items-center justify-center w-24 h-24 bg-[#0a0a0a] rounded-lg border border-[#333]">
-                  <span className="text-4xl font-serif italic text-emerald-400">{res.symbol}</span>
+                <div className="flex-shrink-0 flex flex-col items-center justify-center w-24 h-24 bg-surface rounded-none border border-border">
+                  <span className="text-4xl font-serif italic text-primary">{res.symbol}</span>
                 </div>
                 
                 <div className="flex-1 flex flex-col justify-center">
                   <div className="flex items-center gap-3 mb-2">
                     <h4 className="text-xl font-bold text-zinc-100">{res.meaning}</h4>
-                    <span className="px-2 py-1 bg-[#2a2a2a] text-zinc-300 text-xs font-mono rounded-md border border-[#333]">
+                    <span className="px-2 py-1 bg-[#2a2a2a] text-on-surface text-xs font-mono rounded-none border border-border">
                       {res.domain}
                     </span>
                   </div>
-                  <p className="text-zinc-400 text-sm leading-relaxed">{res.explanation}</p>
+                  <p className="text-on-surface-muted text-sm leading-relaxed">{res.explanation}</p>
                 </div>
                 
                 <div className="flex-shrink-0 flex flex-col items-end justify-center">
-                  <div className="text-xs font-mono text-zinc-500 mb-1">CONFIDENCE</div>
+                  <div className="text-xs font-mono text-on-surface-muted mb-1">CONFIDENCE</div>
                   <div className="flex items-center gap-2">
-                    <div className="w-24 h-2 bg-[#0a0a0a] rounded-full overflow-hidden border border-[#333]">
+                    <div className="w-24 h-2 bg-surface rounded-none overflow-hidden border border-border">
                       <div 
-                        className={`h-full rounded-full ${res.confidence > 0.8 ? 'bg-emerald-500' : res.confidence > 0.5 ? 'bg-yellow-500' : 'bg-red-500'}`}
+                        className={`h-full rounded-none ${res.confidence > 0.8 ? 'bg-emerald-500' : res.confidence > 0.5 ? 'bg-yellow-500' : 'bg-red-500'}`}
                         style={{ width: `${res.confidence * 100}%` }}
                       />
                     </div>
-                    <span className="text-sm font-mono text-zinc-300">{(res.confidence * 100).toFixed(0)}%</span>
+                    <span className="text-sm font-mono text-on-surface">{(res.confidence * 100).toFixed(0)}%</span>
                   </div>
                 </div>
               </div>

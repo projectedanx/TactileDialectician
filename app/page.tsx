@@ -25,7 +25,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex h-screen bg-[#141414] overflow-hidden">
+    <div className="flex h-screen bg-surface overflow-hidden">
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
       <main className="flex-1 h-full relative">
         {activeTab === 'workflow' && <AutomatedWorkflow onComplete={handleWorkflowComplete} />}

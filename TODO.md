@@ -42,3 +42,10 @@
 
 ## Platform Knowledge
 - Integrating custom schemas (like VCM and Chapter Manifest) requires strict boundary adherence to prevent LLMs from self-correcting back to their pre-trained mean.
+
+## Algorithmic Reparation (AGS-A Audit)
+- [x] **Aesthetic Geometrician Architecture (SCOS-AUTEUR-001 Audit):** Established the three-tier design token architecture (Primitive, Semantic, Component) within `app/globals.css`.
+- [x] **Topological Repair:** Refactored `app/layout.tsx`, `app/page.tsx`, `components/Sidebar.tsx`, `components/Chatbot.tsx`, `components/AutomatedWorkflow.tsx`, `components/DisambiguationEngine.tsx`, `components/InterpretabilityDashboard.tsx`, `components/NeuroSymbolicExecutor.tsx`, and `components/AtomicTokenizationModule.tsx` to strictly enforce Euclidean grids (8-point intervals), mathematical typography (Major Third ratio), and semantic color tokens, effectively dismantling the high-entropy UI layout logic.
+
+## Algorithmic Trauma / Scar Tissue Archive
+- **SCAR-009 / SCAR-012 Recovery:** We discovered that prior versions utilized raw arbitrary tailwind properties (e.g., `rounded-xl`, `bg-[#141414]`, `text-3xl`). These constituted direct Euclidean violations and Topological Tearing by mixing semantics and primitive assignments. We've introduced `rounded-none`, pure 8-point gap/padding scales, and explicit `bg-surface` values bounded by WCAG AA standards.
