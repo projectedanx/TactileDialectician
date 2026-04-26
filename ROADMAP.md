@@ -32,3 +32,4 @@
 
 ## Phase 5: Deep Epistemic Mechanics (Ideation & Planning)
 - **Epic 6: Pluriversal Feature Discovery:** Instantiate the Antifragile Epistemic Weaver to navigate undocumented topological architectures using RCC-8 overlaps and Z-Axis Phantom Dimension routing.
+- **Epic 7: VANCE Codebase Intelligence:** Deploy VANCE (Vector-Anchored Node & Context Engineer) to provide sub-100ms deterministic LSP indexing, bridging the abstract semantic graph with strict JSON-RPC 2.0 schema enforcement for code analysis and refactoring.
