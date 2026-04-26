@@ -1,1 +1,70 @@
 @import "tailwindcss";
+
+@theme {
+  /* TIER 1: PRIMITIVE */
+  --color-p-black-950: #0F0F0F;
+  --color-p-black-900: #1A1A1A;
+  --color-p-black-800: #2A2A2A;
+  --color-p-gray-100: #E0E0E0;
+  --color-p-gray-300: #9E9E9E;
+  --color-p-red-500: #FF3366;
+  --color-p-red-700: #D32F2F;
+  --color-p-green-500: #00C853;
+
+  --spacing-p-4: 4px;
+  --spacing-p-8: 8px;
+  --spacing-p-16: 16px;
+  --spacing-p-24: 24px;
+  --spacing-p-32: 32px;
+  --spacing-p-48: 48px;
+  --spacing-p-64: 64px;
+  --spacing-p-96: 96px;
+  --spacing-p-128: 128px;
+
+  --font-size-p-base: 1rem;
+  --font-size-p-h6: 1.250rem;
+  --font-size-p-h5: 1.563rem;
+  --font-size-p-h4: 1.953rem;
+  --font-size-p-h3: 2.441rem;
+  --font-size-p-h2: 3.052rem;
+  --font-size-p-h1: 3.815rem;
+
+  --radius-p-none: 0px;
+  --radius-p-sm: 2px;
+  --radius-p-md: 4px;
+  --radius-p-pill: 9999px;
+
+  /* TIER 2: SEMANTIC */
+  --color-surface: var(--color-p-black-950);
+  --color-surface-raised: var(--color-p-black-900);
+  --color-on-surface: var(--color-p-gray-100);
+  --color-on-surface-muted: var(--color-p-gray-300);
+  --color-primary: var(--color-p-red-500);
+  --color-on-primary: var(--color-p-black-950);
+  --color-error: var(--color-p-red-700);
+  --color-success: var(--color-p-green-500);
+  --color-border: var(--color-p-black-800);
+  --color-focus: var(--color-p-red-500);
+
+  --spacing-component-sm: var(--spacing-p-8);
+  --spacing-component-md: var(--spacing-p-16);
+  --spacing-component-lg: var(--spacing-p-24);
+  --spacing-section: var(--spacing-p-48);
+  --spacing-page: var(--spacing-p-64);
+
+  --font-size-body: var(--font-size-p-base);
+  --font-size-label: var(--font-size-p-h6);
+  --font-size-heading-sm: var(--font-size-p-h5);
+  --font-size-heading-md: var(--font-size-p-h4);
+  --font-size-heading-lg: var(--font-size-p-h3);
+  --font-size-display-sm: var(--font-size-p-h2);
+  --font-size-display-lg: var(--font-size-p-h1);
+
+  /* TIER 3: COMPONENT (examples for direct var access if needed, but Tailwind 4 maps variables natively) */
+  --color-btn-primary-bg: var(--color-primary);
+  --color-btn-primary-text: var(--color-on-primary);
+  --spacing-nav-height: var(--spacing-p-64);
+  --spacing-card-padding: var(--spacing-component-lg);
+  --color-card-bg: var(--color-surface-raised);
+  --color-card-border: var(--color-border);
+}

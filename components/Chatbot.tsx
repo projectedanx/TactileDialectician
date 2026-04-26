@@ -94,18 +94,18 @@ export default function Chatbot({ initialQuery }: { initialQuery?: string }) {
 
   return (
     <div className="flex flex-col h-full max-w-5xl mx-auto p-4">
-      <div className="mb-4 flex items-center gap-3">
-        <Sparkles className="w-8 h-8 text-blue-400" />
+      <div className="mb-4 flex items-center gap-4">
+        <Sparkles className="w-8 h-8 text-primary" />
         <div>
-          <h2 className="text-2xl font-mono font-bold text-blue-400">Dialectical Chat</h2>
-          <p className="text-zinc-500 font-mono text-xs">High-reasoning STEM collaboration interface</p>
+          <h2 className="text-display-sm font-mono font-bold text-primary">Dialectical Chat</h2>
+          <p className="text-on-surface-muted font-mono text-xs">High-reasoning STEM collaboration interface</p>
         </div>
       </div>
 
-      <div className="flex-1 bg-[#141414] border border-[#2a2a2a] rounded-xl overflow-hidden flex flex-col shadow-2xl">
+      <div className="flex-1 bg-surface border border-border rounded-none overflow-hidden flex flex-col ">
         <div className="flex-1 overflow-y-auto p-6 space-y-6">
           {messages.length === 0 && (
-            <div className="h-full flex flex-col items-center justify-center text-zinc-500 font-mono text-sm">
+            <div className="h-full flex flex-col items-center justify-center text-on-surface-muted font-mono text-sm">
               <Bot className="w-12 h-12 mb-4 opacity-50" />
               <p>Ask me to disambiguate symbols, solve equations, or explain concepts.</p>
             </div>
@@ -114,15 +114,15 @@ export default function Chatbot({ initialQuery }: { initialQuery?: string }) {
           {messages.map((msg, idx) => (
             <div key={idx} className={`flex gap-4 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               {msg.role === 'model' && (
-                <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 border border-blue-500/30">
-                  <Bot className="w-4 h-4 text-blue-400" />
+                <div className="w-8 h-8 rounded-none bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30">
+                  <Bot className="w-4 h-4 text-primary" />
                 </div>
               )}
               
-              <div className={`max-w-[80%] rounded-2xl px-5 py-4 ${
+              <div className={`max-w-[80%] rounded-none px-4 py-4 ${
                 msg.role === 'user' 
-                  ? 'bg-[#2a2a2a] text-zinc-200 border border-[#333]' 
-                  : 'bg-[#1a1a1a] text-zinc-300 border border-[#2a2a2a] prose prose-invert prose-pre:bg-[#0a0a0a] prose-pre:border prose-pre:border-[#333]'
+                  ? 'bg-surface-raised text-on-surface border border-border'
+                  : 'bg-surface-raised text-on-surface-muted border border-border prose prose-invert prose-pre:bg-surface prose-pre:border prose-pre:border-border'
               }`}>
                 {msg.role === 'user' ? (
                   <p className="whitespace-pre-wrap font-mono text-sm">{msg.content}</p>
@@ -156,34 +156,34 @@ export default function Chatbot({ initialQuery }: { initialQuery?: string }) {
               </div>
 
               {msg.role === 'user' && (
-                <div className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center flex-shrink-0 border border-zinc-700">
-                  <User className="w-4 h-4 text-zinc-400" />
+                <div className="w-8 h-8 rounded-none bg-surface-raised flex items-center justify-center flex-shrink-0 border border-border">
+                  <User className="w-4 h-4 text-on-surface-muted" />
                 </div>
               )}
             </div>
           ))}
           {loading && (
             <div className="flex gap-4 justify-start">
-              <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 border border-blue-500/30">
-                <Loader2 className="w-4 h-4 text-blue-400 animate-spin" />
+              <div className="w-8 h-8 rounded-none bg-primary/20 flex items-center justify-center flex-shrink-0 border border-primary/30">
+                <Loader2 className="w-4 h-4 text-primary animate-spin" />
               </div>
-              <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl px-5 py-4 flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" />
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce delay-75" />
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce delay-150" />
+              <div className="bg-surface-raised border border-border rounded-none px-4 py-4 flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary rounded-none animate-bounce" />
+                <div className="w-2 h-2 bg-primary rounded-none animate-bounce delay-75" />
+                <div className="w-2 h-2 bg-primary rounded-none animate-bounce delay-150" />
               </div>
             </div>
           )}
           <div ref={messagesEndRef} />
         </div>
 
-        <div className="p-4 bg-[#0a0a0a] border-t border-[#2a2a2a]">
-          <div className="flex gap-3">
+        <div className="p-4 bg-surface border-t border-border">
+          <div className="flex gap-4">
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your message... (Cmd/Ctrl + Enter to send)"
-              className="flex-1 bg-[#141414] border border-[#333] rounded-xl px-4 py-3 text-zinc-300 font-mono text-sm focus:outline-none focus:border-blue-500 transition-colors resize-none h-14"
+              className="flex-1 bg-surface border border-border rounded-none px-4 py-3 text-on-surface-muted font-mono text-sm focus:outline-none focus:border-primary transition-colors resize-none h-16"
               onKeyDown={(e) => {
                 if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) {
                   handleSend();
@@ -195,7 +195,7 @@ export default function Chatbot({ initialQuery }: { initialQuery?: string }) {
               onClick={handleSend}
               disabled={loading || !input.trim()}
               aria-label="Send message"
-              className="w-14 h-14 bg-blue-600 hover:bg-blue-500 text-white rounded-xl flex items-center justify-center transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
+              className="w-16 h-16 bg-primary hover:bg-primary text-on-primary rounded-none flex items-center justify-center transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex-shrink-0"
             >
               {loading ? <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" /> : <Send className="w-5 h-5" aria-hidden="true" />}
             </button>

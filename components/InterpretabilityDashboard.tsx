@@ -60,21 +60,21 @@ export default function InterpretabilityDashboard() {
   return (
     <div className="p-8 max-w-5xl mx-auto h-full overflow-y-auto">
       <div className="mb-8">
-        <h2 className="text-3xl font-mono font-bold text-amber-400 mb-2">Interpretability Dashboard</h2>
-        <p className="text-zinc-400 font-mono text-sm">Audit reasoning paths and ground symbols in recent literature via Google Search.</p>
+        <h2 className="text-display-lg font-mono font-bold text-primary mb-2">Interpretability Dashboard</h2>
+        <p className="text-on-surface-muted font-mono text-sm">Audit reasoning paths and ground symbols in recent literature via Google Search.</p>
       </div>
 
-      <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-6 mb-8 shadow-lg">
+      <div className="bg-surface-raised border border-border rounded-none p-6 mb-8 ">
         <div className="flex flex-col md:flex-row gap-4">
           <div className="flex-1">
-            <label htmlFor="audit-input" className="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2">Symbol / Concept to Audit</label>
+            <label htmlFor="audit-input" className="block text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-2">Symbol / Concept to Audit</label>
             <input
               id="audit-input"
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="e.g., usage of λ in machine learning vs physics"
-              className="w-full bg-[#0a0a0a] border border-[#333] rounded-lg px-4 py-3 text-amber-300 font-mono focus:outline-none focus:border-amber-500 transition-colors"
+              className="w-full bg-surface border border-border rounded-none px-4 py-4 text-on-surface font-mono focus:outline-none focus:border-primary transition-colors"
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
               aria-label="Symbol or Concept to Audit"
             />
@@ -84,7 +84,7 @@ export default function InterpretabilityDashboard() {
               onClick={handleSearch}
               disabled={loading || !query.trim()}
               aria-label="Ground symbol in literature"
-              className="h-[50px] px-6 bg-amber-600 hover:bg-amber-500 text-white font-mono rounded-lg flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="h-[50px] px-6 bg-primary hover:bg-primary/80 text-on-primary font-mono rounded-none flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" /> : <Globe className="w-5 h-5" aria-hidden="true" />}
               Ground
@@ -94,28 +94,28 @@ export default function InterpretabilityDashboard() {
       </div>
 
       {error && (
-        <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-lg mb-8 font-mono text-sm">
+        <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-none mb-8 font-mono text-sm">
           {error}
         </div>
       )}
 
       {result && (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2 bg-[#141414] border border-[#2a2a2a] rounded-xl overflow-hidden shadow-2xl">
-            <div className="bg-[#1a1a1a] px-6 py-3 border-b border-[#2a2a2a] flex items-center gap-3">
-              <Activity className="w-5 h-5 text-amber-400" />
-              <h3 className="text-sm font-mono text-zinc-300 uppercase tracking-wider">Analysis</h3>
+          <div className="lg:col-span-2 bg-surface border border-border rounded-none overflow-hidden shadow-2xl">
+            <div className="bg-surface-raised px-6 py-4 border-b border-border flex items-center gap-3">
+              <Activity className="w-5 h-5 text-primary" />
+              <h3 className="text-sm font-mono text-on-surface uppercase tracking-wider">Analysis</h3>
             </div>
-            <div className="p-6 prose prose-invert max-w-none prose-a:text-amber-400 hover:prose-a:text-amber-300">
+            <div className="p-6 prose prose-invert max-w-none prose-a:text-primary hover:prose-a:text-on-surface">
               <ReactMarkdown>{result}</ReactMarkdown>
             </div>
           </div>
 
           <div className="lg:col-span-1">
-            <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl overflow-hidden shadow-2xl sticky top-8">
-              <div className="px-6 py-3 border-b border-[#2a2a2a] flex items-center gap-3">
-                <Search className="w-5 h-5 text-amber-400" />
-                <h3 className="text-sm font-mono text-zinc-300 uppercase tracking-wider">Sources</h3>
+            <div className="bg-surface-raised border border-border rounded-none overflow-hidden shadow-2xl sticky top-8">
+              <div className="px-6 py-4 border-b border-border flex items-center gap-3">
+                <Search className="w-5 h-5 text-primary" />
+                <h3 className="text-sm font-mono text-on-surface uppercase tracking-wider">Sources</h3>
               </div>
               <div className="p-4 flex flex-col gap-3">
                 {urls.length > 0 ? (
@@ -125,17 +125,17 @@ export default function InterpretabilityDashboard() {
                       href={url.uri}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-start gap-3 p-3 rounded-lg hover:bg-[#2a2a2a] transition-colors border border-transparent hover:border-[#333]"
+                      className="group flex items-start gap-3 p-3 rounded-none hover:bg-[#2a2a2a] transition-colors border border-transparent hover:border-border"
                     >
-                      <ExternalLink className="w-4 h-4 text-zinc-500 group-hover:text-amber-400 mt-1 flex-shrink-0" />
+                      <ExternalLink className="w-4 h-4 text-on-surface-muted group-hover:text-primary mt-1 flex-shrink-0" />
                       <div className="flex flex-col overflow-hidden">
-                        <span className="text-sm text-zinc-300 group-hover:text-amber-300 line-clamp-2 font-medium">{url.title}</span>
-                        <span className="text-xs text-zinc-500 truncate mt-1">{new URL(url.uri).hostname}</span>
+                        <span className="text-sm text-on-surface group-hover:text-on-surface line-clamp-2 font-medium">{url.title}</span>
+                        <span className="text-xs text-on-surface-muted truncate mt-1">{new URL(url.uri).hostname}</span>
                       </div>
                     </a>
                   ))
                 ) : (
-                  <div className="text-sm text-zinc-500 font-mono p-2">No specific sources extracted.</div>
+                  <div className="text-sm text-on-surface-muted font-mono p-2">No specific sources extracted.</div>
                 )}
               </div>
             </div>

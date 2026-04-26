@@ -290,32 +290,32 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
   return (
     <div className="p-8 max-w-5xl mx-auto h-full overflow-y-auto">
       <div className="mb-8">
-        <h2 className="text-3xl font-mono font-bold text-indigo-400 mb-2">Automated Workflow Orchestrator</h2>
-        <p className="text-zinc-400 font-mono text-sm">Chain modules together to generate a comprehensive context bundle for the Dialectical Chat.</p>
+        <h2 className="text-display-lg font-mono font-bold text-primary mb-2">Automated Workflow Orchestrator</h2>
+        <p className="text-on-surface-muted font-mono text-sm">Chain modules together to generate a comprehensive context bundle for the Dialectical Chat.</p>
       </div>
 
-      <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-6 mb-8 shadow-lg">
-        <div className="flex flex-col gap-6">
+      <div className="bg-surface-raised border border-border rounded-none p-6 mb-8 ">
+        <div className="flex flex-col gap-8">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
-              <label htmlFor="workflow-input" className="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2">Expression / Problem</label>
+              <label htmlFor="workflow-input" className="block text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-2">Expression / Problem</label>
               <input
                 id="workflow-input"
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="e.g., ∇·F = ρ/ε₀ + ∂E/∂t"
-                className="w-full bg-[#0a0a0a] border border-[#333] rounded-lg px-4 py-3 text-indigo-300 font-mono focus:outline-none focus:border-indigo-500 transition-colors"
+                className="w-full bg-surface border border-border rounded-none px-4 py-4 text-on-surface font-mono focus:outline-none focus:border-primary transition-colors"
                 disabled={isRunning}
               />
             </div>
             <div className="w-full md:w-48">
-              <label htmlFor="workflow-domain" className="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2">Domain Context</label>
+              <label htmlFor="workflow-domain" className="block text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-2">Domain Context</label>
               <select
                 id="workflow-domain"
                 value={domainContext}
                 onChange={(e) => setDomainContext(e.target.value)}
-                className="w-full bg-[#0a0a0a] border border-[#333] rounded-lg px-4 py-3 text-zinc-300 font-mono focus:outline-none focus:border-indigo-500 transition-colors appearance-none"
+                className="w-full bg-surface border border-border rounded-none px-4 py-4 text-on-surface font-mono focus:outline-none focus:border-primary transition-colors appearance-none"
                 disabled={isRunning}
               >
                 <option value="Physics">Physics</option>
@@ -330,7 +330,7 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
             {isRunning ? (
               <button
                 onClick={stopWorkflow}
-                className="px-6 py-3 bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-500/30 font-mono rounded-lg flex items-center gap-2 transition-colors"
+                className="px-6 py-4 bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-500/30 font-mono rounded-none flex items-center gap-2 transition-colors"
               >
                 <Square className="w-4 h-4" />
                 Stop Execution
@@ -339,7 +339,7 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
               <button
                 onClick={runWorkflow}
                 disabled={!input.trim()}
-                className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-mono rounded-lg flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-6 py-4 bg-primary hover:bg-primary/80 text-on-primary font-mono rounded-none flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Play className="w-4 h-4" />
                 Run Full Pipeline
@@ -350,7 +350,7 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
       </div>
 
       <div className="space-y-4">
-        <h3 className="text-sm font-mono text-zinc-500 uppercase tracking-wider mb-4">Pipeline Execution Status</h3>
+        <h3 className="text-sm font-mono text-on-surface-muted uppercase tracking-wider mb-4">Pipeline Execution Status</h3>
         
         {steps.map((step, index) => {
           const Icon = step.icon;
@@ -358,17 +358,17 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
           
           return (
             <div key={step.id} className="relative">
-              <div className={`bg-[#141414] border rounded-xl p-5 flex items-center gap-4 transition-colors ${
-                step.status === 'running' ? 'border-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.2)]' :
+              <div className={`bg-surface border rounded-none p-5 flex items-center gap-4 transition-colors ${
+                step.status === 'running' ? 'border-primary ' :
                 step.status === 'success' ? 'border-emerald-500/50' :
                 step.status === 'error' ? 'border-red-500/50' :
-                'border-[#2a2a2a]'
+                'border-border'
               }`}>
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                  step.status === 'running' ? 'bg-indigo-500/20 text-indigo-400' :
+                <div className={`w-10 h-10 rounded-none flex items-center justify-center flex-shrink-0 ${
+                  step.status === 'running' ? 'bg-primary/20 text-primary' :
                   step.status === 'success' ? 'bg-emerald-500/20 text-emerald-400' :
                   step.status === 'error' ? 'bg-red-500/20 text-red-400' :
-                  'bg-[#2a2a2a] text-zinc-500'
+                  'bg-[#2a2a2a] text-on-surface-muted'
                 }`}>
                   {step.status === 'running' ? <Loader2 className="w-5 h-5 animate-spin" /> :
                    step.status === 'success' ? <CheckCircle2 className="w-5 h-5" /> :
@@ -378,10 +378,10 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
                 
                 <div className="flex-1">
                   <h4 className={`font-mono font-bold ${
-                    step.status === 'running' ? 'text-indigo-300' :
+                    step.status === 'running' ? 'text-on-surface' :
                     step.status === 'success' ? 'text-emerald-300' :
                     step.status === 'error' ? 'text-red-300' :
-                    'text-zinc-400'
+                    'text-on-surface-muted'
                   }`}>{step.title}</h4>
                   
                   {step.status === 'error' && (
@@ -389,7 +389,7 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
                   )}
                   
                   {step.status === 'success' && step.result && (
-                    <p className="text-xs font-mono text-zinc-500 mt-1 truncate max-w-2xl">
+                    <p className="text-xs font-mono text-on-surface-muted mt-1 truncate max-w-2xl">
                       {JSON.stringify(step.result).substring(0, 100)}...
                     </p>
                   )}
@@ -398,7 +398,7 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
               
               {isNext && (
                 <div className="flex justify-center my-2">
-                  <ArrowRight className="w-5 h-5 text-zinc-700 rotate-90" />
+                  <ArrowRight className="w-5 h-5 text-border rotate-90" />
                 </div>
               )}
             </div>
@@ -407,13 +407,13 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
       </div>
       
       {steps.every(s => s.status === 'success') && (
-        <div className="mt-8 p-6 bg-indigo-500/10 border border-indigo-500/30 rounded-xl text-center">
-          <SparklesIcon className="w-8 h-8 text-indigo-400 mx-auto mb-3" />
-          <h3 className="text-lg font-mono font-bold text-indigo-300 mb-2">Pipeline Complete</h3>
-          <p className="text-sm font-mono text-zinc-400 mb-4">Context bundle generated and sent to Dialectical Chat.</p>
+        <div className="mt-8 p-6 bg-primary/10 border border-primary/30 rounded-none text-center">
+          <SparklesIcon className="w-8 h-8 text-primary mx-auto mb-3" />
+          <h3 className="text-lg font-mono font-bold text-on-surface mb-2">Pipeline Complete</h3>
+          <p className="text-sm font-mono text-on-surface-muted mb-4">Context bundle generated and sent to Dialectical Chat.</p>
           <button 
             onClick={() => onComplete('Pipeline completed successfully.')}
-            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-mono rounded-lg text-sm transition-colors"
+            className="px-4 py-2 bg-primary hover:bg-primary/80 text-on-primary font-mono rounded-none text-sm transition-colors"
           >
             Go to Chat
           </button>
