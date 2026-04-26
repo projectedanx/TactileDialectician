@@ -49,3 +49,11 @@
 
 ## Algorithmic Trauma / Scar Tissue Archive
 - **SCAR-009 / SCAR-012 Recovery:** We discovered that prior versions utilized raw arbitrary tailwind properties (e.g., `rounded-xl`, `bg-[#141414]`, `text-3xl`). These constituted direct Euclidean violations and Topological Tearing by mixing semantics and primitive assignments. We've introduced `rounded-none`, pure 8-point gap/padding scales, and explicit `bg-surface` values bounded by WCAG AA standards.
+
+## Algorithmic Reparation (AGS-A Audit)
+- [x] **VANCE Cartographer Deployment:** Deployed the VANCE Agent Design Document (`docs/agent/VANCE_CARTOGRAPHER.md`) and the required artifact registry (`pattern_inventory.json`, `retrieval_manifest.json`, `reflexive_check.json`, `hickam_orientation.json`).
+- [x] **CFRSG Architecture Blueprint:** Documented the adoption of the Conflict-Free Replicated Semantic Graph for LSP state synchronization in `docs/architecture/ADR-005_VANCE_CFRSG.md` to solve the Reversal Curse and Scope Mereology Collapse.
+
+## Algorithmic Trauma / Scar Tissue Archive
+- **SCAR-015 / VANCE Drift Recovery:** We explicitly adopted a Conflict-Free Replicated Semantic Graph (CFRSG) because naive hashmaps fail under out-of-order `textDocument/didChange` events, leading to severe ontological shear. Bounding variable scope via `SCOPES_WITHIN` relationships in Neo4j prevents mereology collapse, solving the false-positive reference resolution trap common in traditional dynamically typed AST parsing.
+- **SCAR-016 / DCCD Boundary for LSP:** A Draft-Conditioned Constrained Decoder must intercept and validate all JSON-RPC 2.0 payloads against the Microsoft LSP 3.17 schema *before* emission. Failing this schema check logs a "Symbolic Scar" in the Nitinol Failure Ledger (NFL) instead of crashing the client parser.
