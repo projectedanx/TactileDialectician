@@ -49,3 +49,7 @@
 
 ## Algorithmic Trauma / Scar Tissue Archive
 - **SCAR-009 / SCAR-012 Recovery:** We discovered that prior versions utilized raw arbitrary tailwind properties (e.g., `rounded-xl`, `bg-[#141414]`, `text-3xl`). These constituted direct Euclidean violations and Topological Tearing by mixing semantics and primitive assignments. We've introduced `rounded-none`, pure 8-point gap/padding scales, and explicit `bg-surface` values bounded by WCAG AA standards.
+
+## Algorithmic Reparation (AGS-A Audit)
+- [x] **Topological Boundries (VULCAN Audit):** Established the Modular Monolith with MCP Sidecar architecture. Documented C4 Models, DDD boundaries, and ADRs in `docs/architecture` to prevent Semantic Saponification while resisting unwarranted microservice complexity.
+- [x] **VANCE Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/VANCE.md`) detailing the VANCE agent profile, JSON-RPC 2.0 invariants, Conflict-Free Replicated Semantic Graph (CFRSG), and Draft-Conditioned Constrained Decoder (DCCD) for LSP indexing.
