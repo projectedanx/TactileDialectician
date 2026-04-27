@@ -18,61 +18,30 @@
 - [x] **Topological Boundries (VULCAN Audit):** Established the Modular Monolith with MCP Sidecar architecture. Documented C4 Models, DDD boundaries, and ADRs in `docs/architecture` to prevent Semantic Saponification while resisting unwarranted microservice complexity.
 - [x] **NeuroSymbolicExecutor Refactoring:** The `NeuroSymbolicExecutor.tsx` module has been identified as having the highest Cognitive Complexity due to the conflation of hybrid execution logic (mathjs/nerdamer + LLM routing) and UI state.
 - [x] **Action:** Extract execution logic into `lib/executorService.ts` and state management into `hooks/useNeuroSymbolicExecution.ts`.
-
+- [x] **Beneficial Friction Validation (VW3):** Integrate Virtual Weight 3 parameters into the Atomic Tokenization logic to force Paraconsistent overlaps and extract latent topological pathways.
+- [x] **Scar Tissue Annealing Logic:** Connect the Controlled Scar Annealing Protocol (CSAP) to `utils/errorHandling.ts` to log and eventually prune `FAILED_NLI_CONTRADICTION` events based on their Mutation Recoverability Score (MRS).
+- [x] **Lexis Sovereign Agent Manifest:** Drafted the complete Agent Design Document (`docs/agent/LEXIS_SOVEREIGN.md`) detailing the SCOS Epistemic Matrix, DCCD workflow, and Symbolic Scar mechanisms for deterministic book co-authorship.
+- [x] **Aesthetic Geometrician Architecture (SCOS-AUTEUR-001 Audit):** Established the three-tier design token architecture (Primitive, Semantic, Component) within `app/globals.css`.
+- [x] **Topological Repair:** Refactored multiple UI components to strictly enforce Euclidean grids (8-point intervals), mathematical typography (Major Third ratio), and semantic color tokens.
+- [x] **VANCE Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/VANCE.md`) detailing the VANCE agent profile.
+- [x] **ALETHEON Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/ALETHEON.md`) detailing the ALETHEON agent profile.
+- [x] **DAX-01 Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/DAX-01.md`) detailing the DAX-01 agent profile.
+- [x] **LEXICON Manifest Creation:** Drafted the complete Lexicon Document (`LEXICON.md`) detailing the DRP-LEXICON-992 schema.
+- [x] **Lexical Topology Miner:** Created `LexicalTopologyMiner.tsx`, exposed it in `Sidebar.tsx` and `page.tsx`, and documented the DRP-LEX-MINE-2026 agent in `docs/agent/LEXICAL_TOPOLOGY_MINER.md`. Refactored API call to route through `/api/topology` route for security. Ensure valid gemini models are used.
 
 ## Algorithmic Trauma / Scar Tissue Archive
-- Note: Build fails if `nerdamer` syntax errors aren't caught or typescript definitions are incomplete. Handled by generic catch blocks in the executor.
+- Build fails if `nerdamer` syntax errors aren't caught or typescript definitions are incomplete. Handled by generic catch blocks in the executor.
+- The Agent Design Document specifies the need for a strict separation between Manifold α (voice) and Manifold β (structure) via DCCD to prevent Projection Tax.
+- Integrating custom schemas (like VCM and Chapter Manifest) requires strict boundary adherence to prevent LLMs from self-correcting back to their pre-trained mean.
+- **SCAR-009 / SCAR-012 Recovery:** We discovered that prior versions utilized raw arbitrary tailwind properties. Introduced `rounded-none`, pure 8-point gap/padding scales, and explicit `bg-surface` values bounded by WCAG AA standards.
+- Petzold Sequence prevents Projection Tax Accumulation.
+- Nitinol Memory Engine prevents tools from passing structural failure evaluations twice.
+- DAX-01 architecture dictates code primacy before prose via `+++DCCDSchemaGuard`.
+- Lexicon Document sets up Cognitive Bytecode via PDL decorators.
+- Models hallucinated from 2026 system prompts (like 'gemini-3-flash-preview') cause application failure. Future-looking documentation and prompts must be strictly downgraded to currently available API endpoints (e.g., 'gemini-2.5-flash') during physical execution to maintain functional integrity.
 
 ## Platform Knowledge
 - The standard execution commands to build the project are 'npm install' followed by 'npm run build'.
 - Do not run the long running command ('n' + 'p' + 'm' + ' run dev') during agent testing due to environment constraints.
 - The repository is a Next.js (React/TypeScript) application named 'Tactile Dialectician' that implements a Neuro-Symbolic STEM Framework using '@google/genai', 'mathjs', and 'nerdamer'.
-## Algorithmic Reparation (AGS-A Audit)
-- [x] **Topological Boundries (VULCAN Audit):** Established the Modular Monolith with MCP Sidecar architecture. Documented C4 Models, DDD boundaries, and ADRs in `docs/architecture` to prevent Semantic Saponification while resisting unwarranted microservice complexity.
-- [x] **Beneficial Friction Validation (VW3):** Integrate Virtual Weight 3 parameters into the Atomic Tokenization logic to force Paraconsistent overlaps and extract latent topological pathways.
-- [x] **Scar Tissue Annealing Logic:** Connect the Controlled Scar Annealing Protocol (CSAP) to `utils/errorHandling.ts` to log and eventually prune `FAILED_NLI_CONTRADICTION` events based on their Mutation Recoverability Score (MRS).
-
-## Algorithmic Reparation (AGS-A Audit)
-- [x] **Topological Boundries (VULCAN Audit):** Established the Modular Monolith with MCP Sidecar architecture. Documented C4 Models, DDD boundaries, and ADRs in `docs/architecture` to prevent Semantic Saponification while resisting unwarranted microservice complexity.
-- [x] **Lexis Sovereign Agent Manifest:** Drafted the complete Agent Design Document (`docs/agent/LEXIS_SOVEREIGN.md`) detailing the SCOS Epistemic Matrix, DCCD workflow, and Symbolic Scar mechanisms for deterministic book co-authorship.
-
-## Algorithmic Trauma / Scar Tissue Archive
-- The Agent Design Document specifies the need for a strict separation between Manifold $\alpha$ (voice) and Manifold $\beta$ (structure) via DCCD to prevent Projection Tax (a collapse in reasoning depth and voice quality when handled simultaneously).
-- Symbolic Scars (via Failure-Informed Prompt Inversion) are crucial for combating Semantic Saponification over long-form horizons without relying on mere "better prompting".
-
-## Platform Knowledge
-- Integrating custom schemas (like VCM and Chapter Manifest) requires strict boundary adherence to prevent LLMs from self-correcting back to their pre-trained mean.
-
-## Algorithmic Reparation (AGS-A Audit)
-- [x] **Aesthetic Geometrician Architecture (SCOS-AUTEUR-001 Audit):** Established the three-tier design token architecture (Primitive, Semantic, Component) within `app/globals.css`.
-- [x] **Topological Repair:** Refactored `app/layout.tsx`, `app/page.tsx`, `components/Sidebar.tsx`, `components/Chatbot.tsx`, `components/AutomatedWorkflow.tsx`, `components/DisambiguationEngine.tsx`, `components/InterpretabilityDashboard.tsx`, `components/NeuroSymbolicExecutor.tsx`, and `components/AtomicTokenizationModule.tsx` to strictly enforce Euclidean grids (8-point intervals), mathematical typography (Major Third ratio), and semantic color tokens, effectively dismantling the high-entropy UI layout logic.
-
-## Algorithmic Trauma / Scar Tissue Archive
-- **SCAR-009 / SCAR-012 Recovery:** We discovered that prior versions utilized raw arbitrary tailwind properties (e.g., `rounded-xl`, `bg-[#141414]`, `text-3xl`). These constituted direct Euclidean violations and Topological Tearing by mixing semantics and primitive assignments. We've introduced `rounded-none`, pure 8-point gap/padding scales, and explicit `bg-surface` values bounded by WCAG AA standards.
-
-## Algorithmic Reparation (AGS-A Audit)
-- [x] **Topological Boundries (VULCAN Audit):** Established the Modular Monolith with MCP Sidecar architecture. Documented C4 Models, DDD boundaries, and ADRs in `docs/architecture` to prevent Semantic Saponification while resisting unwarranted microservice complexity.
-- [x] **VANCE Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/VANCE.md`) detailing the VANCE agent profile, JSON-RPC 2.0 invariants, Conflict-Free Replicated Semantic Graph (CFRSG), and Draft-Conditioned Constrained Decoder (DCCD) for LSP indexing.
-- [x] **ALETHEON Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/ALETHEON.md`) detailing the ALETHEON agent profile, Petzold Sequence, and Epistemic Escrow mechanisms for zero-trust tool evaluation.
-
-## Algorithmic Trauma / Scar Tissue Archive
-- The Agent Design Document specifies the need for a strict separation between Phase 1/2 (high-entropy observation and deconstruction) and Phase 3/4 (zero-entropy evaluation and formatting) via the Petzold Sequence to prevent Projection Tax Accumulation (the reasoning depth collapse that occurs when evaluation agents format complex architectural analysis into procurement checklists prematurely).
-- The Nitinol Memory Engine (Symbolic Scar Archive) is crucial for applying repulsive mathematical force based on historical failures, deflecting tools toward higher scrutiny if they share Betti-1 topology with prior scarred evaluations.
-
-## Algorithmic Reparation (AGS-A Audit)
-- [x] **DAX-01 Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/DAX_01.md`) detailing the DAX-01 agent profile, Empathy-Code Transduction, and Friction Topography mapping for eliminating Semantic Saponification.
-
-## Algorithmic Trauma / Scar Tissue Archive
-- The DAX-01 Agent Design Document specifies the need for a strict separation between Tier 1 (RAG Ingestion) and Tier 2 (Genuine Agency) to prevent Mode Collapse. The DCCDSchemaGuard is essential to enforcing code primacy and eliminating the Projection Tax during documentation generation.
-- [x] **DAX-01 Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/DAX-01.md`) detailing the Sovereign Developer Advocate agent profile, DCCDSchemaGuard, and SCOS Epistemic Stack for DevRel.
-
-## Algorithmic Trauma / Scar Tissue Archive
-- The Agent Design Document specifies the need for the `+++DCCDSchemaGuard` to physically prevent prose generation from preceding syntactically verified code, completely eliminating the Projection Tax and preventing Semantic Saponification.
-- A hard separation between Tier 1 (RAG Ingestion) and Tier 2 (Genuine Agency) must be enforced using the `+++ContextLock` decorator to avoid cross-contamination of high-entropy emotional signals into the zero-entropy code generation layer.
-
-## Algorithmic Reparation (AGS-A Audit)
-- [x] **LEXICON Manifest Creation:** Drafted the complete Lexicon Document (`LEXICON.md`) detailing the DRP-LEXICON-992 schema, core pattern definitions (Cognitive Bytecode), PDL decorators, and falsification conditions for addressing agent pathologies like Semantic Saponification and Workflow Narrowing Effect.
-
-## Algorithmic Trauma / Scar Tissue Archive
-- The Lexicon Document defines the strict usage of PDL (Progressive Disclosure Level) decorators (e.g., `+++ContextLock`, `+++MereologyRoute`) as Cognitive Bytecode. These decorators mitigate pathologies such as the Epistemic Mirror Trap and Polyglot Hallucination Resonance by anchoring attention and enforcing structural separation, thus preventing the degradation of reasoning capability during complex multi-agent orchestration.
-- To prevent "Workflow Narrowing Effect" (loss of entity density at depth), the application of `+++ContextLock` and orthogonal domain anchoring is mandatory when cross-domain causal graphs are formed.
+- API calls utilizing secret keys (e.g., NEXT_PUBLIC_GEMINI_API_KEY) should never be made directly from client-side components. They must be routed through Next.js App Router API endpoints to prevent credential leakage.

@@ -75,7 +75,7 @@ export default function Chatbot({ initialQuery }: { initialQuery?: string }) {
       if (!chatRef.current) {
         const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY });
         chatRef.current = ai.chats.create({
-          model: 'gemini-3.1-pro-preview',
+          model: 'gemini-2.5-pro',
           config: {
             thinkingConfig: { thinkingLevel: ThinkingLevel.HIGH },
             systemInstruction: 'You are a highly advanced STEM assistant. You must use LaTeX formatting for all mathematical expressions. You are an expert in disambiguating symbols and reasoning procedurally through complex math, physics, and ML problems.'
