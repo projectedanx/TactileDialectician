@@ -1,4 +1,5 @@
 import {
+  Network,
   BookOpen,
   Calculator,
   MessageSquare,
@@ -27,10 +28,11 @@ interface SidebarProps {
  */
 export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
   // Miller's Law limit: 5 nav items. We group workflow and chat as primary.
-  const MAX_NAV_ITEMS = 5;
+  const MAX_NAV_ITEMS = 6;
 
   const tabs = [
     { id: 'workflow', label: 'Automated Workflow', icon: Workflow },
+    { id: 'lexical', label: 'Lexical Topology', icon: Network },
     { id: 'disambiguation', label: 'Disambiguation', icon: BookOpen },
     { id: 'tokenization', label: 'Atomic Tokens', icon: Cpu },
     { id: 'executor', label: 'Symbolic Executor', icon: Calculator },

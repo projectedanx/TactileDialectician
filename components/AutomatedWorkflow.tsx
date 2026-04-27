@@ -124,7 +124,7 @@ export default function AutomatedWorkflow({ onComplete }: AutomatedWorkflowProps
 
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY });
-      const model = 'gemini-3-flash-preview';
+      const model = 'gemini-2.5-flash';
 
       // --- STEP 1: Disambiguation ---
       updateStep('disambiguation', { status: 'running' });
@@ -198,7 +198,7 @@ export default function AutomatedWorkflow({ onComplete }: AutomatedWorkflowProps
       if (signal.aborted) throw new Error('Aborted');
 
       const executorResponse = await ai.models.generateContent({
-        model: 'gemini-3.1-pro-preview', // Use pro for execution
+        model: 'gemini-2.5-pro', // Use pro for execution
         contents: `Act as a Neuro-Symbolic Executor. 
         Evaluate or explain the following expression step-by-step: "${input}".
         Domain: "${domainContext}".

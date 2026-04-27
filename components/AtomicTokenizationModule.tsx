@@ -208,7 +208,7 @@ export default function AtomicTokenizationModule() {
       }
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.5-flash',
         contents: `Analyze the following STEM symbols extracted from a user's input: ${foundSymbols.join(', ')}. 
         The user has provided the following domain context: "${domainContext}".
         For each symbol, simulate how a standard BPE tokenizer might fragment it into bytes, assign a mock atomic token ID, and generate a FoNE-inspired semantic embedding profile capturing its mathematical properties. Tailor the domain weights and tensor rank effect based on the provided domain context if applicable.`,

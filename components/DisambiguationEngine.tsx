@@ -84,7 +84,7 @@ export default function DisambiguationEngine() {
       }
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-2.5-flash',
         contents: `Analyze the following expression or symbol: "${input}". 
         
 The user has explicitly forced the domain context to: "${promptContext}".

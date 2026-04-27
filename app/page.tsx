@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import DisambiguationEngine from '@/components/DisambiguationEngine';
+import LexicalTopologyMiner from '@/components/LexicalTopologyMiner';
 import NeuroSymbolicExecutor from '@/components/NeuroSymbolicExecutor';
 import InterpretabilityDashboard from '@/components/InterpretabilityDashboard';
 import Chatbot from '@/components/Chatbot';
@@ -29,6 +30,7 @@ export default function Home() {
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
       <main className="flex-1 h-full relative">
         {activeTab === 'workflow' && <AutomatedWorkflow onComplete={handleWorkflowComplete} />}
+        {activeTab === 'lexical' && <LexicalTopologyMiner />}
         {activeTab === 'disambiguation' && <DisambiguationEngine />}
         {activeTab === 'tokenization' && <AtomicTokenizationModule />}
         {activeTab === 'executor' && <NeuroSymbolicExecutor />}
