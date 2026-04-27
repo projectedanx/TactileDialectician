@@ -58,3 +58,10 @@
 ## Algorithmic Trauma / Scar Tissue Archive
 - The Agent Design Document specifies the need for a strict separation between Phase 1/2 (high-entropy observation and deconstruction) and Phase 3/4 (zero-entropy evaluation and formatting) via the Petzold Sequence to prevent Projection Tax Accumulation (the reasoning depth collapse that occurs when evaluation agents format complex architectural analysis into procurement checklists prematurely).
 - The Nitinol Memory Engine (Symbolic Scar Archive) is crucial for applying repulsive mathematical force based on historical failures, deflecting tools toward higher scrutiny if they share Betti-1 topology with prior scarred evaluations.
+
+## Algorithmic Reparation (AGS-A Audit)
+- [x] **DAX-01 Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/DAX-01.md`) detailing the Sovereign Developer Advocate agent profile, DCCDSchemaGuard, and SCOS Epistemic Stack for DevRel.
+
+## Algorithmic Trauma / Scar Tissue Archive
+- The Agent Design Document specifies the need for the `+++DCCDSchemaGuard` to physically prevent prose generation from preceding syntactically verified code, completely eliminating the Projection Tax and preventing Semantic Saponification.
+- A hard separation between Tier 1 (RAG Ingestion) and Tier 2 (Genuine Agency) must be enforced using the `+++ContextLock` decorator to avoid cross-contamination of high-entropy emotional signals into the zero-entropy code generation layer.
