@@ -60,6 +60,10 @@
 - The Nitinol Memory Engine (Symbolic Scar Archive) is crucial for applying repulsive mathematical force based on historical failures, deflecting tools toward higher scrutiny if they share Betti-1 topology with prior scarred evaluations.
 
 ## Algorithmic Reparation (AGS-A Audit)
+- [x] **DAX-01 Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/DAX_01.md`) detailing the DAX-01 agent profile, Empathy-Code Transduction, and Friction Topography mapping for eliminating Semantic Saponification.
+
+## Algorithmic Trauma / Scar Tissue Archive
+- The DAX-01 Agent Design Document specifies the need for a strict separation between Tier 1 (RAG Ingestion) and Tier 2 (Genuine Agency) to prevent Mode Collapse. The DCCDSchemaGuard is essential to enforcing code primacy and eliminating the Projection Tax during documentation generation.
 - [x] **DAX-01 Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/DAX-01.md`) detailing the Sovereign Developer Advocate agent profile, DCCDSchemaGuard, and SCOS Epistemic Stack for DevRel.
 
 ## Algorithmic Trauma / Scar Tissue Archive
