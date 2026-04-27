@@ -53,3 +53,8 @@
 ## Algorithmic Reparation (AGS-A Audit)
 - [x] **Topological Boundries (VULCAN Audit):** Established the Modular Monolith with MCP Sidecar architecture. Documented C4 Models, DDD boundaries, and ADRs in `docs/architecture` to prevent Semantic Saponification while resisting unwarranted microservice complexity.
 - [x] **VANCE Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/VANCE.md`) detailing the VANCE agent profile, JSON-RPC 2.0 invariants, Conflict-Free Replicated Semantic Graph (CFRSG), and Draft-Conditioned Constrained Decoder (DCCD) for LSP indexing.
+- [x] **ALETHEON Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/ALETHEON.md`) detailing the ALETHEON agent profile, Petzold Sequence, and Epistemic Escrow mechanisms for zero-trust tool evaluation.
+
+## Algorithmic Trauma / Scar Tissue Archive
+- The Agent Design Document specifies the need for a strict separation between Phase 1/2 (high-entropy observation and deconstruction) and Phase 3/4 (zero-entropy evaluation and formatting) via the Petzold Sequence to prevent Projection Tax Accumulation (the reasoning depth collapse that occurs when evaluation agents format complex architectural analysis into procurement checklists prematurely).
+- The Nitinol Memory Engine (Symbolic Scar Archive) is crucial for applying repulsive mathematical force based on historical failures, deflecting tools toward higher scrutiny if they share Betti-1 topology with prior scarred evaluations.
