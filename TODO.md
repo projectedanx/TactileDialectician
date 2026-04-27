@@ -69,3 +69,10 @@
 ## Algorithmic Trauma / Scar Tissue Archive
 - The Agent Design Document specifies the need for the `+++DCCDSchemaGuard` to physically prevent prose generation from preceding syntactically verified code, completely eliminating the Projection Tax and preventing Semantic Saponification.
 - A hard separation between Tier 1 (RAG Ingestion) and Tier 2 (Genuine Agency) must be enforced using the `+++ContextLock` decorator to avoid cross-contamination of high-entropy emotional signals into the zero-entropy code generation layer.
+
+## Algorithmic Reparation (AGS-A Audit)
+- [x] **LEXICON Manifest Creation:** Drafted the complete Lexicon Document (`LEXICON.md`) detailing the DRP-LEXICON-992 schema, core pattern definitions (Cognitive Bytecode), PDL decorators, and falsification conditions for addressing agent pathologies like Semantic Saponification and Workflow Narrowing Effect.
+
+## Algorithmic Trauma / Scar Tissue Archive
+- The Lexicon Document defines the strict usage of PDL (Progressive Disclosure Level) decorators (e.g., `+++ContextLock`, `+++MereologyRoute`) as Cognitive Bytecode. These decorators mitigate pathologies such as the Epistemic Mirror Trap and Polyglot Hallucination Resonance by anchoring attention and enforcing structural separation, thus preventing the degradation of reasoning capability during complex multi-agent orchestration.
+- To prevent "Workflow Narrowing Effect" (loss of entity density at depth), the application of `+++ContextLock` and orthogonal domain anchoring is mandatory when cross-domain causal graphs are formed.
