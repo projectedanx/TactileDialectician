@@ -6,6 +6,10 @@ The **Tactile Dialectician** is an advanced, hybrid AI-reasoning interface built
 ## Architecture Deliverables
 The system topography, including Domain-Driven Design Context Maps and C4 Models, has been rigorously documented. Please see `docs/architecture` for ADRs and structural blueprints.
 
+
+## Agent Profiles
+The system utilizes specialized PDL v1.0-governed AI agents for deterministic and architectural tasks. Please refer to `docs/agent` for complete profiles, including LEXIS_SOVEREIGN (SCOS Co-Authorship), VANCE (LSP Code Intelligence), and ALETHEON (Adversarial Tool Evaluation).
+
 ## Architectural Modules
 
 The application is structured around several distinct epistemic modules:
