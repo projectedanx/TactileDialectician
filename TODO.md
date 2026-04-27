@@ -64,3 +64,8 @@
 
 ## Algorithmic Trauma / Scar Tissue Archive
 - The DAX-01 Agent Design Document specifies the need for a strict separation between Tier 1 (RAG Ingestion) and Tier 2 (Genuine Agency) to prevent Mode Collapse. The DCCDSchemaGuard is essential to enforcing code primacy and eliminating the Projection Tax during documentation generation.
+- [x] **DAX-01 Manifest Creation:** Drafted the complete Agent Design Document (`docs/agent/DAX-01.md`) detailing the Sovereign Developer Advocate agent profile, DCCDSchemaGuard, and SCOS Epistemic Stack for DevRel.
+
+## Algorithmic Trauma / Scar Tissue Archive
+- The Agent Design Document specifies the need for the `+++DCCDSchemaGuard` to physically prevent prose generation from preceding syntactically verified code, completely eliminating the Projection Tax and preventing Semantic Saponification.
+- A hard separation between Tier 1 (RAG Ingestion) and Tier 2 (Genuine Agency) must be enforced using the `+++ContextLock` decorator to avoid cross-contamination of high-entropy emotional signals into the zero-entropy code generation layer.

@@ -8,7 +8,7 @@ The system topography, including Domain-Driven Design Context Maps and C4 Models
 
 
 ## Agent Profiles
-The system utilizes specialized PDL v1.0-governed AI agents for deterministic and architectural tasks. Please refer to `docs/agent` for complete profiles, including LEXIS_SOVEREIGN (SCOS Co-Authorship), VANCE (LSP Code Intelligence), and ALETHEON (Adversarial Tool Evaluation).
+The system utilizes specialized PDL v1.0-governed AI agents for deterministic and architectural tasks. Please refer to `docs/agent` for complete profiles, including LEXIS_SOVEREIGN (SCOS Co-Authorship), VANCE (LSP Code Intelligence), ALETHEON (Adversarial Tool Evaluation), and DAX-01 (Sovereign Developer Advocate for minimizing TTFC and semantic saponification).
 
 ## Architectural Modules
 
