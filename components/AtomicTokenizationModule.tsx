@@ -384,15 +384,13 @@ export default function AtomicTokenizationModule() {
       <div className="bg-surface-raised border border-border rounded-none p-6 mb-8 ">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-4 border-b border-border pb-4">
-            <button 
-              onClick={() => { setInputMode('extract'); setInput('∇·F = ρ/ε₀ + ∂E/∂t'); }}
+            <button onClick={() => { setInputMode('extract'); setInput('∇·F = ρ/ε₀ + ∂E/∂t'); }}
               aria-label="Switch to Auto-Extract from Equation mode"
               className={`text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-none transition-colors ${inputMode === 'extract' ? 'bg-primary/10 text-primary border border-primary/30' : 'text-on-surface-muted hover:text-on-surface'}`}
             >
               Auto-Extract from Equation
             </button>
-            <button 
-              onClick={() => { setInputMode('list'); setInput('∇, ∂, Σ, ∫, ∞, λ, ⊗, ⟨ψ|, Ĥ'); }}
+            <button onClick={() => { setInputMode('list'); setInput('∇, ∂, Σ, ∫, ∞, λ, ⊗, ⟨ψ|, Ĥ'); }}
               aria-label="Switch to Explicit Symbol List mode"
               className={`text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-none transition-colors ${inputMode === 'list' ? 'bg-primary/10 text-primary border border-primary/30' : 'text-on-surface-muted hover:text-on-surface'}`}
             >
@@ -432,8 +430,7 @@ export default function AtomicTokenizationModule() {
               </select>
             </div>
             <div className="flex items-end">
-              <button
-                onClick={handleAnalyze}
+              <button onClick={handleAnalyze}
                 disabled={loading || !input.trim()}
                 aria-label="Tokenize Input"
                 className="h-[50px] px-6 bg-primary hover:bg-primary/80 text-on-primary font-mono rounded-none flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
@@ -571,8 +568,7 @@ export default function AtomicTokenizationModule() {
               <Network className="w-5 h-5 text-primary" />
               <h3 className="text-sm font-mono text-on-surface uppercase tracking-wider">Translation Proxy Payload</h3>
             </div>
-            <button
-              onClick={handleCopyPayload}
+            <button aria-label="Copy JSON Payload" onClick={handleCopyPayload}
               className="flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] hover:bg-[#333] border border-[#444] rounded-none text-xs font-mono text-on-surface transition-colors"
             >
               {copied ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4" />}

@@ -157,8 +157,7 @@ Identify all mathematical or scientific symbols and disambiguate their meaning s
               />
             </div>
             <div className="flex items-end">
-              <button
-                onClick={handleDisambiguate}
+              <button onClick={handleDisambiguate}
                 disabled={loading || !input.trim()}
                 aria-label="Analyze Symbol"
                 className="h-[50px] px-6 bg-primary hover:bg-primary/80 text-on-primary font-mono rounded-none flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
