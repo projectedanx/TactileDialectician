@@ -11,8 +11,8 @@
 - [x] **Error Boundary Polish:** Extend the `parseAIError` utility to handle specific `nerdamer` and `mathjs` parsing exceptions, unifying the error state across deterministic and probabilistic engines.
 
 ## Low Priority / Maintenance
-- [ ] **Dependency Audit:** Lock down versions for `nerdamer` and `mathjs` to prevent unexpected symbolic evaluation regressions.
-- [ ] **Accessibility (a11y):** Ensure all tactile buttons and custom dropdowns are fully keyboard navigable and screen-reader friendly.
+- [x] **Dependency Audit:** Lock down versions for `nerdamer` and `mathjs` to prevent unexpected symbolic evaluation regressions.
+- [x] **Accessibility (a11y):** Ensure all tactile buttons and custom dropdowns are fully keyboard navigable and screen-reader friendly.
 
 ## Algorithmic Reparation (AGS-A Audit)
 - [x] **Topological Boundries (VULCAN Audit):** Established the Modular Monolith with MCP Sidecar architecture. Documented C4 Models, DDD boundaries, and ADRs in `docs/architecture` to prevent Semantic Saponification while resisting unwarranted microservice complexity.
@@ -30,6 +30,7 @@
 - [x] **Lexical Topology Miner:** Created `LexicalTopologyMiner.tsx`, exposed it in `Sidebar.tsx` and `page.tsx`, and documented the DRP-LEX-MINE-2026 agent in `docs/agent/LEXICAL_TOPOLOGY_MINER.md`. Refactored API call to route through `/api/topology` route for security. Ensure valid gemini models are used.
 
 ## Algorithmic Trauma / Scar Tissue Archive
+- Keyboard accessibility audits require explicit `aria-label` injection on custom unstyled buttons to prevent screen-reader silence (SCAR-A11Y-01).
 - Build fails if `nerdamer` syntax errors aren't caught or typescript definitions are incomplete. Handled by generic catch blocks in the executor.
 - The Agent Design Document specifies the need for a strict separation between Manifold α (voice) and Manifold β (structure) via DCCD to prevent Projection Tax.
 - Integrating custom schemas (like VCM and Chapter Manifest) requires strict boundary adherence to prevent LLMs from self-correcting back to their pre-trained mean.

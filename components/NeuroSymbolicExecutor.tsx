@@ -89,8 +89,7 @@ export default function NeuroSymbolicExecutor() {
                   Find Unsolved Problem
                 </button>
               </div>
-              <button
-                onClick={handleExecute}
+              <button onClick={handleExecute}
                 disabled={loading || !input.trim()}
                 aria-label="Execute Neuro-Symbolic Computation"
                 className="px-6 py-2 bg-primary hover:bg-primary/80 text-on-primary font-mono rounded-none flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"

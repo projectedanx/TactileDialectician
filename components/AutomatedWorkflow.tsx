@@ -330,6 +330,7 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
             {isRunning ? (
               <button
                 onClick={stopWorkflow}
+                aria-label="Stop Execution"
                 className="px-6 py-4 bg-red-600/20 hover:bg-red-600/30 text-red-400 border border-red-500/30 font-mono rounded-none flex items-center gap-2 transition-colors"
               >
                 <Square className="w-4 h-4" />
@@ -338,6 +339,7 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
             ) : (
               <button
                 onClick={runWorkflow}
+                aria-label="Run Full Pipeline"
                 disabled={!input.trim()}
                 className="px-6 py-4 bg-primary hover:bg-primary/80 text-on-primary font-mono rounded-none flex items-center gap-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -412,6 +414,7 @@ ${tokenizationData.map((t: TokenizationData) => `- **${t.symbol}** -> [MATH_ENTI
           <h3 className="text-lg font-mono font-bold text-on-surface mb-2">Pipeline Complete</h3>
           <p className="text-sm font-mono text-on-surface-muted mb-4">Context bundle generated and sent to Dialectical Chat.</p>
           <button 
+            aria-label="Go to Chat"
             onClick={() => onComplete('Pipeline completed successfully.')}
             className="px-4 py-2 bg-primary hover:bg-primary/80 text-on-primary font-mono rounded-none text-sm transition-colors"
           >

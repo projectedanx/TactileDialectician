@@ -61,6 +61,8 @@ export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
           const isActive = activeTab === tab.id;
           return (
             <button
+              aria-label={tab.label}
+              aria-expanded={isActive}
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`w-full flex items-center gap-4 px-4 py-2 rounded-none text-body font-sans transition-all duration-200 border-2 ${
