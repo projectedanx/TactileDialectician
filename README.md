@@ -34,6 +34,11 @@ The application is structured around several distinct epistemic modules:
    - Grounds abstract mathematical concepts in recent literature.
    - Utilizes Google Search grounding to retrieve academic context and generate source-backed intuition summaries.
 
+
+7. **Sovereign Project Management Orchestrator (`SovereignProjectOrchestrator.tsx`)**
+   - Translates deterministic system-first specs into agentic operational workflows.
+   - Navigates stakeholder dissonance by calculating Topological Derivatives instead of averaging out conflicts, generating Zachman Framework Specs and Architecture Decision Records (ADRs).
+
 6. **Dialectical Chat (`Chatbot.tsx`)**
    - The primary interface for high-reasoning collaboration.
    - Natively supports LaTeX and maintains persistent local context, allowing users to dialectically probe the outputs of the automated workflows.
