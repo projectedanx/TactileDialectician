@@ -6,7 +6,8 @@ import {
   Activity,
   Layers,
   Cpu,
-  Workflow
+  Workflow,
+  UserCog
 } from 'lucide-react';
 
 /**
@@ -28,10 +29,11 @@ interface SidebarProps {
  */
 export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
   // Miller's Law limit: 5 nav items. We group workflow and chat as primary.
-  const MAX_NAV_ITEMS = 6;
+  const MAX_NAV_ITEMS = 7;
 
   const tabs = [
     { id: 'workflow', label: 'Automated Workflow', icon: Workflow },
+    { id: 'persona', label: 'Persona Sculptor', icon: UserCog },
     { id: 'lexical', label: 'Lexical Topology', icon: Network },
     { id: 'disambiguation', label: 'Disambiguation', icon: BookOpen },
     { id: 'tokenization', label: 'Atomic Tokens', icon: Cpu },
@@ -41,7 +43,7 @@ export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
 
   if (tabs.length > MAX_NAV_ITEMS) {
     console.warn(
-      `[AestheticGeometrician] MILLER VIOLATION: ${tabs.length} nav items exceed the 5-item cognitive budget.`
+      `[AestheticGeometrician] MILLER VIOLATION: ${tabs.length} nav items exceed the ${MAX_NAV_ITEMS}-item cognitive budget.`
     );
   }
 

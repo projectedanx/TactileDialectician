@@ -46,3 +46,6 @@
 - Do not run the long running command ('n' + 'p' + 'm' + ' run dev') during agent testing due to environment constraints.
 - The repository is a Next.js (React/TypeScript) application named 'Tactile Dialectician' that implements a Neuro-Symbolic STEM Framework using '@google/genai', 'mathjs', and 'nerdamer'.
 - API calls utilizing secret keys (e.g., NEXT_PUBLIC_GEMINI_API_KEY) should never be made directly from client-side components. They must be routed through Next.js App Router API endpoints to prevent credential leakage.
+
+- [x] **Topological Persona Causal Sculptor:** Implemented `TopologicalPersonaSculptor.tsx` and `/api/persona-extrusion` to apply the `DRP-PLURI-808-PERSONA-METROLOGY` protocol. Extrudes empirical operational friction into deterministic, mathematically bounded persona nodes.
+- [x] **DRP_PLURI_808_PERSONA Agent Manifest:** Drafted the complete Agent Design Document (`docs/agent/DRP_PLURI_808_PERSONA.md`).
