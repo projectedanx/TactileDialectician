@@ -7,7 +7,8 @@ import {
   Layers,
   Cpu,
   Workflow,
-  UserCog
+  UserCog,
+  ClipboardList
 } from 'lucide-react';
 
 /**
@@ -29,9 +30,10 @@ interface SidebarProps {
  */
 export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
   // Miller's Law limit: 5 nav items. We group workflow and chat as primary.
-  const MAX_NAV_ITEMS = 7;
+  const MAX_NAV_ITEMS = 8;
 
   const tabs = [
+    { id: 'orchestrator', label: 'PM Orchestrator', icon: ClipboardList },
     { id: 'workflow', label: 'Automated Workflow', icon: Workflow },
     { id: 'persona', label: 'Persona Sculptor', icon: UserCog },
     { id: 'lexical', label: 'Lexical Topology', icon: Network },

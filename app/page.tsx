@@ -10,6 +10,7 @@ import Chatbot from '@/components/Chatbot';
 import AtomicTokenizationModule from '@/components/AtomicTokenizationModule';
 import AutomatedWorkflow from '@/components/AutomatedWorkflow';
 import TopologicalPersonaSculptor from '@/components/TopologicalPersonaSculptor';
+import SovereignProjectOrchestrator from '@/components/SovereignProjectOrchestrator';
 
 /**
  * The main entry point for the Tactile Dialectician application.
@@ -32,6 +33,7 @@ export default function Home() {
       <main className="flex-1 h-full relative">
         {activeTab === 'workflow' && <AutomatedWorkflow onComplete={handleWorkflowComplete} />}
         {activeTab === 'persona' && <TopologicalPersonaSculptor />}
+        {activeTab === 'orchestrator' && <SovereignProjectOrchestrator />}
         {activeTab === 'lexical' && <LexicalTopologyMiner />}
         {activeTab === 'disambiguation' && <DisambiguationEngine />}
         {activeTab === 'tokenization' && <AtomicTokenizationModule />}
