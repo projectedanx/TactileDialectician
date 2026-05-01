@@ -11,6 +11,7 @@ import AtomicTokenizationModule from '@/components/AtomicTokenizationModule';
 import AutomatedWorkflow from '@/components/AutomatedWorkflow';
 import TopologicalPersonaSculptor from '@/components/TopologicalPersonaSculptor';
 import SovereignProjectOrchestrator from '@/components/SovereignProjectOrchestrator';
+import EpistemicEscrowDashboard from '@/components/EpistemicEscrowDashboard';
 
 /**
  * The main entry point for the Tactile Dialectician application.
@@ -40,6 +41,7 @@ export default function Home() {
         {activeTab === 'executor' && <NeuroSymbolicExecutor />}
         {activeTab === 'dashboard' && <InterpretabilityDashboard />}
         {activeTab === 'chat' && <Chatbot initialQuery={chatQuery} />}
+        {activeTab === 'escrow' && <EpistemicEscrowDashboard />}
       </main>
     </div>
   );

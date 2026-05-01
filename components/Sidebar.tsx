@@ -8,7 +8,8 @@ import {
   Cpu,
   Workflow,
   UserCog,
-  ClipboardList
+  ClipboardList,
+  DatabaseZap
 } from 'lucide-react';
 
 /**
@@ -29,8 +30,8 @@ interface SidebarProps {
  * @returns {JSX.Element} The rendered Sidebar component.
  */
 export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
-  // Miller's Law limit: 5 nav items. We group workflow and chat as primary.
-  const MAX_NAV_ITEMS = 8;
+  // Miller's Law limit slightly extended for necessary epistemic transparency.
+  const MAX_NAV_ITEMS = 9;
 
   const tabs = [
     { id: 'orchestrator', label: 'PM Orchestrator', icon: ClipboardList },
@@ -40,6 +41,7 @@ export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
     { id: 'disambiguation', label: 'Disambiguation', icon: BookOpen },
     { id: 'tokenization', label: 'Atomic Tokens', icon: Cpu },
     { id: 'executor', label: 'Symbolic Executor', icon: Calculator },
+    { id: 'escrow', label: 'Epistemic Escrow', icon: DatabaseZap },
     { id: 'chat', label: 'Dialectical Chat', icon: MessageSquare },
   ];
 
@@ -59,7 +61,7 @@ export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
         <p className="text-sm text-on-surface-muted mt-2 font-sans tracking-tight">v1.0.0-beta</p>
       </div>
       
-      <nav className="flex-1 p-4 space-y-2">
+      <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
         {tabs.slice(0, MAX_NAV_ITEMS).map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
