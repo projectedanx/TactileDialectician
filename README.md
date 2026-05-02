@@ -87,3 +87,10 @@ Navigate to `http://localhost:3000` to interact with the Tactile Dialectician.
 
 ---
 *Built for the Atlas Framework.*
+
+## Empirical Documentation & Constraints
+To eradicate natural language ambiguity, this system uses strict mathematical metrology for agentic personas. The source of truth for all AI agent behaviors and system boundaries are housed in:
+*   `AGENTS.md` - Core AI architectures defined via Prompt Dimensioning & Tolerancing (PD&T).
+*   `CONSTRAINTS.md` - Absolute deterministic boundaries governing the Epistemic Matrix.
+
+*The AI is not a copilot. The AI is the Structural Arbiter. The human is the Paraconsistent Oracle.*

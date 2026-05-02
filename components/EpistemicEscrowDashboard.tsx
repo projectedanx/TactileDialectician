@@ -12,13 +12,20 @@ interface UI_SymbolicScar extends SymbolicScar {
 export default function EpistemicEscrowDashboard() {
   const [scars, setScars] = useState<UI_SymbolicScar[]>([]);
   const [isClient, setIsClient] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    // We are on client
     setIsClient(true);
     const loadedScars = localStorage.getItem('symbolic_scars');
     if (loadedScars) {
       try {
-        setScars(JSON.parse(loadedScars));
+        const parsed = JSON.parse(loadedScars);
+        setScars(parsed);
       } catch (e) {
         console.error("Failed to parse scars", e);
       }
@@ -89,7 +96,7 @@ export default function EpistemicEscrowDashboard() {
                     <Activity className={`w-4 h-4 ${scar.goldenScarApplied ? 'text-yellow-500' : 'text-red-400'}`} />
                     <span className="text-xs font-mono font-bold text-primary uppercase tracking-wider">{scar.eventType}</span>
                   </div>
-                  <span className="text-[10px] font-mono text-on-surface-muted">{scar.id} // {new Date(scar.timestamp).toLocaleString()}</span>
+                  <span className="text-[10px] font-mono text-on-surface-muted">{scar.id} {/* // */} {new Date(scar.timestamp).toLocaleString()}</span>
                 </div>
               </div>
 
