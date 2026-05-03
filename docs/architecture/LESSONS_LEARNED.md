@@ -20,3 +20,11 @@
 **Proxy Traps Discovered:**
 *   **Dimensionality Drift:** While allowing a higher number of phantom dimensions increases geometric flexibility, it frequently causes the mathematical projection to violate stable 4D boundaries, resulting in structural breakdown.
 *   **Mitigation:** The Agentic Plausibility Oracle penalizes generations with excessive phantom dimensions, and specifically logs these constraints using the Golden Scar Protocol to prevent recursive hallucination.
+
+## Epistemic Inversion Execution (Sovereign PM Orchestrator)
+**Implementation Date:** Q2 2026 (Simulated)
+**Context:** Implemented explicit "Resolution Collapse" UI feedback loops inside `SovereignProjectOrchestrator.tsx`.
+**Value Derived:** Enforces the "AI as Structural Arbiter" rule. Instead of silent failure or averaging of inputs, the UI explicitly highlights CRS < 0.95.
+**Proxy Traps Discovered:**
+*   **State Detachment (SCAR-ESCROW-002):** The `FAILED_NLI_CONTRADICTION` payload initially lacked persistence because React components lose local state on unmount or refresh.
+*   **Mitigation:** Bound the `ContradictionPayload` explicitly to `localStorage` under the `epistemic_escrow` key inside the CSAP logic (`utils/errorHandling.ts`), effectively bridging the deterministic Orchestrator calculations with the Human-in-the-loop Epistemic Escrow dashboard.

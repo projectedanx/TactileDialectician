@@ -14,12 +14,10 @@ export default function EpistemicEscrowDashboard() {
   const [isClient, setIsClient] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  useEffect(() => {
+    useEffect(() => {
     // We are on client
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsMounted(true);
     setIsClient(true);
     const loadedScars = localStorage.getItem('symbolic_scars');
     if (loadedScars) {
