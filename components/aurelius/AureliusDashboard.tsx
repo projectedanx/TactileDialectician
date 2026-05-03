@@ -42,7 +42,7 @@ export default function AureliusDashboard() {
               <h3 className="text-lg font-semibold text-secondary">Topological Constraints</h3>
 
               <div>
-                  <label className="block text-sm text-muted-foreground mb-1">Human Intent (The "Why")</label>
+                  <label className="block text-sm text-muted-foreground mb-1">Human Intent (The &quot;Why&quot;)</label>
                   <input
                     type="text"
                     value={intent}

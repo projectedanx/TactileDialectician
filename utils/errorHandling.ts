@@ -31,12 +31,20 @@ export function logSymbolicScar(eventType: SymbolicScar['eventType'], rawError: 
       const annealedScars = existingScars.filter((s: SymbolicScar) => s.mutationRecoverabilityScore <= 0.8);
 
       if (scar.mutationRecoverabilityScore <= 0.8) {
+        // If it's a contradiction payload, let's also save it to the escrow store
+        if (eventType === 'FAILED_NLI_CONTRADICTION' && rawError && rawError.crs !== undefined) {
+           const existingEscrow = JSON.parse(localStorage.getItem('epistemic_escrow') || '[]');
+           existingEscrow.push(rawError);
+           localStorage.setItem('epistemic_escrow', JSON.stringify(existingEscrow));
+        }
+
         annealedScars.push(scar);
       }
 
       localStorage.setItem('symbolic_scars', JSON.stringify(annealedScars));
     }
   } catch (e) {
+
     console.warn("Failed to persist symbolic scar:", e);
   }
 

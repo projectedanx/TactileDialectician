@@ -6,7 +6,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
-import { parseAIError } from '@/utils/errorHandling';
+import { parseAIError, logSymbolicScar } from '../utils/errorHandling';
+import { ContradictionPayload } from '../types/escrow';
 
 interface OrchestrationRequest {
   stakeholderNarrative: string;
@@ -17,6 +18,26 @@ export default function SovereignProjectOrchestrator() {
   const [results, setResults] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+
+  const handleSendToEscrow = () => {
+    if (!results) return;
+    const payload: ContradictionPayload = {
+      id: crypto.randomUUID(),
+      timestamp: new Date().toISOString(),
+      source: 'SovereignProjectOrchestrator',
+      narrative: stakeholderNarrative,
+      crs: results.contradiction_retention_score,
+      derivative: results.topological_derivative,
+      status: 'pending',
+      dominantWeight: 1.618,
+      subordinateWeight: 1.000
+    };
+    logSymbolicScar('FAILED_NLI_CONTRADICTION', payload, 0.4);
+    // Ideally, we'd use a global state or event to update the Escrow Dashboard,
+    // but for now, logging it is the primary deterministic action.
+    alert('Contradiction sent to Epistemic Escrow. Check the Escrow Dashboard.');
+  };
 
   const sanitizeSchema = {
     ...defaultSchema,
@@ -106,6 +127,25 @@ export default function SovereignProjectOrchestrator() {
 
       {results && (
         <div className="space-y-8 animate-fade-in">
+
+          {results.contradiction_retention_score < 0.95 && (
+            <div className="bg-red-950/50 border border-red-500/50 p-4 mb-6 rounded-none">
+              <h4 className="text-red-400 font-mono text-sm font-bold flex items-center gap-2 mb-2">
+                <ShieldAlert className="w-4 h-4" />
+                RESOLUTION COLLAPSE DETECTED
+              </h4>
+              <p className="text-red-300/80 font-mono text-xs mb-4">
+                The Contradiction Retention Score (CRS) has fallen below the 0.95 threshold. The system has attempted to average out irreconcilable stakeholder constraints (Semantic Annihilation).
+              </p>
+              <button
+                onClick={handleSendToEscrow}
+                className="bg-red-500/20 hover:bg-red-500/40 text-red-400 border border-red-500/50 px-4 py-2 font-mono text-xs transition-colors flex items-center gap-2"
+              >
+                <AlertTriangle className="w-4 h-4" />
+                SEND TO EPISTEMIC ESCROW
+              </button>
+            </div>
+          )}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className={`p-5 border rounded-none flex items-center justify-between bg-surface-raised border-border`}>
