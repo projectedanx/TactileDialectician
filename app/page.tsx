@@ -11,6 +11,7 @@ import AtomicTokenizationModule from '@/components/AtomicTokenizationModule';
 import AutomatedWorkflow from '@/components/AutomatedWorkflow';
 import TopologicalPersonaSculptor from '@/components/TopologicalPersonaSculptor';
 import SovereignProjectOrchestrator from '@/components/SovereignProjectOrchestrator';
+import AureliusDashboard from '@/components/aurelius/AureliusDashboard';
 import EpistemicEscrowDashboard from '@/components/EpistemicEscrowDashboard';
 
 /**
@@ -42,6 +43,7 @@ export default function Home() {
         {activeTab === 'dashboard' && <InterpretabilityDashboard />}
         {activeTab === 'chat' && <Chatbot initialQuery={chatQuery} />}
         {activeTab === 'escrow' && <EpistemicEscrowDashboard />}
+        {activeTab === 'aurelius' && <AureliusDashboard />}
       </main>
     </div>
   );

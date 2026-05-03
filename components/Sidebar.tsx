@@ -1,4 +1,5 @@
 import {
+  Box,
   Network,
   BookOpen,
   Calculator,
@@ -31,7 +32,7 @@ interface SidebarProps {
  */
 export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
   // Miller's Law limit slightly extended for necessary epistemic transparency.
-  const MAX_NAV_ITEMS = 9;
+  const MAX_NAV_ITEMS = 10;
 
   const tabs = [
     { id: 'orchestrator', label: 'PM Orchestrator', icon: ClipboardList },
@@ -43,6 +44,7 @@ export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
     { id: 'executor', label: 'Symbolic Executor', icon: Calculator },
     { id: 'escrow', label: 'Epistemic Escrow', icon: DatabaseZap },
     { id: 'chat', label: 'Dialectical Chat', icon: MessageSquare },
+    { id: 'aurelius', label: 'Project Aurelius', icon: Box },
   ];
 
   if (tabs.length > MAX_NAV_ITEMS) {
