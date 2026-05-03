@@ -18,3 +18,5 @@
 ## 4. Verification & Testing
 - [ ] Run the complete test suite to ensure the introduction of strict schema bounds has not caused regression in existing symbol disambiguation tests.
 - [ ] Perform a Golden Scar validation check on `utils/errorHandling.ts` to ensure `FAILED_NLI_CONTRADICTION` events are logged, not silently discarded.
+- [x] Initialized VULCAN agent configuration in docs/agent/VULCAN.md
+- [x] Documented the Epistemic Emergence Strategy in docs/inversion_emergence/STRATEGY.md
