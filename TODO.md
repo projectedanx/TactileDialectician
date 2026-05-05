@@ -60,3 +60,5 @@
 - [x] **Epistemic Inversion Strategy Implementation:** Created the `docs/inversion_emergence` directory containing `PLAN.md` and `CHECKLIST.md` to map the inversion of Human and AI value. The AI acts as the Structural Arbiter, and the Human acts as the Paraconsistent Oracle.
 - [x] **Agentic Empirical Documentation Extraction:** Extracted the core PM persona definition into `AGENTS.md` and systemic constraints into `CONSTRAINTS.md` using strict Prompt Dimensioning & Tolerancing (PD&T) syntax.
 - [x] **Platform Context Verification:** Updated `docs/architecture/LESSONS_LEARNED.md` to reflect the proxy traps discovered during the Epistemic Inversion process (e.g., Resolution Collapse).
+
+- [x] **Axiom Agent Manifest Creation:** Drafted the `docs/axiom_inversion` directory with `PLAN.md` and `CHECKLIST.md`, outlining the epistemic inversion strategy where AI is the Structural Lawgiver and the human is the Truth Anchor. Included AXIOM datums in `AGENTS.md` and definitions in `DOMAIN_GLOSSARY.md`.
