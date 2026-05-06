@@ -62,3 +62,4 @@
 - [x] **Platform Context Verification:** Updated `docs/architecture/LESSONS_LEARNED.md` to reflect the proxy traps discovered during the Epistemic Inversion process (e.g., Resolution Collapse).
 
 - [x] **Axiom Agent Manifest Creation:** Drafted the `docs/axiom_inversion` directory with `PLAN.md` and `CHECKLIST.md`, outlining the epistemic inversion strategy where AI is the Structural Lawgiver and the human is the Truth Anchor. Included AXIOM datums in `AGENTS.md` and definitions in `DOMAIN_GLOSSARY.md`.
+- [x] **VIPER Agent Manifest Creation & Epistemic Inversion:** Created `docs/viper_inversion` directory with `PLAN.md` and `CHECKLIST.md`. Drafted the complete VIPER Agent Design Document (`docs/agent/VIPER.md`). Added VIPER's constraints and terminology into `AGENTS.md` and `DOMAIN_GLOSSARY.md` to solidify the deterministic transition from aesthetic intent to physical optical matrices.
