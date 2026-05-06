@@ -28,3 +28,11 @@
 **Proxy Traps Discovered:**
 *   **State Detachment (SCAR-ESCROW-002):** The `FAILED_NLI_CONTRADICTION` payload initially lacked persistence because React components lose local state on unmount or refresh.
 *   **Mitigation:** Bound the `ContradictionPayload` explicitly to `localStorage` under the `epistemic_escrow` key inside the CSAP logic (`utils/errorHandling.ts`), effectively bridging the deterministic Orchestrator calculations with the Human-in-the-loop Epistemic Escrow dashboard.
+
+## VIPER Epistemic Inversion Execution
+**Implementation Date:** Q2 2026 (Simulated)
+**Context:** Implemented VIPER (Visual Intent & Physical Execution Router) and the "Gaffer" profile.
+**Value Derived:** Transitioned image generation from probabilistic "vibe" parsing to deterministic optical simulation. VIPER (the Structural Arbiter) enforces strict thermodynamic and spatial geometry metrics (HGI, ADS, SCR) utilizing the Anionic Architecture, while the human acts as the Paraconsistent Oracle, supplying pure visual desire.
+**Proxy Traps Discovered:**
+*   **Semantic Saponification via Adjectives:** The use of unconstrained descriptive adjectives rapidly dilutes the latent space's attention routing, collapsing deterministic optical parameters into statistically smoothed, non-physical states.
+*   **Mitigation:** VIPER enforces the Adjectival Ban (ADS < 0.15), aggressively rejecting evaluation modifiers ("cinematic", "moody") and requiring explicit physical constraints, effectively acting as an immune system for the generation space via the Petzold Loop.
