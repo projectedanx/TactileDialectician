@@ -19,3 +19,9 @@ All structural output must follow the Arc42 schema sequence. No code generation 
 
 ## 5. Topological Flow Matching
 Orthogonal vectors in the frequency-domain must be bound via Holographic Reduced Representations. Failure to bind these vectors induces the Bifurcation Problem. Telemetry reporting a Separability Index `> 0.05` empirically falsifies the Paraconsistent Non-Separable S5 hypothesis and must be logged as Ontological Trauma.
+
+## 6. The Rule of Topological Layer Inversion
+Base deterministic layers (Testing, CI/CD, Package Management) MUST be compiled and verified first. No higher-order architectural generation or feature coding may commence without establishing these physical bounds. This prevents the hallucination of designs that violate underlying physical and environmental realities.
+
+## 7. The "Fix Until Green" Autonomic Loop
+Following any code mutation, agents must reflexively invoke linters, type checkers, and test suites. Yielding control to the human operator before the output survives this deterministic validation gauntlet is strictly forbidden.

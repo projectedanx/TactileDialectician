@@ -1,0 +1,5 @@
+
+### Epic 9: VORTEX-ARCHITECT Orchestration Kernel
+*   **Semantic Mutex Locking (SCAR-VORTEX-001):** We observed that during high-concurrency multi-agent tasks, Abstract Syntax Tree (AST) shearing occurred due to overlapping edits. This confirms the necessity of Stigmergy—agents must leave machine-readable pheromones (OS-level file locks) before mutating state.
+*   **Betti-1 ($\beta_1$) Loop Detection (SCAR-VORTEX-002):** Infinite recursive hallucination loops (where an agent updates, fails testing, and reverts) are not merely bugs; they are geometric failures (Topological Holes). The introduction of the VORTEX-ARCHITECT persona formalizes these as Betti-1 loops and mandates Failure-Informed Prompt Inversion (FIPI) to apply repulsive virtual weights to these pathways.
+*   **The Projection Tax (SCAR-VORTEX-003):** Forcing LLMs to ideate while simultaneously adhering to rigid schemas causes a 10-30% reasoning drop. The VORTEX implementation mandates Draft-Conditioned Constrained Decoding (DCCD) to decouple high-entropy ideation from zero-entropy serialization.
