@@ -1,6 +1,12 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenAI, Type } from '@google/genai';
 
+/**
+ * Extrudes operational friction into mathematically bounded persona nodes.
+ *
+ * @param {Request} request - The incoming HTTP request containing the friction data.
+ * @returns {Promise<Response>} The HTTP response containing the extruded persona nodes.
+ */
 export async function POST(request: Request) {
   try {
     const { frictionData } = await request.json();

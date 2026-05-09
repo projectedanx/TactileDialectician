@@ -1,9 +1,16 @@
+/**
+ * Represents a specific vector of knowledge provenance, tracking the source and epistemic weight.
+ */
 export interface ProvenanceVector {
   sourceDomain: string;
   weight: number; // 0.0 to 1.0
   driftPotential: number; // 0.0 to 1.0
 }
 
+/**
+ * The Provenance Tracker.
+ * Manages and logs the lineage of data transformations across the epistemic matrix.
+ */
 export class ProvenanceTracker {
     private vectors: Map<string, ProvenanceVector>;
 
@@ -38,6 +45,11 @@ export class ProvenanceTracker {
         }
     }
 
+    /**
+     * Retrieves all tracked provenance vectors.
+     *
+     * @returns {ProvenanceVector[]} An array of all stored provenance vectors.
+     */
     getVectors(): ProvenanceVector[] {
         return Array.from(this.vectors.values());
     }

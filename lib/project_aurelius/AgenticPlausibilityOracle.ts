@@ -1,11 +1,18 @@
 import { MetaPromptConfig } from './PhantomDimensionRouter';
 
+/**
+ * Represents the metrics outputted by the Plausibility Oracle.
+ */
 export interface ValidationMetrics {
   physicalPlausibilityScore: number; // 0.0 to 1.0
   geometricAdherenceScore: number; // 0.0 to 1.0
   dissonanceIdentified: string[];
 }
 
+/**
+ * The Agentic Plausibility Oracle.
+ * Responsible for verifying the structural integrity and epistemic soundness of claims.
+ */
 export class AgenticPlausibilityOracle {
   /**
    * Mocks the evaluation of a generated latent configuration against a physical/PBR heuristic.

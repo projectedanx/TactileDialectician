@@ -5,6 +5,9 @@ import 'nerdamer/Algebra.js';
 import 'nerdamer/Calculus.js';
 import 'nerdamer/Solve.js';
 
+/**
+ * Represents a single step in the neuro-symbolic execution trace.
+ */
 export interface TraceStep {
   type: 'direct' | 'llm_reasoning' | 'tool_call' | 'final_result' | 'error';
   content: string;
@@ -12,6 +15,12 @@ export interface TraceStep {
   details?: string;
 }
 
+/**
+ * Executes a mathematical expression deterministically using symbolic evaluation.
+ *
+ * @param {string} input - The mathematical expression string to evaluate.
+ * @returns {{ success: boolean, result?: string, error?: string }} An object containing the success status and the evaluated result or error message.
+ */
 export const executeDeterministic = (input: string): { success: boolean, result?: string, error?: string } => {
   try {
     const directResult = nerdamer(input).evaluate().text();
@@ -24,6 +33,15 @@ export const executeDeterministic = (input: string): { success: boolean, result?
   }
 };
 
+/**
+ * Executes a mathematical expression probabilistically using an LLM (Google GenAI API), falling back to this when deterministic evaluation is insufficient.
+ *
+ * @param {string} input - The query or mathematical expression to evaluate.
+ * @param {(step: TraceStep) => void} updateTrace - Callback to append a step to the execution trace.
+ * @param {(successful: boolean) => void} incrementOps - Callback to update the operation metrics.
+ * @param {(chunk: string) => void} onStreamChunk - Callback to stream the text chunks of the response.
+ * @returns {Promise<string>} A promise that resolves to the final synthesized result string.
+ */
 export const executeLLM = async (
   input: string,
   updateTrace: (step: TraceStep) => void,

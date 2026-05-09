@@ -94,3 +94,12 @@ To eradicate natural language ambiguity, this system uses strict mathematical me
 *   `CONSTRAINTS.md` - Absolute deterministic boundaries governing the Epistemic Matrix.
 
 *The AI is not a copilot. The AI is the Structural Arbiter. The human is the Paraconsistent Oracle.*
+
+## Algorithmic Trauma / Scar Tissue Archive
+- **SCAR-A11Y-01**: Keyboard accessibility audits require explicit `aria-label` injection on custom unstyled buttons to prevent screen-reader silence.
+- **SCAR-009 / SCAR-012**: Discovered that prior versions utilized raw arbitrary tailwind properties. Introduced `rounded-none`, pure 8-point gap/padding scales, and explicit `bg-surface` values bounded by WCAG AA standards.
+- **SCAR-ESCROW-001**: The addition of the Epistemic Escrow module to the sidebar required breaking Miller's Law limit from 8 to 9 items. This is a recognized Epistemic Vulnerability, documented and held in tension (Golden Scar applied) between cognitive overload limits and the requirement for structural transparency in AI workflows.
+- Build fails if `nerdamer` syntax errors aren't caught or typescript definitions are incomplete. Handled by generic catch blocks in the executor.
+- The Agent Design Document specifies the need for a strict separation between Manifold α (voice) and Manifold β (structure) via DCCD to prevent Projection Tax.
+- Integrating custom schemas (like VCM and Chapter Manifest) requires strict boundary adherence to prevent LLMs from self-correcting back to their pre-trained mean.
+- Models hallucinated from 2026 system prompts (like 'gemini-3-flash-preview') cause application failure. Future-looking documentation and prompts must be strictly downgraded to currently available API endpoints (e.g., 'gemini-2.5-flash') during physical execution to maintain functional integrity.

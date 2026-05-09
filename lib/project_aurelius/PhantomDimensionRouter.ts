@@ -1,15 +1,25 @@
+/**
+ * Defines a structural boundary or constraint within the Phantom Dimension architecture.
+ */
 export interface GeometricConstraint {
   topology: 'Euclidean' | 'Hyperbolic' | 'Spherical' | 'Riemannian';
   curvature: number;
   manifoldDimension: number;
 }
 
+/**
+ * Configuration for defining the meta-prompting parameters of the router.
+ */
 export interface MetaPromptConfig {
   basePrompt: string;
   latentWeights: Record<string, number>;
   phantomDimensions: number[];
 }
 
+/**
+ * The Phantom Dimension Router.
+ * Maps high-dimensional topological boundaries and enforces strict deterministic structural integrity constraints.
+ */
 export class PhantomDimensionRouter {
   /**
    * Maps high-level geometric descriptions to explicit latent weights and phantom dimensions.

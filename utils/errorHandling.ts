@@ -1,3 +1,6 @@
+/**
+ * Represents an unresolvable contradiction or error mapped as a "Symbolic Scar".
+ */
 export interface SymbolicScar {
   id: string;
   timestamp: string;

@@ -5,6 +5,12 @@ import { PhantomDimensionRouter, GeometricConstraint } from '@/lib/project_aurel
 import { AgenticPlausibilityOracle, ValidationMetrics } from '@/lib/project_aurelius/AgenticPlausibilityOracle';
 import { ProvenanceTracker, ProvenanceVector } from '@/lib/project_aurelius/ProvenanceTracker';
 
+/**
+ * The main dashboard component for Project Aurelius.
+ * Provides views for the Phantom Dimension Router, Provenance Tracker, and Agentic Plausibility Oracle.
+ *
+ * @returns {JSX.Element} The rendered Aurelius Dashboard component.
+ */
 export default function AureliusDashboard() {
   const [topology, setTopology] = useState<GeometricConstraint['topology']>('Euclidean');
   const [curvature, setCurvature] = useState<number>(0);

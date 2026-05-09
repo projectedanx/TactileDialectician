@@ -9,6 +9,12 @@ interface UI_SymbolicScar extends SymbolicScar {
   goldenScarApplied?: boolean;
 }
 
+/**
+ * A dashboard component that displays and manages the Symbolic Scar Tissue Archive.
+ * Allows human dialectical judgment on paraconsistent errors (annealing or holding in tension).
+ *
+ * @returns {JSX.Element | null} The rendered dashboard or null if not mounted.
+ */
 export default function EpistemicEscrowDashboard() {
   const [scars, setScars] = useState<UI_SymbolicScar[]>([]);
   const [isClient, setIsClient] = useState(false);

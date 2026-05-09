@@ -8,6 +8,12 @@ interface ExtrusionRequest {
   frictionData: string;
 }
 
+/**
+ * A component for applying the DRP-PLURI-808-PERSONA-METROLOGY protocol.
+ * Extrudes empirical operational friction into deterministic, mathematically bounded persona nodes.
+ *
+ * @returns {JSX.Element} The rendered persona sculptor component.
+ */
 export default function TopologicalPersonaSculptor() {
   const [frictionData, setFrictionData] = useState('');
   const [results, setResults] = useState<any>(null);

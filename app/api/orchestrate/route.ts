@@ -1,6 +1,12 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenAI, Type } from '@google/genai';
 
+/**
+ * Handles the orchestration of PM persona requests, translating dissonance into topological derivatives.
+ *
+ * @param {Request} request - The incoming HTTP request containing the orchestration payload.
+ * @returns {Promise<Response>} The HTTP response with the structured orchestration payload.
+ */
 export async function POST(request: Request) {
   try {
     const { stakeholderNarrative } = await request.json();
