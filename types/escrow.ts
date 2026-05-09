@@ -1,3 +1,6 @@
+/**
+ * Describes the structure of a logical contradiction intercepted by the system.
+ */
 export interface ContradictionPayload {
   id: string;
   timestamp: string;

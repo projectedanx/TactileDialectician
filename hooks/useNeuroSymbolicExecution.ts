@@ -3,6 +3,12 @@ import { TraceStep, executeDeterministic, executeLLM } from '@/lib/executorServi
 import { parseAIError } from '@/utils/errorHandling';
 import { GoogleGenAI } from '@google/genai';
 
+/**
+ * A custom hook that manages the state and logic for Neuro-Symbolic Execution.
+ * Orchestrates deterministic execution via mathjs/nerdamer and probabilistic LLM execution.
+ *
+ * @returns {{ isExecuting: boolean, executionResult: string | null, executionTrace: TraceStep[], handleExecute: (input: string) => Promise<void> }} An object containing execution state and the execute function.
+ */
 export const useNeuroSymbolicExecution = () => {
   const [input, setInput] = useState('');
   const [trace, setTrace] = useState<TraceStep[]>([]);

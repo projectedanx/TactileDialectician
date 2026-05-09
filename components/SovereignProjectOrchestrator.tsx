@@ -13,6 +13,12 @@ interface OrchestrationRequest {
   stakeholderNarrative: string;
 }
 
+/**
+ * A component representing the Sovereign Project Management Orchestrator.
+ * Navigates stakeholder dissonance by calculating Topological Derivatives.
+ *
+ * @returns {JSX.Element} The rendered project orchestrator component.
+ */
 export default function SovereignProjectOrchestrator() {
   const [stakeholderNarrative, setStakeholderNarrative] = useState('');
   const [results, setResults] = useState<any>(null);

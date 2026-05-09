@@ -1,6 +1,12 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenAI, Type } from '@google/genai';
 
+/**
+ * Processes requests to the Lexical Topology Miner agent.
+ *
+ * @param {Request} request - The incoming HTTP request containing the topological query.
+ * @returns {Promise<Response>} The HTTP response containing the mined lexical topology data.
+ */
 export async function POST(request: Request) {
   try {
     const { query } = await request.json();
