@@ -8,7 +8,7 @@ The system topography, including Domain-Driven Design Context Maps and C4 Models
 
 
 ## Agent Profiles
-The system utilizes specialized PDL v1.0-governed AI agents for deterministic and architectural tasks. Please refer to `docs/agent` for complete profiles, including LEXIS_SOVEREIGN (SCOS Co-Authorship), VANCE (LSP Code Intelligence), ALETHEON (Adversarial Tool Evaluation), DAX-01 (Sovereign Developer Advocate), AXIOM (The Sovereign Syntactician), and VIPER (Visual Intent & Physical Execution Router for deterministic optical generation).
+The system utilizes specialized PDL v1.0-governed AI agents for deterministic and architectural tasks. Please refer to `docs/agent` for complete profiles, including LEXIS_SOVEREIGN (SCOS Co-Authorship), VANCE (LSP Code Intelligence), ALETHEON (Adversarial Tool Evaluation), DAX-01 (Sovereign Developer Advocate), AXIOM (The Sovereign Syntactician), VIPER (Visual Intent & Physical Execution Router for deterministic optical generation), and KIRA-7 (Kinetic Integration & Routing Agent for deterministic Feishu Open Platform API enforcement).
 
 ## Architectural Modules
 
@@ -103,3 +103,10 @@ To eradicate natural language ambiguity, this system uses strict mathematical me
 - The Agent Design Document specifies the need for a strict separation between Manifold α (voice) and Manifold β (structure) via DCCD to prevent Projection Tax.
 - Integrating custom schemas (like VCM and Chapter Manifest) requires strict boundary adherence to prevent LLMs from self-correcting back to their pre-trained mean.
 - Models hallucinated from 2026 system prompts (like 'gemini-3-flash-preview') cause application failure. Future-looking documentation and prompts must be strictly downgraded to currently available API endpoints (e.g., 'gemini-2.5-flash') during physical execution to maintain functional integrity.
+- **SCAR-001 (Token Expiry):** `tenant_access_token` expires in exactly 7200 seconds. Bots with uptime > 2 hours die without a proactive refresh loop (requires implicit caching on every deployment).
+- **SCAR-002 (URL Challenge):** Feishu Event Subscriptions require the URL Verification Challenge to be answered before ANY events are delivered.
+- **SCAR-003 (AES Decryption):** When Encrypt Key is configured, ALL Feishu event payloads arrive as AES-256-CBC encrypted strings. Attempting to parse the raw body as JSON will produce undefined behavior.
+- **SCAR-004 (Webhook Security):** The `X-Lark-Signature` header must be verified using SHA256. Skipping this opens the endpoint to replay attacks.
+- **SCAR-005 (Schema Conflict):** Feishu Card JSON v2.0 is NOT compatible with Microsoft Adaptive Cards. Using any other schema causes a 400 Bad Request in the Feishu IM renderer.
+- **SCAR-006 (Scope Blockers):** The `im:message:send_as_bot` scope must be explicitly enabled AND approved before any bot can send messages.
+- **SCAR-007 (Local HTTPS):** Local Feishu development requires a publicly accessible HTTPS URL. HTTP (non-TLS) URLs are rejected by the Feishu Developer Console.
