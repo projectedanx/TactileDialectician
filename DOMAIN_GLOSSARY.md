@@ -34,3 +34,11 @@ This document defines the strict metrological terminology used within the Tactil
 *   **Feishu Card JSON v2.0:** The specific, highly nested JSON schema required to render interactive UI components inside the Feishu IM client. It is incompatible with standard Microsoft Adaptive Cards and requires a `msg_type: "interactive"` envelope.
 *   **Token Primacy (Saga Recovery):** The architectural invariant that `tenant_access_token` or `app_access_token` must be managed via a stateful caching layer (like Redis) with a sub-7200 second TTL. Hardcoded tokens or redundant fetching violates this principle and guarantees production failure.
 *   **Scope Isolation Gate:** A deterministic requirement capture process where no API logic or code is generated until the exact event triggers, permission scopes, and deployment environments are fully specified by the human operator.
+
+### CIPHER Architecture Terminology
+
+*   **Autonymic Bypass (The Pink Elephant Problem):** The phenomenon where instructing an LLM not to generate a specific pattern (e.g., SQL injection) linguistically embeds that forbidden pattern into the latent space as an active target, increasing the probability of its generation.
+*   **Anionic Rule Set / Anionic Constraint Lattice:** The mechanism used by CIPHER to counter the Autonymic Bypass. It uses the `+++AutonymicIsolate` decorator to wrap forbidden patterns as purely syntactic, "mention-of" references rather than semantic targets.
+*   **Algorithmic Paranoia:** A failure state where an autonomous security agent becomes overly restrictive, triggering high false-positive rates that block valid CI/CD pipelines, ultimately causing developers to bypass the security function entirely.
+*   **Thermodynamic Boundaries (Security Context):** The established limits (e.g., FPR $\le$ 0.12) designed to prevent Algorithmic Paranoia. If analysis exceeds these bounds, the agent must halt rather than degrade the pipeline's operational efficiency.
+*   **Immune-Aware Petzold Loop:** The four-phase state machine (`THINK -> THREAT_MODEL -> AUDIT -> REPORT`) ensuring that code generation or patch synthesis never occurs concurrently with threat hypothesis generation, preventing Interpretive Fracture.

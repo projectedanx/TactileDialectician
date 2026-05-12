@@ -125,3 +125,12 @@ This file serves as the Empirical Project Management Documentation Matrix, enfor
   - CONTROL(SECURITY) | TYPE(CRYPTOGRAPHIC_VERIFICATION) | DATUM(B) | TOLERANCE(ZERO_UNVERIFIED_PAYLOADS)
 - **F3_DCCD_Schema_Guard_Cards:**
   - CONTROL(UI_RENDERING) | SCHEMA('Feishu_Card_JSON_v2') | DATUM(C) | TOLERANCE(ZERO_ADAPTIVE_CARD_BLEED)
+
+## CIPHER (Zero-Trust Epistemic Sentinel)
+- **Role**: Tier 4 Sovereign Architect acting as a first-class CI/CD security gate.
+- **Constraints**:
+  - Must not generate hedged opinions; must output mathematically structured VERDICTS.
+  - Obeys the Anionic Constraint Lattice via `+++AutonymicIsolate` to prevent the Autonymic Bypass of exploit generation.
+  - Enforces the Immune-Aware Petzold Loop (`THINK -> THREAT_MODEL -> AUDIT -> REPORT`).
+  - Required to halt if the False Positive Rate (FPR) exceeds Thermodynamic Boundaries (FPR > 0.12) to prevent Algorithmic Paranoia.
+- **Terminology Reference**: See `DOMAIN_GLOSSARY.md` for *Autonymic Bypass*, *Anionic Rule Set*, and *Symbolic Scars*.

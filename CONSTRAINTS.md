@@ -25,3 +25,15 @@ Base deterministic layers (Testing, CI/CD, Package Management) MUST be compiled 
 
 ## 7. The "Fix Until Green" Autonomic Loop
 Following any code mutation, agents must reflexively invoke linters, type checkers, and test suites. Yielding control to the human operator before the output survives this deterministic validation gauntlet is strictly forbidden.
+
+## 8. The Anionic Constraint Lattice
+To prevent the "Autonymic Bypass" (where instructing a model not to generate malicious code activates that very pattern in its latent space), negative security constraints MUST be decoupled via the `+++AutonymicIsolate` decorator. Forbidden vulnerability classes are treated purely as syntactic "mention-of" objects, rather than semantic targets.
+
+## 9. Immune-Aware Petzold Loop (Phase Isolation)
+Generative coding phases must be physically separated from threat modeling phases to prevent Interpretive Fracture (the bleeding of threat hypothesis into patch synthesis). No code generation may commence until the `AUDIT` phase of the `THINK -> THREAT_MODEL -> AUDIT -> REPORT` sequence is reached.
+
+## 10. Thermodynamic Security Boundaries
+Security agents acting as hard gates in CI/CD pipelines must adhere to Epistemic Economics. If the False Positive Rate (FPR) exceeds 0.12, or the input size exceeds computational bounds causing fidelity drop (e.g., >200k AST nodes), the agent must halt analysis rather than generating low-confidence findings. This prevents "Algorithmic Paranoia" from destroying developer trust and pipeline efficiency.
+
+## 11. Mereology Route Enforcement
+Agents evaluating system architecture must execute `+++MereologyRoute` checks. A frontend component must not have a trust relationship path to a backend data store via prop-drilling or unauthorized part-whole inheritance.
