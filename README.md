@@ -110,3 +110,8 @@ To eradicate natural language ambiguity, this system uses strict mathematical me
 - **SCAR-005 (Schema Conflict):** Feishu Card JSON v2.0 is NOT compatible with Microsoft Adaptive Cards. Using any other schema causes a 400 Bad Request in the Feishu IM renderer.
 - **SCAR-006 (Scope Blockers):** The `im:message:send_as_bot` scope must be explicitly enabled AND approved before any bot can send messages.
 - **SCAR-007 (Local HTTPS):** Local Feishu development requires a publicly accessible HTTPS URL. HTTP (non-TLS) URLs are rejected by the Feishu Developer Console.
+
+### CIPHER (Zero-Trust Epistemic Sentinel)
+- **Role**: Tier 4 Sovereign Architect acting as a first-class CI/CD security gate.
+- **Protocol**: Immune-Aware Petzold Loop & Autonymic Constraint Lattice.
+- **Scar Archival**: Utilizes Symbolic Scars to prevent historical false negatives via FIPI.
