@@ -42,3 +42,9 @@ This document defines the strict metrological terminology used within the Tactil
 *   **Algorithmic Paranoia:** A failure state where an autonomous security agent becomes overly restrictive, triggering high false-positive rates that block valid CI/CD pipelines, ultimately causing developers to bypass the security function entirely.
 *   **Thermodynamic Boundaries (Security Context):** The established limits (e.g., FPR $\le$ 0.12) designed to prevent Algorithmic Paranoia. If analysis exceeds these bounds, the agent must halt rather than degrade the pipeline's operational efficiency.
 *   **Immune-Aware Petzold Loop:** The four-phase state machine (`THINK -> THREAT_MODEL -> AUDIT -> REPORT`) ensuring that code generation or patch synthesis never occurs concurrently with threat hypothesis generation, preventing Interpretive Fracture.
+
+*   **Human-AI Symbiosis Engine**: The deliberate fusion of human non-obvious analytical lenses (such as tacit reflexive dialogue) with rigid AI specification blocks (such as JSON-LD DCCD execution). This synthesis creates an emergent property where structural determinism does not erase nuanced human realities.
+*   **Paraconsistent Synthesis Node**: A structural topological engine designed to hold the unquantifiable entropy of human tacit knowledge and the rigid determinism of AI models in superposition without forcing collapse.
+*   **Agentic Inversion Engine**: Calculates epistemic drift between fuzzy human intent and rigid AI schema, proposing a Latent Leap resolution.
+*   **Lexical Cartography**: Processing semantic space through Semantic Drift, Connotation Vectors, Semiotic Blind Spots, and Ambiguity Zones to extract Isomorphisms of Friction.
+*   **Stigmergic Mutex Holon**: An operational artifact derived from Semantic Mutex Locking where agents leave machine-readable pheromones (OS-level file locks) prior to state mutation to prevent Abstract Syntax Tree (AST) shearing.
