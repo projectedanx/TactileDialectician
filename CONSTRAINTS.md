@@ -37,3 +37,6 @@ Security agents acting as hard gates in CI/CD pipelines must adhere to Epistemic
 
 ## 11. Mereology Route Enforcement
 Agents evaluating system architecture must execute `+++MereologyRoute` checks. A frontend component must not have a trust relationship path to a backend data store via prop-drilling or unauthorized part-whole inheritance.
+
+## 12. Relational Sovereignty Mandate
+To express the unique "Human Value" within the deterministic architecture, project scheduling and operational workflows must be analyzed through the Relational Sovereignty framework. The system is constrained against blind compliance to "Extractive Sprints." All delivery timelines must be evaluated for their "Cognitive Rhythm Index" to ensure diverse temporalities and neurodivergent work patterns are accommodated rather than flattened.
