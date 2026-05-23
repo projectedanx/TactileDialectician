@@ -1,162 +1,10 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { GoogleGenAI, Type } from '@google/genai';
+import { GoogleGenAI } from '@google/genai';
 import { Cpu, Loader2, Fingerprint, Network, SplitSquareHorizontal, Library, ArrowRightLeft, AlertTriangle, Copy, Check } from 'lucide-react';
-
-/**
- * Defines the FoNE (Form, Nature, Effect) semantic embedding profile for a tokenized symbol.
- */
-interface FoNEEmbedding {
-  operator_class: string;
-  domain_weight_physics: number;
-  domain_weight_math: number;
-  domain_weight_ml: number;
-  tensor_rank_effect: string;
-  virtual_weight_3: number;
-  latent_topological_pathway: string;
-}
-
-/**
- * Defines the structure of the atomic tokenization analysis for a specific symbol.
- */
-interface TokenAnalysis {
-  symbol: string;
-  fragmented_bytes: string[];
-  atomic_token_id: number;
-  fone_embedding: FoNEEmbedding;
-}
-
-const PREDEFINED_LIBRARY: TokenAnalysis[] = [
-  {
-    symbol: '∇',
-    fragmented_bytes: ['<0xE2>', '<0x88>', '<0x87>'],
-    atomic_token_id: 50256,
-    fone_embedding: {
-      operator_class: 'Differential Operator',
-      domain_weight_physics: 0.95,
-      domain_weight_math: 0.85,
-      domain_weight_ml: 0.40,
-      tensor_rank_effect: 'Increases by 1 (Gradient) or Reduces by 1 (Divergence)',
-      virtual_weight_3: 0.85,
-      latent_topological_pathway: 'Paraconsistent Gradient Manifold'
-    }
-  },
-  {
-    symbol: '∫',
-    fragmented_bytes: ['<0xE2>', '<0x88>', '<0xAB>'],
-    atomic_token_id: 50257,
-    fone_embedding: {
-      operator_class: 'Integral Operator',
-      domain_weight_physics: 0.90,
-      domain_weight_math: 0.98,
-      domain_weight_ml: 0.30,
-      tensor_rank_effect: 'Preserves or Reduces (depending on differential form)',
-      virtual_weight_3: 0.92,
-      latent_topological_pathway: 'Topological Boundary Contraction'
-    }
-  },
-  {
-    symbol: 'Σ',
-    fragmented_bytes: ['<0xCE>', '<0xA3>'],
-    atomic_token_id: 50258,
-    fone_embedding: {
-      operator_class: 'Summation Operator',
-      domain_weight_physics: 0.70,
-      domain_weight_math: 0.95,
-      domain_weight_ml: 0.90,
-      tensor_rank_effect: 'Reduces rank (contraction over index)',
-      virtual_weight_3: 0.76,
-      latent_topological_pathway: 'Discrete N-Dimensional Folding'
-    }
-  },
-  {
-    symbol: '∂',
-    fragmented_bytes: ['<0xE2>', '<0x88>', '<0x82>'],
-    atomic_token_id: 50259,
-    fone_embedding: {
-      operator_class: 'Partial Differential',
-      domain_weight_physics: 0.95,
-      domain_weight_math: 0.90,
-      domain_weight_ml: 0.85,
-      tensor_rank_effect: 'Increases rank by 1 (w.r.t coordinates)',
-      virtual_weight_3: 0.88,
-      latent_topological_pathway: 'Phantom Dimension Tesselation'
-    }
-  },
-  {
-    symbol: '∞',
-    fragmented_bytes: ['<0xE2>', '<0x88>', '<0x9E>'],
-    atomic_token_id: 50260,
-    fone_embedding: {
-      operator_class: 'Limit / Concept',
-      domain_weight_physics: 0.60,
-      domain_weight_math: 0.99,
-      domain_weight_ml: 0.50,
-      tensor_rank_effect: 'Preserves (Scalar Concept)',
-      virtual_weight_3: 0.99,
-      latent_topological_pathway: 'Asymptotic Horizon Paradox'
-    }
-  },
-  {
-    symbol: 'λ',
-    fragmented_bytes: ['<0xCE>', '<0xBB>'],
-    atomic_token_id: 50261,
-    fone_embedding: {
-      operator_class: 'Variable / Eigenvalue',
-      domain_weight_physics: 0.85,
-      domain_weight_math: 0.95,
-      domain_weight_ml: 0.90,
-      tensor_rank_effect: 'Preserves (Scalar Multiplier)',
-      virtual_weight_3: 0.65,
-      latent_topological_pathway: 'Latent Spectral Projection'
-    }
-  },
-  {
-    symbol: '⊗',
-    fragmented_bytes: ['<0xE2>', '<0x8A>', '<0x97>'],
-    atomic_token_id: 50262,
-    fone_embedding: {
-      operator_class: 'Tensor Product',
-      domain_weight_physics: 0.95,
-      domain_weight_math: 0.99,
-      domain_weight_ml: 0.80,
-      tensor_rank_effect: 'Increases rank (sum of ranks of operands)',
-      virtual_weight_3: 0.94,
-      latent_topological_pathway: 'Isomorphic Entanglement Zone'
-    }
-  },
-  {
-    symbol: '⟨ψ|',
-    fragmented_bytes: ['<0xE2>', '<0x9F>', '<0xA8>', '<0xCF>', '<0x88>', '<0x7C>'],
-    atomic_token_id: 50263,
-    fone_embedding: {
-      operator_class: 'Bra Vector (Quantum State)',
-      domain_weight_physics: 0.99,
-      domain_weight_math: 0.70,
-      domain_weight_ml: 0.10,
-      tensor_rank_effect: 'Dual Vector (Rank 1 covariant)',
-      virtual_weight_3: 0.97,
-      latent_topological_pathway: 'Hilbert Space Dual-Mapping'
-    }
-  },
-  {
-    symbol: 'Ĥ',
-    fragmented_bytes: ['<0xC4>', '<0xA4>'],
-    atomic_token_id: 50264,
-    fone_embedding: {
-      operator_class: 'Hamiltonian Operator',
-      domain_weight_physics: 0.99,
-      domain_weight_math: 0.60,
-      domain_weight_ml: 0.05,
-      tensor_rank_effect: 'Preserves rank (maps state to state)',
-      virtual_weight_3: 0.91,
-      latent_topological_pathway: 'Energy Eigenstate Oscillation'
-    }
-  }
-];
-
 import { parseAIError } from '../utils/errorHandling';
+import { type TokenAnalysis, PREDEFINED_LIBRARY, analyzeTokens } from '../lib/tokenizationService';
 
 /**
  * Renders the Atomic Tokenization Module.
@@ -182,22 +30,12 @@ export default function AtomicTokenizationModule() {
 
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY });
-      
-      let foundSymbols: string[] = [];
-      
-      if (inputMode === 'list') {
-        foundSymbols = Array.from(new Set(input.split(/[, ]+/).map(s => s.trim()).filter(Boolean)));
-      } else {
-        // Extract potential STEM symbols (non-alphanumeric, non-standard punctuation)
-        const symbolRegex = /[\u2200-\u22FF\u2A00-\u2AFF\u0370-\u03FF\u2190-\u21FF]/g;
-        foundSymbols = Array.from(new Set(input.match(symbolRegex) || []));
-      }
-
-      if (foundSymbols.length === 0) {
+      const parsed = await analyzeTokens(input, inputMode, domainContext, ai);
+      setResults(parsed);
+    } catch (err: any) {
+      if (err.message === 'Please enter at least one symbol.' || err.message === 'No complex STEM symbols (e.g., ∇, ∂, Σ, ∫, ∞, μ) detected in the input.') {
         setError({
-          message: inputMode === 'list' 
-            ? 'Please enter at least one symbol.' 
-            : 'No complex STEM symbols (e.g., ∇, ∂, Σ, ∫, ∞, μ) detected in the input.',
+          message: err.message,
           suggestions: [
             'Ensure you are using standard Unicode math symbols.',
             'If your symbols are standard text (e.g., "x", "y"), the regex might ignore them. Switch to "Explicit Symbol List" mode to force analysis.'
@@ -207,49 +45,6 @@ export default function AtomicTokenizationModule() {
         return;
       }
 
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
-        contents: `Analyze the following STEM symbols extracted from a user's input: ${foundSymbols.join(', ')}. 
-        The user has provided the following domain context: "${domainContext}".
-        For each symbol, simulate how a standard BPE tokenizer might fragment it into bytes, assign a mock atomic token ID, and generate a FoNE-inspired semantic embedding profile capturing its mathematical properties. Tailor the domain weights and tensor rank effect based on the provided domain context if applicable.`,
-        config: {
-          responseMimeType: 'application/json',
-          responseSchema: {
-            type: Type.ARRAY,
-            items: {
-              type: Type.OBJECT,
-              properties: {
-                symbol: { type: Type.STRING, description: 'The STEM symbol' },
-                fragmented_bytes: { 
-                  type: Type.ARRAY, 
-                  items: { type: Type.STRING },
-                  description: 'Simulated BPE byte fragmentation (e.g., ["<0xE2>", "<0x88>", "<0x87>"])'
-                },
-                atomic_token_id: { type: Type.INTEGER, description: 'A simulated high-integer token ID for the atomic representation' },
-                fone_embedding: {
-                  type: Type.OBJECT,
-                  properties: {
-                    operator_class: { type: Type.STRING, description: 'e.g., Differential, Integral, Logical, Variable' },
-                    domain_weight_physics: { type: Type.NUMBER, description: '0.0 to 1.0 relevance to Physics' },
-                    domain_weight_math: { type: Type.NUMBER, description: '0.0 to 1.0 relevance to Pure Math' },
-                    domain_weight_ml: { type: Type.NUMBER, description: '0.0 to 1.0 relevance to Machine Learning' },
-                    tensor_rank_effect: { type: Type.STRING, description: 'How it affects tensor rank (e.g., "Reduces by 1", "Preserves", "Increases by 1")' },
-                    virtual_weight_3: { type: Type.NUMBER, description: '0.0 to 1.0 representing Beneficial Friction for Paraconsistent overlaps' },
-                    latent_topological_pathway: { type: Type.STRING, description: 'The non-standard topological routing name (e.g., "Phantom Dimension Tesselation")' }
-                  },
-                  required: ['operator_class', 'domain_weight_physics', 'domain_weight_math', 'domain_weight_ml', 'tensor_rank_effect', 'virtual_weight_3', 'latent_topological_pathway']
-                }
-              },
-              required: ['symbol', 'fragmented_bytes', 'atomic_token_id', 'fone_embedding']
-            }
-          }
-        }
-      });
-
-      const jsonStr = response.text?.trim() || '[]';
-      const parsed = JSON.parse(jsonStr) as TokenAnalysis[];
-      setResults(parsed);
-    } catch (err: any) {
       const baseMessage = parseAIError(err);
       const suggestions: string[] = [];
       
@@ -469,16 +264,16 @@ export default function AtomicTokenizationModule() {
       </div>
 
       {error && (
-        <div className="bg-red-500/10 border border-red-500/20 p-4 rounded-none mb-8">
+        <div className="bg-error/10 border border-error/20 p-4 rounded-none mb-8">
           <div className="flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+            <AlertTriangle className="w-5 h-5 text-error flex-shrink-0 mt-0.5" />
             <div>
-              <h4 className="text-red-400 font-mono text-sm font-bold mb-1">Analysis Failed</h4>
-              <p className="text-red-300/90 font-mono text-sm mb-3">{error.message}</p>
+              <h4 className="text-error font-mono text-sm font-bold mb-1">Analysis Failed</h4>
+              <p className="text-error/90 font-mono text-sm mb-3">{error.message}</p>
               {error.suggestions && error.suggestions.length > 0 && (
-                <div className="bg-red-950/30 rounded p-3 border border-red-500/10">
-                  <p className="text-xs font-mono text-red-400/80 uppercase tracking-wider mb-2">Suggested Actions:</p>
-                  <ul className="list-disc list-inside text-red-300/80 font-mono text-xs space-y-1">
+                <div className="bg-error/30 rounded p-3 border border-error/10">
+                  <p className="text-xs font-mono text-error/80 uppercase tracking-wider mb-2">Suggested Actions:</p>
+                  <ul className="list-disc list-inside text-error/80 font-mono text-xs space-y-1">
                     {error.suggestions.map((s, i) => <li key={i}>{s}</li>)}
                   </ul>
                 </div>
@@ -503,7 +298,7 @@ export default function AtomicTokenizationModule() {
                 {sequenceTokens.map((token, idx) => {
                   if (token.isSymbol && token.bytes) {
                     return token.bytes.map((byte, bIdx) => (
-                      <div key={`std-${idx}-${bIdx}`} className="px-2 py-2 bg-red-500/10 border border-red-500/30 text-red-300 font-mono text-xs rounded-none">
+                      <div key={`std-${idx}-${bIdx}`} className="px-2 py-2 bg-error/10 border border-error/30 text-error font-mono text-xs rounded-none">
                         {byte}
                       </div>
                     ));
@@ -546,7 +341,7 @@ export default function AtomicTokenizationModule() {
             <div className="pt-6 border-t border-border grid grid-cols-3 gap-4">
               <div className="bg-surface border border-border p-4 rounded-none flex flex-col items-center justify-center">
                 <span className="text-[10px] font-mono text-on-surface-muted uppercase mb-1">Standard Tokens</span>
-                <span className="text-2xl font-mono text-red-400">{standardTokenCount}</span>
+                <span className="text-2xl font-mono text-error">{standardTokenCount}</span>
               </div>
               <div className="bg-surface border border-border p-4 rounded-none flex flex-col items-center justify-center">
                 <span className="text-[10px] font-mono text-on-surface-muted uppercase mb-1">Atomic Tokens</span>
@@ -603,12 +398,12 @@ export default function AtomicTokenizationModule() {
               <div className="flex-1 p-6 border-b lg:border-b-0 lg:border-r border-border flex flex-col justify-center">
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <SplitSquareHorizontal className="w-4 h-4 text-red-400" />
+                    <SplitSquareHorizontal className="w-4 h-4 text-error" />
                     <h4 className="text-xs font-mono text-on-surface-muted uppercase tracking-wider">Standard BPE (Fragmented)</h4>
                   </div>
                   <div className="flex gap-2 flex-wrap">
                     {res.fragmented_bytes.map((byte, i) => (
-                      <div key={i} className="px-4 py-2 bg-red-500/10 border border-red-500/30 text-red-300 font-mono text-sm rounded-none">
+                      <div key={i} className="px-4 py-2 bg-error/10 border border-error/30 text-error font-mono text-sm rounded-none">
                         {byte}
                       </div>
                     ))}
