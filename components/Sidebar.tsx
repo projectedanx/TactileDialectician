@@ -11,6 +11,8 @@ import {
   UserCog,
   ClipboardList,
   DatabaseZap
+,
+  Shield
 } from 'lucide-react';
 
 /**
@@ -32,9 +34,10 @@ interface SidebarProps {
  */
 export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
   // Miller's Law limit slightly extended for necessary epistemic transparency.
-  const MAX_NAV_ITEMS = 10;
+  const MAX_NAV_ITEMS = 12;
 
   const tabs = [
+    { id: 'admin', label: 'Admin Console', icon: Shield },
     { id: 'orchestrator', label: 'PM Orchestrator', icon: ClipboardList },
     { id: 'workflow', label: 'Automated Workflow', icon: Workflow },
     { id: 'persona', label: 'Persona Sculptor', icon: UserCog },
