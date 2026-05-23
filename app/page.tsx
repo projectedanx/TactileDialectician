@@ -11,6 +11,7 @@ import AtomicTokenizationModule from '@/components/AtomicTokenizationModule';
 import AutomatedWorkflow from '@/components/AutomatedWorkflow';
 import TopologicalPersonaSculptor from '@/components/TopologicalPersonaSculptor';
 import SovereignProjectOrchestrator from '@/components/SovereignProjectOrchestrator';
+import RelationalSovereigntyEngine from '@/components/RelationalSovereigntyEngine';
 import AureliusDashboard from '@/components/aurelius/AureliusDashboard';
 import EpistemicEscrowDashboard from '@/components/EpistemicEscrowDashboard';
 import AdminDashboard from '@/components/AdminDashboard';
@@ -38,6 +39,7 @@ export default function Home() {
         {activeTab === 'workflow' && <AutomatedWorkflow onComplete={handleWorkflowComplete} />}
         {activeTab === 'persona' && <TopologicalPersonaSculptor />}
         {activeTab === 'orchestrator' && <SovereignProjectOrchestrator />}
+        {activeTab === 'relational' && <RelationalSovereigntyEngine />}
         {activeTab === 'lexical' && <LexicalTopologyMiner />}
         {activeTab === 'disambiguation' && <DisambiguationEngine />}
         {activeTab === 'tokenization' && <AtomicTokenizationModule />}

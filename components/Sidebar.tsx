@@ -1,93 +1,91 @@
+'use client';
+
 import {
-  Box,
-  Network,
-  BookOpen,
-  Calculator,
-  MessageSquare,
-  Activity,
-  Layers,
-  Cpu,
   Workflow,
+  Search,
+  Cpu,
+  LineChart,
+  MessageSquare,
+  Binary,
   UserCog,
   ClipboardList,
-  DatabaseZap
-,
-  Shield
+  Fingerprint,
+  ShieldAlert,
+  Shield,
+  HeartPulse
 } from 'lucide-react';
+import React from 'react';
 
-/**
- * Defines the properties required by the Sidebar component.
- */
-interface SidebarProps {
+export interface SidebarProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
 }
 
 /**
- * Renders the global navigation sidebar for the Tactile Dialectician interface.
- * Controls the active viewing state across different neuro-symbolic modules.
+ * The sidebar navigation component.
  *
- * @param {SidebarProps} props - The props object.
- * @param {string} props.activeTab - The currently active tab identifier.
- * @param {function} props.setActiveTab - State setter function to mutate the active tab.
- * @returns {JSX.Element} The rendered Sidebar component.
+ * @param {SidebarProps} props - The component props.
+ * @returns {JSX.Element} The rendered sidebar component.
  */
 export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
-  // Miller's Law limit slightly extended for necessary epistemic transparency.
-  const MAX_NAV_ITEMS = 12;
-
   const tabs = [
-    { id: 'admin', label: 'Admin Console', icon: Shield },
-    { id: 'orchestrator', label: 'PM Orchestrator', icon: ClipboardList },
-    { id: 'workflow', label: 'Automated Workflow', icon: Workflow },
-    { id: 'persona', label: 'Persona Sculptor', icon: UserCog },
-    { id: 'lexical', label: 'Lexical Topology', icon: Network },
-    { id: 'disambiguation', label: 'Disambiguation', icon: BookOpen },
-    { id: 'tokenization', label: 'Atomic Tokens', icon: Cpu },
-    { id: 'executor', label: 'Symbolic Executor', icon: Calculator },
-    { id: 'escrow', label: 'Epistemic Escrow', icon: DatabaseZap },
-    { id: 'chat', label: 'Dialectical Chat', icon: MessageSquare },
-    { id: 'aurelius', label: 'Project Aurelius', icon: Box },
+    { id: 'workflow', icon: Workflow, label: 'Automated Workflow' },
+    { id: 'persona', icon: UserCog, label: 'Topological Persona' },
+    { id: 'orchestrator', icon: ClipboardList, label: 'PM Orchestrator' },
+    { id: 'relational', icon: HeartPulse, label: 'Relational Sovereignty' },
+    { id: 'lexical', icon: Fingerprint, label: 'Lexical Topology' },
+    { id: 'disambiguation', icon: Search, label: 'Disambiguation' },
+    { id: 'tokenization', icon: Binary, label: 'Tokenization' },
+    { id: 'executor', icon: Cpu, label: 'Neuro-Symbolic Exec' },
+    { id: 'dashboard', icon: LineChart, label: 'Interpretability' },
+    { id: 'chat', icon: MessageSquare, label: 'Dialectical Chat' },
+    { id: 'escrow', icon: ShieldAlert, label: 'Epistemic Escrow' },
+    { id: 'aurelius', icon: Shield, label: 'Aurelius Dashboard' },
   ];
 
-  if (tabs.length > MAX_NAV_ITEMS) {
-    console.warn(
-      `[AestheticGeometrician] MILLER VIOLATION: ${tabs.length} nav items exceed the ${MAX_NAV_ITEMS}-item cognitive budget.`
-    );
-  }
-
   return (
-    <div className="w-64 bg-surface-raised border-r border-border h-screen flex flex-col">
+    <div className="w-64 bg-surface border-r border-border h-full flex flex-col">
       <div className="p-6 border-b border-border">
-        <div className="flex items-center gap-4">
-          <Layers className="w-6 h-6 text-primary" />
-          <h1 className="font-sans text-label font-bold tracking-tight text-primary">DIALECTICIAN</h1>
-        </div>
-        <p className="text-sm text-on-surface-muted mt-2 font-sans tracking-tight">v1.0.0-beta</p>
+        <h1 className="text-xl font-mono font-bold text-primary tracking-tight">Tactile Dialectician</h1>
+        <p className="text-xs font-mono text-on-surface-muted mt-2 tracking-wider">ATLAS FRAMEWORK v2.1</p>
       </div>
-      
-      <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
-        {tabs.slice(0, MAX_NAV_ITEMS).map((tab) => {
-          const Icon = tab.icon;
-          const isActive = activeTab === tab.id;
-          return (
-            <button
-              aria-label={tab.label}
-              aria-expanded={isActive}
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`w-full flex items-center gap-4 px-4 py-2 rounded-none text-body font-sans transition-all duration-200 border-2 ${
-                isActive 
-                  ? 'bg-transparent text-primary border-primary'
-                  : 'text-on-surface-muted hover:bg-transparent hover:text-on-surface border-transparent hover:border-border'
-              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-surface`}
-            >
-              <Icon className="w-4 h-4" />
-              {tab.label}
-            </button>
-          );
-        })}
+
+      <nav className="flex-1 overflow-y-auto py-4">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`w-full flex items-center px-6 py-4 text-sm font-mono transition-colors ${
+              activeTab === tab.id
+                ? 'bg-primary/10 text-primary border-r-2 border-primary'
+                : 'text-on-surface-muted hover:bg-surface-raised hover:text-on-surface'
+            }`}
+          >
+            <tab.icon className="w-5 h-5 mr-3" />
+            {tab.label}
+          </button>
+        ))}
       </nav>
+
+      <div className="p-4 border-t border-border">
+        <button
+          onClick={() => setActiveTab('admin')}
+          className={`w-full flex items-center justify-center px-4 py-2 text-xs font-mono transition-colors border ${
+            activeTab === 'admin'
+              ? 'bg-red-500/20 text-red-400 border-red-500/50'
+              : 'text-on-surface-muted border-border hover:bg-surface-raised hover:text-on-surface'
+          }`}
+        >
+          <ShieldAlert className="w-4 h-4 mr-2" />
+          ADMIN OVERRIDE
+        </button>
+        <div className="text-center mt-4">
+          <p className="text-[10px] font-mono text-on-surface-muted uppercase tracking-widest">System Status: Active</p>
+          <div className="flex items-center justify-center mt-1">
+            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -48,3 +48,10 @@ This document defines the strict metrological terminology used within the Tactil
 *   **Agentic Inversion Engine**: Calculates epistemic drift between fuzzy human intent and rigid AI schema, proposing a Latent Leap resolution.
 *   **Lexical Cartography**: Processing semantic space through Semantic Drift, Connotation Vectors, Semiotic Blind Spots, and Ambiguity Zones to extract Isomorphisms of Friction.
 *   **Stigmergic Mutex Holon**: An operational artifact derived from Semantic Mutex Locking where agents leave machine-readable pheromones (OS-level file locks) prior to state mutation to prevent Abstract Syntax Tree (AST) shearing.
+
+### Relational Sovereignty Terminology
+
+*   **Extractive Sprint**: A critique of high-velocity, continuous deployment workflows that function as mechanisms for the extraction of intellectual labor, often masking the commodification of human capital behind "efficiency metrics."
+*   **Crip-Time Genealogy**: An analytical lens that deconstructs productivity and velocity metrics (like burndown charts) as digital panopticons enforcing able-bodied normativity. It demands operational redesigns that accommodate diverse cognitive rhythms.
+*   **Relational Sovereignty**: A paradigm shift viewing developers as participants within a relational ecosystem rather than resources to be leveled. It prioritizes network health over rigid deadline completion.
+*   **Cognitive Rhythm Index**: A quantitative metric (0.0 to 1.0) defining how well a given operational workflow accommodates diverse temporalities and non-linear work patterns.
