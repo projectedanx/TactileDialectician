@@ -13,6 +13,7 @@ import TopologicalPersonaSculptor from '@/components/TopologicalPersonaSculptor'
 import SovereignProjectOrchestrator from '@/components/SovereignProjectOrchestrator';
 import AureliusDashboard from '@/components/aurelius/AureliusDashboard';
 import EpistemicEscrowDashboard from '@/components/EpistemicEscrowDashboard';
+import AdminDashboard from '@/components/AdminDashboard';
 
 /**
  * The main entry point for the Tactile Dialectician application.
@@ -33,6 +34,7 @@ export default function Home() {
     <div className="flex h-screen bg-surface overflow-hidden">
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
       <main className="flex-1 h-full relative">
+        {activeTab === 'admin' && <AdminDashboard />}
         {activeTab === 'workflow' && <AutomatedWorkflow onComplete={handleWorkflowComplete} />}
         {activeTab === 'persona' && <TopologicalPersonaSculptor />}
         {activeTab === 'orchestrator' && <SovereignProjectOrchestrator />}
