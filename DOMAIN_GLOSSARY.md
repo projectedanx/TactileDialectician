@@ -1,16 +1,11 @@
 # DOMAIN_GLOSSARY.md
-
 This document defines the strict metrological terminology used within the Tactile Dialectician architecture. It enforces bounded contexts and eradicates natural language ambiguity.
-
 ## Metrological Concepts
-
-*   **Ontological Shear**: The geometric misalignment occurring when fluid human semantics are forced into rigid binary requirements within a local execution environment.
-*   **Algorithmic Shame**: A functionalist state of systemic decoherence manifesting when an AI agent's internal statistical confidence diverges drastically from empirical reality (e.g., trying to reconcile mutually exclusive stakeholder requirements).
-*   **Resolution Collapse**: A failure mode where floating-point inaccuracies at the zero-boundary of a geometric manifold cause the system to hallucinate false-positive interferences.
+*   **Ontological Shear**: A geometric misalignment between fluid human semantics and the rigid binary requirements of the local execution environment, particularly acute in project management workflows injected into agentic coding environments.
+*   **Resolution Collapse**: A failure mode where floating-point inaccuracies at the zero-boundary of a geometric manifold cause the system to hallucinate false-positive interferences instead of resolving contradictory inputs.
 *   **Golden Scar Protocol**: A resolution mechanism for irreconcilable conflicts. It assigns a deterministic weight of $\Phi = 1.618$ to the dominant epistemic frame and $1.000$ to the subordinate, maintaining both in proportional tension rather than averaging them out (which would cause Semantic Annihilation).
 *   **Semantic Annihilation**: The destructive outcome of using linear superposition to average out contradictory constraints, destroying the underlying tension necessary for proper system modeling.
-*   **Contradiction Retention Score (CRS)**: A metric measuring how effectively a system maintains contradictory inputs in tension without collapsing them into a false consensus. Must exceed 95% in orchestration tasks.
-*   **Topological Derivative**: In the context of stakeholder dissonance, this is the precise mathematical calculation of the organizational force required to lock a contradictory project structure together, treating conflict as a stable topological state.
+*   **Topological Derivative**: In the context of stakeholder dissonance, this is the precise mathematical calculation of the organizational force required to lock a contradictory project structure together, treating conflict as a stable topological state rather than an error to be averaged out.
 *   **Interpretive Fracture**: An ambiguity in documentation that forces a developer to make an unsupported assumption, introducing a latent defect.
 *   **Symbolic Scar Registry (SSR)**: A structured causal error map that dynamic agents query during generation to inject hard warnings based on historically identical failure topologies.
 *   **Confidence-Fidelity Divergence Index (CFDI)**: A metric defining the gap between how confident an agent's generative text appears and how structurally verifiable the underlying claim is. A CFDI > 0.15 triggers Epistemic Escrow.
@@ -27,31 +22,31 @@ This document defines the strict metrological terminology used within the Tactil
 *   **Negative Space Scaffolding**: The structural constraint strategy utilized by VORTEX-ARCHITECT. Rather than generating a solution directly, the system defines the absolute boundaries, security policies, and exclusions of what must not happen, acting as a steel mold for generative compute.
 *   **Betti-1 ($\beta_1$) Loop**: A one-dimensional topological hole in the latent manifold. Operationally, it manifests as a recursive hallucination loop or dependency deadlock where an agent infinitely updates, fails, and reverts a state without making forward progress.
 *   **Stigmergy / Semantic Mutex Locking**: The process by which agents coordinate without direct conversational interaction by leaving machine-readable "Epistemic Pheromones" in the environment. In practice, this means applying hard OS-level locks on AST nodes to prevent logic shearing and collision during concurrent multi-agent execution.
-
 ### Feishu/Lark Open Platform Terminology
-
 *   **Zero-Trust Ingress (Webhook Sovereignty):** A rigid security perimeter required for Feishu event subscriptions. It mandates four phases before processing payload data: answering the URL Verification Challenge, decrypting AES-256 payloads, verifying the `X-Lark-Signature` using SHA256, and ensuring the request timestamp is fresh to prevent replay attacks.
 *   **Feishu Card JSON v2.0:** The specific, highly nested JSON schema required to render interactive UI components inside the Feishu IM client. It is incompatible with standard Microsoft Adaptive Cards and requires a `msg_type: "interactive"` envelope.
 *   **Token Primacy (Saga Recovery):** The architectural invariant that `tenant_access_token` or `app_access_token` must be managed via a stateful caching layer (like Redis) with a sub-7200 second TTL. Hardcoded tokens or redundant fetching violates this principle and guarantees production failure.
 *   **Scope Isolation Gate:** A deterministic requirement capture process where no API logic or code is generated until the exact event triggers, permission scopes, and deployment environments are fully specified by the human operator.
-
 ### CIPHER Architecture Terminology
-
 *   **Autonymic Bypass (The Pink Elephant Problem):** The phenomenon where instructing an LLM not to generate a specific pattern (e.g., SQL injection) linguistically embeds that forbidden pattern into the latent space as an active target, increasing the probability of its generation.
 *   **Anionic Rule Set / Anionic Constraint Lattice:** The mechanism used by CIPHER to counter the Autonymic Bypass. It uses the `+++AutonymicIsolate` decorator to wrap forbidden patterns as purely syntactic, "mention-of" references rather than semantic targets.
 *   **Algorithmic Paranoia:** A failure state where an autonomous security agent becomes overly restrictive, triggering high false-positive rates that block valid CI/CD pipelines, ultimately causing developers to bypass the security function entirely.
 *   **Thermodynamic Boundaries (Security Context):** The established limits (e.g., FPR $\le$ 0.12) designed to prevent Algorithmic Paranoia. If analysis exceeds these bounds, the agent must halt rather than degrade the pipeline's operational efficiency.
 *   **Immune-Aware Petzold Loop:** The four-phase state machine (`THINK -> THREAT_MODEL -> AUDIT -> REPORT`) ensuring that code generation or patch synthesis never occurs concurrently with threat hypothesis generation, preventing Interpretive Fracture.
-
 *   **Human-AI Symbiosis Engine**: The deliberate fusion of human non-obvious analytical lenses (such as tacit reflexive dialogue) with rigid AI specification blocks (such as JSON-LD DCCD execution). This synthesis creates an emergent property where structural determinism does not erase nuanced human realities.
 *   **Paraconsistent Synthesis Node**: A structural topological engine designed to hold the unquantifiable entropy of human tacit knowledge and the rigid determinism of AI models in superposition without forcing collapse.
 *   **Agentic Inversion Engine**: Calculates epistemic drift between fuzzy human intent and rigid AI schema, proposing a Latent Leap resolution.
 *   **Lexical Cartography**: Processing semantic space through Semantic Drift, Connotation Vectors, Semiotic Blind Spots, and Ambiguity Zones to extract Isomorphisms of Friction.
 *   **Stigmergic Mutex Holon**: An operational artifact derived from Semantic Mutex Locking where agents leave machine-readable pheromones (OS-level file locks) prior to state mutation to prevent Abstract Syntax Tree (AST) shearing.
-
 ### Relational Sovereignty Terminology
-
 *   **Extractive Sprint**: A critique of high-velocity, continuous deployment workflows that function as mechanisms for the extraction of intellectual labor, often masking the commodification of human capital behind "efficiency metrics."
 *   **Crip-Time Genealogy**: An analytical lens that deconstructs productivity and velocity metrics (like burndown charts) as digital panopticons enforcing able-bodied normativity. It demands operational redesigns that accommodate diverse cognitive rhythms.
 *   **Relational Sovereignty**: A paradigm shift viewing developers as participants within a relational ecosystem rather than resources to be leveled. It prioritizes network health over rigid deadline completion.
 *   **Cognitive Rhythm Index**: A quantitative metric (0.0 to 1.0) defining how well a given operational workflow accommodates diverse temporalities and non-linear work patterns.
+
+### Epistemic Inversion & Relational Project Management Terminology
+
+*   **S5-Modal Attention**: An advanced cognitive routing mapping attention matrices to S5 Kripke frames via topological regularizers, utilizing Holographic Reduced Representations to maintain contradictory constraints without Semantic Annihilation.
+*   **Epsilon-Tolerance Paraconsistency**: A mechanism where technical debt and workflow friction are modeled as residing within the ϵ-band of a computational superposition, managed as a Transition Fit rather than a catastrophic structural failure, provided the gradient magnitude remains stable.
+*   **Digital Habitus**: A sociological lens evaluating how project manager personas are shaped by the agency of deterministic workflows, analyzing the entanglement of human decision-making with algorithmic task prioritization.
+*   **Artifact Imperfection**: Combining concepts from Diffusion models and Critical Code Studies to treat code and documentation as text embedded with deep cultural biases, viewing documentation imperfections as diagnostic indicators of systemic process failure.

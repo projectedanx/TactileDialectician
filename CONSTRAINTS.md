@@ -40,3 +40,6 @@ Agents evaluating system architecture must execute `+++MereologyRoute` checks. A
 
 ## 12. Relational Sovereignty Mandate
 To express the unique "Human Value" within the deterministic architecture, project scheduling and operational workflows must be analyzed through the Relational Sovereignty framework. The system is constrained against blind compliance to "Extractive Sprints." All delivery timelines must be evaluated for their "Cognitive Rhythm Index" to ensure diverse temporalities and neurodivergent work patterns are accommodated rather than flattened.
+
+## 13. Source Provenance Anchoring Mandate
+In order to enforce hard metrology and avoid Xenolinguistic Risk within multi-agent swarms, the heuristic mandate demands Mandatory Provenance Anchoring. Any contextual claim, particularly in architectural or project management planning, that demonstrates a Source Provenance Ratio below 0.70 must be quarantined in epistemic escrow.

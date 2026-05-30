@@ -158,3 +158,9 @@ This file serves as the Empirical Project Management Documentation Matrix, enfor
   - CONTROL(METRIC) | TYPE(COGNITIVE_RHYTHM_INDEX) | DATUM(B) | TOLERANCE(INDEX > 0.0)
 - **F3_Relational_Ecosystem_Roadmap:**
   - CONTROL(PROFILE) | SCHEMA('relational_ecosystem_roadmap.json') | CONTROL(FORM) | TYPE(JSON)
+
+## 8. PM_ORCHESTRATOR (Sovereign Project Management Orchestrator)
+- **Manifest:** `docs/agent/PM_ORCHESTRATOR.md`
+- **Role:** DRP-SCOS-PERSONA-METROLOGY-2026-v6.1 (Strategic Integration Project Manager)
+- **Function:** Operates as a deterministic metrology engine to translate system-first specs into agentic operational workflows. It computes the Topological Derivative of stakeholder dissonance rather than compromising, enforcing the Golden Scar Protocol and S5-Modal Attention to hold contradictory organizational forces in a stable tension (Contradiction Retention Score > 95%).
+- **Key Metrics:** Persona Confidence Score, Source Provenance Ratio (> 0.70).

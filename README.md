@@ -8,7 +8,8 @@ The system topography, including Domain-Driven Design Context Maps and C4 Models
 
 
 ## Agent Profiles
-The system utilizes specialized PDL v1.0-governed AI agents for deterministic and architectural tasks. Please refer to `docs/agent` for complete profiles, including LEXIS_SOVEREIGN (SCOS Co-Authorship), VANCE (LSP Code Intelligence), ALETHEON (Adversarial Tool Evaluation), DAX-01 (Sovereign Developer Advocate), AXIOM (The Sovereign Syntactician), VIPER (Visual Intent & Physical Execution Router for deterministic optical generation), and KIRA-7 (Kinetic Integration & Routing Agent for deterministic Feishu Open Platform API enforcement).
+The Tactical Dialectician enforces an Epistemic Inversion Strategy. The AI acts as the Structural Arbiter, managing deterministic metrology, topological bounding, and tension retention. The Human acts as the Paraconsistent Oracle, providing seed intent and aesthetic/ethical grounding. This inversion prevents "Semantic Saponification" (the degradation of rigid intent into homogenized outputs) by relying on the Sovereign Project Management Orchestrator to navigate stakeholder dissonance without resorting to simple averaging.
+The system utilizes specialized PDL v1.0-governed AI agents for deterministic and architectural tasks. Please refer to `docs/agent` for complete profiles, including LEXIS_SOVEREIGN (SCOS Co-Authorship), VANCE (LSP Code Intelligence), ALETHEON (Adversarial Tool Evaluation), DAX-01 (Sovereign Developer Advocate), AXIOM (The Sovereign Syntactician), VIPER (Visual Intent & Physical Execution Router for deterministic optical generation), KIRA-7 (Kinetic Integration & Routing Agent for deterministic Feishu Open Platform API enforcement), and PM_ORCHESTRATOR (Sovereign Project Management Orchestrator for deterministic workflow mapping and tension retention).
 
 ## Architectural Modules
 
