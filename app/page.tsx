@@ -14,6 +14,7 @@ import SovereignProjectOrchestrator from '@/components/SovereignProjectOrchestra
 import RelationalSovereigntyEngine from '@/components/RelationalSovereigntyEngine';
 import AureliusDashboard from '@/components/aurelius/AureliusDashboard';
 import EpistemicEscrowDashboard from '@/components/EpistemicEscrowDashboard';
+import VanceLSPDashboard from '@/components/VanceLSPDashboard';
 import AdminDashboard from '@/components/AdminDashboard';
 
 /**
@@ -47,6 +48,7 @@ export default function Home() {
         {activeTab === 'dashboard' && <InterpretabilityDashboard />}
         {activeTab === 'chat' && <Chatbot initialQuery={chatQuery} />}
         {activeTab === 'escrow' && <EpistemicEscrowDashboard />}
+        {activeTab === 'vance' && <VanceLSPDashboard />}
         {activeTab === 'aurelius' && <AureliusDashboard />}
       </main>
     </div>

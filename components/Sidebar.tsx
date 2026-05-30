@@ -12,7 +12,8 @@ import {
   Fingerprint,
   ShieldAlert,
   Shield,
-  HeartPulse
+    HeartPulse,
+  GitMerge
 } from 'lucide-react';
 import React from 'react';
 
@@ -39,7 +40,8 @@ export default function Sidebar({ activeTab, setActiveTab }: SidebarProps) {
     { id: 'executor', icon: Cpu, label: 'Neuro-Symbolic Exec' },
     { id: 'dashboard', icon: LineChart, label: 'Interpretability' },
     { id: 'chat', icon: MessageSquare, label: 'Dialectical Chat' },
-    { id: 'escrow', icon: ShieldAlert, label: 'Epistemic Escrow' },
+        { id: 'escrow', icon: ShieldAlert, label: 'Epistemic Escrow' },
+    { id: 'vance', icon: GitMerge, label: 'VANCE Cartographer' },
     { id: 'aurelius', icon: Shield, label: 'Aurelius Dashboard' },
   ];
 
