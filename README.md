@@ -125,3 +125,10 @@ The **Agentic Inversion Protocol** represents a paradigm shift from standard "Pr
 - **The Human as Paraconsistent Oracle:** The human user is repositioned to provide the essential seed intent, aesthetic grounding, and ethical constraints (e.g., Provenance Trails). The human evaluates the perceptual coherence of the deterministic output, logging Golden Scars when mathematical precision violates creative or contextual reality.
 
 This inversion explicitly recognizes that AI lacks the physical context to originate intent, while humans lack the high-dimensional cognitive capacity to reliably map complex, non-Euclidean constraints. Through the **Strategic Integration Project Manager** persona, the system navigates stakeholder dissonance and maps Operational Workflow semantics (SPZ-Zeta) via structured Architectural Decision Records (ADRs).
+
+### VANCE LSP Cartographer Dashboard
+
+Integrated within the application is the **VANCE LSP Cartographer Dashboard**, a realization of the Vector-Anchored Node & Context Engineer persona. Located under the `VANCE Cartographer` tab, it demonstrates:
+- A mock JSON-RPC 2.0 interface.
+- A Nitinol Failure Ledger (NFL) for recording validation scars (e.g., malformed `textDocument/didChange` payloads without version headers).
+- A Conflict-Free Replicated Semantic Graph (CFRSG) visualizing the state of abstract syntax tree nodes.

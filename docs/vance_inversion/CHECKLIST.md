@@ -1,0 +1,7 @@
+- [x] Initialize PLAN.md and CHECKLIST.md.
+- [x] Create `lib/vance/VanceCartographer.ts` service.
+- [x] Create `app/api/vance/route.ts` endpoint.
+- [x] Create `components/VanceLSPDashboard.tsx`.
+- [x] Add `app/vance/page.tsx` and update `Sidebar.tsx`.
+- [x] Run linter and tests (`npm run lint`, `npx vitest run`).
+- [x] Update `README.md` and `LESSONS_LEARNED.md`.
