@@ -1,11 +1,14 @@
-**Summary:**
-This PR implements the "Epistemic Inversion Strategy" by formally introducing the `AXIOM` persona (The Sovereign Syntactician). It transitions the system's documentation approach from probabilistic generation to deterministic, schema-bound structural law via Draft-Conditioned Constrained Decoding (DCCD).
+# 🧪 Test RelationalSovereigntyEngine Component
 
-**Key Changes:**
-- **Axiom Agent Profile:** Added `docs/agent/AXIOM.md` detailing the new Epistemic Matrix and negative-space constraints (Anionic Architecture) for zero-ambiguity documentation.
-- **Inversion Strategy & Checklist:** Created `docs/axiom_inversion/PLAN.md` and `CHECKLIST.md` mapping the human's value as the Paraconsistent Oracle and the AI's value as the Structural Arbiter.
-- **Global Documentation Updates:** Integrated Axiom into `AGENTS.md`, updated the `README.md` Agent Profiles section, appended new metrological terminology to `DOMAIN_GLOSSARY.md` (e.g., Interpretive Fracture, Symbolic Scar Registry, CFDI), and updated `TODO.md` with completion status.
+## 🎯 What
+This PR addresses the missing unit tests for the `RelationalSovereigntyEngine` component, ensuring its UI rendering, internal state interactions, and backend integration logic are verified deterministically.
 
-**Verification:**
-- Verified documentation constraints and structural logic manually.
-- The standard vitest testing suite was run against `lib/utils` and `utils/errorHandling` (CSAP) successfully to ensure documentation updates did not inadvertently alter core deterministic execution boundaries.
+## 📊 Coverage
+The new test file (`components/RelationalSovereigntyEngine.test.tsx`) provides coverage for the following scenarios:
+*   **Initial Render:** Verifies the title, labels, specific placeholders, and ensures the submit button is disabled when the input is empty.
+*   **State Interaction:** Simulates typing into the `textarea` and verifies that the component updates its value and correctly enables the "APPLY RELATIONAL LENSES" submit button.
+*   **Successful API Flow:** Mocks the global `fetch` API to simulate a successful 200 OK response. Iterates through the returned JSON object and confirms that components like Hickam Orientation Block, Cognitive Rhythm Index, Extractive Sprint Analysis, Crip-Time Adaptations, Ecosystem Roadmap, and the Verification Checklist are all accurately rendered into the DOM.
+*   **Error Handling:** Simulates an API fetch failure (HTTP 500) to ensure the application catches the rejection, invokes `parseAIError`, and accurately renders the error message via the `<ShieldAlert>` UI component.
+
+## ✨ Result
+Test coverage for the `RelationalSovereigntyEngine` UI component has been successfully implemented using React Testing Library and Vitest. This provides a safety net to prevent visual and functional regressions, ensuring continuous component reliability.
