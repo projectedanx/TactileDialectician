@@ -1,5 +1,18 @@
 import { GoogleGenAI, ThinkingLevel, Type, FunctionDeclaration } from '@google/genai';
-import * as math from 'mathjs';
+import { create, all } from 'mathjs';
+
+const math = create(all);
+const limitedEvaluate = math.evaluate;
+
+math.import({
+  'import':     function () { throw new Error('Function import is disabled') },
+  'createUnit': function () { throw new Error('Function createUnit is disabled') },
+  'evaluate':   function () { throw new Error('Function evaluate is disabled') },
+  'parse':      function () { throw new Error('Function parse is disabled') },
+  'simplify':   function () { throw new Error('Function simplify is disabled') },
+  'derivative': function () { throw new Error('Function derivative is disabled') },
+  'resolve':    function () { throw new Error('Function resolve is disabled') },
+}, { override: true });
 import nerdamer from 'nerdamer';
 import 'nerdamer/Algebra.js';
 import 'nerdamer/Calculus.js';
@@ -136,7 +149,7 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
           isSuccess = true;
         } else if (call.name === 'numeric_compute') {
           const expr = (call.args as { expression: string }).expression;
-          resultStr = math.evaluate(expr).toString();
+          resultStr = limitedEvaluate(expr).toString();
           isSuccess = true;
         } else {
           resultStr = `Unknown function: ${call.name}`;
