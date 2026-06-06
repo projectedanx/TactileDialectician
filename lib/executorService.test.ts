@@ -2,28 +2,28 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { executeLLM, executeDeterministic } from './executorService';
 import { GoogleGenAI } from '@google/genai';
 
+const mockGenerateContentStream = vi.fn();
+
 vi.mock('@google/genai', () => {
-  const mockGenerateContentStream = vi.fn();
   return {
-    GoogleGenAI: vi.fn().mockImplementation(() => ({
-      models: {
-        generateContentStream: mockGenerateContentStream
+    GoogleGenAI: function() {
+      return {
+        models: {
+          generateContentStream: mockGenerateContentStream
+        }
       }
-    })),
+    },
     ThinkingLevel: { HIGH: 'HIGH' },
     Type: { OBJECT: 'OBJECT', STRING: 'STRING' }
   };
 });
 
 describe('executorService', () => {
-  let mockGenerateContentStream: any;
   let updateTrace: any;
   let incrementOps: any;
 
   beforeEach(() => {
     vi.clearAllMocks();
-    const ai = new GoogleGenAI({ apiKey: 'test' });
-    mockGenerateContentStream = ai.models.generateContentStream;
     updateTrace = vi.fn();
     incrementOps = vi.fn();
   });
