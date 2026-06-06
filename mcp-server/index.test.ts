@@ -55,10 +55,10 @@ describe('MCP Server Tool Execution Error Handling', () => {
       throw new Error("Mocked parsing error");
     });
 
-    await import('./index.ts');
+    await import('./index');
 
     // Find the symbolic_compute registration
-    const symbolicComputeCall = mockTool.mock.calls.find(call => call[0] === 'symbolic_compute');
+    const symbolicComputeCall = mockTool.mock.calls.find(call => call[0] === 'symbolic_compute') as any[];
     expect(symbolicComputeCall).toBeDefined();
 
     // The handler is the last argument to server.tool
@@ -79,10 +79,10 @@ describe('MCP Server Tool Execution Error Handling', () => {
       throw new Error("Mocked numeric evaluation error");
     });
 
-    await import('./index.ts');
+    await import('./index');
 
     // Find the numeric_compute registration
-    const numericComputeCall = mockTool.mock.calls.find(call => call[0] === 'numeric_compute');
+    const numericComputeCall = mockTool.mock.calls.find(call => call[0] === 'numeric_compute') as any[];
     expect(numericComputeCall).toBeDefined();
 
     // The handler is the last argument to server.tool
@@ -103,9 +103,9 @@ describe('MCP Server Tool Execution Error Handling', () => {
       text: () => "success_symbolic"
     }));
 
-    await import('./index.ts');
+    await import('./index');
 
-    const symbolicComputeCall = mockTool.mock.calls.find(call => call[0] === 'symbolic_compute');
+    const symbolicComputeCall = mockTool.mock.calls.find(call => call[0] === 'symbolic_compute') as any[];
     expect(symbolicComputeCall).toBeDefined();
 
     const handler = symbolicComputeCall[symbolicComputeCall.length - 1];
@@ -124,9 +124,9 @@ describe('MCP Server Tool Execution Error Handling', () => {
       toString: () => "success_numeric"
     }));
 
-    await import('./index.ts');
+    await import('./index');
 
-    const numericComputeCall = mockTool.mock.calls.find(call => call[0] === 'numeric_compute');
+    const numericComputeCall = mockTool.mock.calls.find(call => call[0] === 'numeric_compute') as any[];
     expect(numericComputeCall).toBeDefined();
 
     const handler = numericComputeCall[numericComputeCall.length - 1];
