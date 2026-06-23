@@ -73,11 +73,7 @@ export default function AtomicTokenizationModule() {
   };
 
   const resultsMap = useMemo(() => {
-    const map = new Map<string, TokenAnalysis>();
-    for (const r of results) {
-      map.set(r.symbol, r);
-    }
-    return map;
+    return results.reduce((map, r) => map.set(r.symbol, r), new Map<string, TokenAnalysis>());
   }, [results]);
 
   const sequenceTokens = useMemo(() => {
