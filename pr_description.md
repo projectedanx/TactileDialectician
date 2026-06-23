@@ -1,12 +1,12 @@
-🎯 **What:**
-Added an integration test for the Relational Sovereignty API route (`app/api/relational-sovereignty/route.ts`) to address the missing test coverage. This ensures the Next.js Route Handler logic correctly handles edge cases, parses JSON, and interacts properly with the Google GenAI model.
+🔒 Fix: Dynamic Evaluation with nerdamer vulnerability
 
-📊 **Coverage:**
-The test suite now covers:
-1. Missing `sprintPlan` body payload resulting in a `400 Bad Request`.
-2. Valid API response, confirming parsed output format mapping correctly to `NextResponse`.
-3. Upstream errors from `GoogleGenAI` being caught appropriately resulting in a `500 Internal Server Error`.
-4. Handles empty response payload fallbacks to `{}` safely.
+🎯 **What:** The vulnerability fixed
+The `executorService` used `nerdamer(input).evaluate()` directly without any input sanitization. This allowed execution of unexpected mathematical logic, and potentially arbitrary JS code execution through Javascript evaluation vectors like `eval()` and `__proto__`.
 
-✨ **Result:**
-Improved the overall testing reliability and deterministic behavior of the application by bringing test coverage for `app/api/relational-sovereignty/route.test.ts` up to 100%. The test suite execution is verified and passes completely.
+⚠️ **Risk:** The potential impact if left unfixed
+Malicious inputs such as `__proto__=1`, `constructor()`, or `eval()` could be evaluated by the underlying engine. This puts the application at risk of Denial of Service (DoS) and potential Logic Flaws / prototype pollution issues depending on the JavaScript engine.
+
+🛡️ **Solution:** How the fix addresses the vulnerability
+A pre-compiled Regular Expression `DANGEROUS_KEYWORDS` was added with a helper function `isSafeInput()`. It uses word boundaries `\b` to efficiently reject dangerous JavaScript keywords and properties (`__proto__`, `constructor`, `eval`, `Function`, `require`, `process`, `global`, `window`, `document`, `setTimeout`, `setInterval`) before evaluating them in both `executeDeterministic` and tool-based `executeLLM` branches. Safe mathematical strings containing these keywords as substrings (e.g., `evaluation` or `revalue`) remain fully functional.
+
+Tests were also included in `lib/executorService.test.ts` to assert that the vulnerable code paths return `Security Error: Dangerous input detected` while safe code paths remain properly evaluated.
