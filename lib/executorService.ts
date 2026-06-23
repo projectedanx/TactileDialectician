@@ -18,6 +18,12 @@ import 'nerdamer/Algebra.js';
 import 'nerdamer/Calculus.js';
 import 'nerdamer/Solve.js';
 
+const DANGEROUS_KEYWORDS = /\b(__proto__|constructor|prototype|eval|Function|require|process|global|window|document|setTimeout|setInterval)\b/i;
+
+export const isSafeInput = (input: string): boolean => {
+  return !DANGEROUS_KEYWORDS.test(input);
+};
+
 /**
  * Represents a single step in the neuro-symbolic execution trace.
  */
@@ -35,6 +41,9 @@ export interface TraceStep {
  * @returns {{ success: boolean, result?: string, error?: string }} An object containing the success status and the evaluated result or error message.
  */
 export const executeDeterministic = (input: string): { success: boolean, result?: string, error?: string } => {
+  if (!isSafeInput(input)) {
+    return { success: false, error: "Security Error: Dangerous input detected" };
+  }
   try {
     const directResult = nerdamer(input).evaluate().text();
     if (directResult && directResult !== input) {
@@ -143,14 +152,20 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
       let resultStr = '';
       let isSuccess = false;
       try {
-        if (call.name === 'symbolic_compute') {
+        if (call.name === 'symbolic_compute' || call.name === 'numeric_compute') {
           const expr = (call.args as { expression: string }).expression;
-          resultStr = nerdamer(expr).evaluate().text();
-          isSuccess = true;
-        } else if (call.name === 'numeric_compute') {
-          const expr = (call.args as { expression: string }).expression;
-          resultStr = limitedEvaluate(expr).toString();
-          isSuccess = true;
+          if (!isSafeInput(expr)) {
+            resultStr = "Error: Security Error: Dangerous input detected";
+            isSuccess = false;
+          } else {
+            if (call.name === 'symbolic_compute') {
+              resultStr = nerdamer(expr).evaluate().text();
+              isSuccess = true;
+            } else if (call.name === 'numeric_compute') {
+              resultStr = limitedEvaluate(expr).toString();
+              isSuccess = true;
+            }
+          }
         } else {
           resultStr = `Unknown function: ${call.name}`;
         }

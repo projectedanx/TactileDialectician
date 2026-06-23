@@ -135,6 +135,24 @@ describe('executorService', () => {
   });
 
   describe('executeDeterministic', () => {
+    it('blocks malicious __proto__ input in deterministic evaluation', () => {
+      const result = executeDeterministic('__proto__=1');
+      expect(result.success).toBe(false);
+      expect(result.error).toBe('Security Error: Dangerous input detected');
+    });
+
+    it('blocks eval calls in deterministic evaluation', () => {
+      const result = executeDeterministic('eval("console.log(1)")');
+      expect(result.success).toBe(false);
+      expect(result.error).toBe('Security Error: Dangerous input detected');
+    });
+
+    it('blocks constructor references', () => {
+      const result = executeDeterministic('constructor()');
+      expect(result.success).toBe(false);
+      expect(result.error).toBe('Security Error: Dangerous input detected');
+    });
+
     it('evaluates successful nerdamer expression', () => {
       const result = executeDeterministic('x + x');
       expect(result).toEqual({ success: true, result: '2*x' });
@@ -178,3 +196,17 @@ describe('executorService', () => {
     });
   });
 });
+
+  describe('Security Constraints (Regression Tests)', () => {
+    it('allows safe strings that contain dangerous words as substrings', () => {
+      const result = executeDeterministic('evaluation');
+      expect(result.success).toBe(false);
+      expect(result.error).not.toBe('Security Error: Dangerous input detected');
+    });
+
+    it('allows variables that have dangerous words as substrings', () => {
+      const result = executeDeterministic('revalue(x)');
+      expect(result.success).toBe(true);
+      expect(result.result).toBe('revalue*x');
+    });
+  });
