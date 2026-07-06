@@ -69,6 +69,12 @@ export class PluriversalFeatureDiscoveryAgent {
    * Outputs a Python script mathematically proving viability and simulating Thermodynamic Restoration.
    */
   static generateCoCSimulation(topology: TopologyState): CoCSimulation {
+    if (!topology) {
+      return {
+        language: 'Python',
+        script: ''
+      };
+    }
     let pythonScript = `
 # Chain-of-Code (CoC) Enactment Simulation
 # Validating Paraconsistent Overlap
