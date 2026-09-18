@@ -26,3 +26,8 @@
 
 ### Epistemic Inversion and the PM_ORCHESTRATOR Persona
 By enforcing an Epistemic Inversion Strategy, the PM_ORCHESTRATOR transitions from a task tracker to a deterministic metrology engine. We learned that the standard AI tendency is to "average out" stakeholder dissonance (Semantic Annihilation). By formalizing the **Topological Derivative** and **Epsilon-Tolerance Paraconsistency**, the agent can treat conflicts as structural bounds instead of communication errors. This physically locks the system topology into place, proving that deterministic bounds (`CONSTRAINTS.md`, `11-risks-and-technical-debt.md`) are far superior to agile narrative artifacts (user stories) when orchestrating AI nodes.
+
+### Reflexive Repair Loop and Epistemic Escrow Integration
+- **Loop Constraint**: LLM executor service bounded strictly to a 3-iteration max limit to prevent agent thrashing.
+- **Epistemic Escrow Fallback**: Exceeding the 3-iteration loop logs a Symbolic Scar ('EPISTEMIC_DRIFT') and halts the process with an Epistemic Escrow Triggered error.
+- **Model Downgrade**: To avoid physical execution failures, hallucinated models like 'gemini-3.1-pro-preview' have been downgraded to valid models such as 'gemini-2.5-pro'.
