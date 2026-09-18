@@ -1,3 +1,4 @@
+import { logSymbolicScar } from '../utils/errorHandling';
 import { GoogleGenAI, ThinkingLevel, Type, FunctionDeclaration } from '@google/genai';
 import { create, all } from 'mathjs';
 
@@ -117,7 +118,7 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
   updateTrace({ type: 'llm_reasoning', content: 'Engaging LLM attention mechanisms to probe structure and intent...', status: 'pending' });
 
   let streamResponse = await ai.models.generateContentStream({
-    model: 'gemini-3.1-pro-preview',
+    model: 'gemini-2.5-pro',
     contents: history,
     config: {
       thinkingConfig: { thinkingLevel: ThinkingLevel.HIGH },
@@ -148,7 +149,7 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
     candidates: [{ content: { parts: responseParts } }]
   };
 
-  let maxIterations = 5;
+  let maxIterations = 3;
   let iterations = 0;
 
   while (response.functionCalls && response.functionCalls.length > 0 && iterations < maxIterations) {
@@ -201,7 +202,7 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
 
     updateTrace({ type: 'llm_reasoning', content: `Synthesizing result from tool outputs (Iteration ${iterations})...`, status: 'pending' });
     streamResponse = await ai.models.generateContentStream({
-      model: 'gemini-3.1-pro-preview',
+      model: 'gemini-2.5-pro',
       contents: history,
       config: {
         thinkingConfig: { thinkingLevel: ThinkingLevel.HIGH },
@@ -231,6 +232,11 @@ CRITICAL EPISTEMIC CONSTRAINTS & SEMANTIC AUDIT:
       functionCalls: functionCalls,
       candidates: [{ content: { parts: responseParts } }]
     };
+  }
+
+  if (iterations >= maxIterations && response.functionCalls && response.functionCalls.length > 0) {
+    logSymbolicScar('EPISTEMIC_DRIFT', { cfd: 0.9, raw: "Loop iteration limit reached." }, 0.1);
+    throw new Error("Epistemic Escrow Triggered: Loop iteration limit reached.");
   }
 
   let finalResult = '';

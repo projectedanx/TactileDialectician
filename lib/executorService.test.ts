@@ -121,16 +121,15 @@ describe('executorService', () => {
       }));
     });
 
-    it('limits tool call iterations to maxIterations', async () => {
+    it('limits tool call iterations to maxIterations and triggers Escrow', async () => {
       mockGenerateContentStream.mockImplementation(() => Promise.resolve([
         { text: 'Looping fallback', functionCalls: [{ name: 'numeric_compute', args: { expression: '1+1' } }], candidates: [{ content: { parts: [{ text: 'Looping...' }] } }] }
       ]));
 
-      const result = await executeLLM('loop forever', updateTrace, incrementOps);
+      await expect(executeLLM('loop forever', updateTrace, incrementOps)).rejects.toThrow('Epistemic Escrow Triggered: Loop iteration limit reached.');
 
-      expect(mockGenerateContentStream).toHaveBeenCalledTimes(6); // 1 initial + 5 iterations
-      expect(incrementOps).toHaveBeenCalledTimes(5);
-      expect(result).toBe('Looping...');
+      expect(mockGenerateContentStream).toHaveBeenCalledTimes(4); // 1 initial + 3 iterations
+      expect(incrementOps).toHaveBeenCalledTimes(3);
     });
   });
 
