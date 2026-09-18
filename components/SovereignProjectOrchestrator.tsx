@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Loader2, AlertTriangle, ShieldAlert, CheckCircle2, Box, FileText, ClipboardList } from 'lucide-react';
+import { Loader2, AlertTriangle, ShieldAlert, CheckCircle2, Box, FileText, ClipboardList, Database } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -21,6 +21,10 @@ interface OrchestrationRequest {
  */
 export default function SovereignProjectOrchestrator() {
   const [stakeholderNarrative, setStakeholderNarrative] = useState('');
+  const [debtContext, setDebtContext] = useState('');
+  const [debtResults, setDebtResults] = useState<any>(null);
+  const [debtLoading, setDebtLoading] = useState(false);
+  const [debtError, setDebtError] = useState('');
   const [results, setResults] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -43,6 +47,36 @@ export default function SovereignProjectOrchestrator() {
     // Ideally, we'd use a global state or event to update the Escrow Dashboard,
     // but for now, logging it is the primary deterministic action.
     alert('Contradiction sent to Epistemic Escrow. Check the Escrow Dashboard.');
+  };
+
+
+  const handleDebtEvaluation = async () => {
+    if (!debtContext.trim()) return;
+    setDebtLoading(true);
+    setDebtError('');
+    setDebtResults(null);
+
+    try {
+      const response = await fetch('/api/technical-debt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ debtContext }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const parsed = await response.json();
+      setDebtResults(parsed);
+
+    } catch (err: any) {
+      setDebtError(parseAIError(err));
+    } finally {
+      setDebtLoading(false);
+    }
   };
 
   const sanitizeSchema = {
@@ -226,6 +260,84 @@ export default function SovereignProjectOrchestrator() {
 
         </div>
       )}
+
+      {/* Epsilon-Tolerance Technical Debt Section */}
+      <div className="bg-surface border border-border rounded-none p-6 mb-8 mt-8">
+        <h3 className="text-sm font-mono text-primary uppercase tracking-wider mb-4 border-b border-border pb-2 flex items-center gap-2">
+          <Database className="w-4 h-4" /> Epsilon-Tolerance Paraconsistency (Technical Debt)
+        </h3>
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1">
+            <label className="block text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-2">
+              Sub-Optimal Software State / Debt Context
+            </label>
+            <textarea
+              value={debtContext}
+              onChange={(e) => setDebtContext(e.target.value)}
+              placeholder="e.g., 'Agent generated functional but non-standard authentication logic. Hard refactor will cost 2 weeks of velocity...'"
+              className="w-full h-32 bg-surface-raised border border-border rounded-none px-4 py-4 text-on-surface font-mono focus:outline-none focus:border-primary transition-colors resize-none"
+            />
+          </div>
+        </div>
+        <div className="flex items-end justify-end mt-4">
+            <button
+              onClick={handleDebtEvaluation}
+              disabled={debtLoading || !debtContext.trim()}
+              className="h-[50px] px-8 bg-primary hover:bg-primary/80 text-on-primary font-mono rounded-none flex items-center gap-2 transition-colors disabled:opacity-50"
+            >
+              {debtLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Database className="w-5 h-5" />}
+              EVALUATE DEBT TOPOLOGY
+            </button>
+        </div>
+      </div>
+
+      {debtError && (
+        <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-none mb-8 flex items-center gap-3 font-mono text-sm">
+          <ShieldAlert className="w-5 h-5" />
+          {debtError}
+        </div>
+      )}
+
+      {debtResults && (
+        <div className="space-y-8 animate-fade-in mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 border rounded-none flex items-center justify-between bg-surface-raised border-border">
+              <div>
+                <h3 className="text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-1">Gradient Magnitude |∇d|</h3>
+                <p className="text-sm font-mono font-bold text-primary">
+                  {debtResults.gradient_magnitude?.toFixed(4) || '1.0000'}
+                </p>
+              </div>
+            </div>
+
+            <div className="p-5 border rounded-none flex items-center justify-between bg-surface-raised border-border">
+              <div>
+                <h3 className="text-xs font-mono text-on-surface-muted uppercase tracking-wider mb-1">Epsilon Band Status</h3>
+                <p className="text-sm font-mono font-bold text-yellow-500">
+                  {debtResults.epsilon_band_status}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {debtResults.risks_and_technical_debt_md && (
+            <div className="bg-surface border border-border p-6 rounded-none">
+              <h3 className="text-sm font-mono text-yellow-500 uppercase tracking-wider mb-4 border-b border-border pb-2 flex items-center gap-2">
+                <FileText className="w-4 h-4" /> 11-risks-and-technical-debt.md
+              </h3>
+              <div className="prose prose-invert max-w-none text-sm font-sans text-on-surface-muted leading-relaxed">
+                  <ReactMarkdown
+                    remarkPlugins={[remarkMath]}
+                    rehypePlugins={[rehypeKatex, [rehypeSanitize, sanitizeSchema]]}
+                  >
+                    {debtResults.risks_and_technical_debt_md}
+                  </ReactMarkdown>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
     </div>
   );
 }

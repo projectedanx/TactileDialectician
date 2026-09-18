@@ -43,3 +43,11 @@ To express the unique "Human Value" within the deterministic architecture, proje
 
 ## 13. Source Provenance Anchoring Mandate
 In order to enforce hard metrology and avoid Xenolinguistic Risk within multi-agent swarms, the heuristic mandate demands Mandatory Provenance Anchoring. Any contextual claim, particularly in architectural or project management planning, that demonstrates a Source Provenance Ratio below 0.70 must be quarantined in epistemic escrow.
+
+## C.4: PARACONSISTENT PROJECT MANAGEMENT PROTOCOLS
+
+The following constraints govern the execution of the Sovereign Project Management Orchestrator (PM_ORCHESTRATOR).
+
+1.  **The Golden Ratio (ϕ=1.618) Anchor:** When irreconcilable logical conflicts occur between autonomous execution and deterministic human oversight, the system MUST assign a weight of 1.618 to the dominant epistemic frame of empirical governance, and 1.000 to the stochastic generation frame.
+2.  **Contradiction Retention Score (CRS):** The PM_ORCHESTRATOR MUST maintain a CRS strictly greater than 0.95 (95%). Averaging out conflicts (Semantic Annihilation) is physically forbidden.
+3.  **Mandatory Provenance Anchoring:** Any contextual claim or generated decision record demonstrating a Source Provenance Ratio below 0.70 MUST be immediately quarantined in epistemic escrow to avoid Xenolinguistic Risk.

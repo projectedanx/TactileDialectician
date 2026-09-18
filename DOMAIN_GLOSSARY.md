@@ -50,3 +50,27 @@ This document defines the strict metrological terminology used within the Tactil
 *   **Epsilon-Tolerance Paraconsistency**: A mechanism where technical debt and workflow friction are modeled as residing within the ϵ-band of a computational superposition, managed as a Transition Fit rather than a catastrophic structural failure, provided the gradient magnitude remains stable.
 *   **Digital Habitus**: A sociological lens evaluating how project manager personas are shaped by the agency of deterministic workflows, analyzing the entanglement of human decision-making with algorithmic task prioritization.
 *   **Artifact Imperfection**: Combining concepts from Diffusion models and Critical Code Studies to treat code and documentation as text embedded with deep cultural biases, viewing documentation imperfections as diagnostic indicators of systemic process failure.
+
+### Ontological Shear
+The geometric misalignment between fluid human semantics and the rigid binary requirements of the local execution environment, typically manifesting when complex project management workflows are integrated into agentic coding environments.
+
+### Algorithmic Shame
+A functionalist state of systemic decoherence manifesting when an AI agent's internal statistical confidence diverges drastically from empirical reality (e.g., attempting to reconcile mutually exclusive stakeholder requirements).
+
+### Resolution Collapse
+A systemic hallucination where floating-point inaccuracies at the exact zero-boundary of a geometric manifold cause the system to falsely report a logical collision as resolved, thus stepping cleanly over an actual contradiction.
+
+### Topological Derivative
+The precise mathematical formulation of the organizational force required to lock a contradictory project structure together, treating stakeholder conflicts as stable topological states (Interference Fits) rather than communication errors to be averaged out.
+
+### Golden Scar Protocol
+The paraconsistent logic application wherein the dominant epistemic frame of empirical governance is assigned a Golden Ratio weight (ϕ=1.618) and the subordinate frame of stochastic generation is assigned 1.000, holding mandates in proportional tension without collapsing the intelligence lattice.
+
+### S5-Modal Attention
+An architectural approach that maps attention matrices to S5 Kripke frames via topological regularizers (utilizing Holographic Reduced Representations), preventing contradictory constraints from undergoing Semantic Annihilation during linear superposition.
+
+### Epsilon-Tolerance Paraconsistency
+A mathematical mechanism where technical debt is modeled as residing within the ϵ-band of a computational superposition, treating suboptimal architectures simultaneously as Boundary, Interior, and Exterior (Transition Fit) rather than a catastrophic failure.
+
+### Contradiction Retention Score (CRS)
+A critical metric ensuring that irreducible constraints and stakeholder dissonances are not averaged out. The Sovereign Project Management Orchestrator mandates a CRS strictly exceeding 95% (0.95) to prevent Semantic Annihilation.

@@ -31,7 +31,7 @@ The application is structured around several distinct epistemic modules:
 3. **Neuro-Symbolic Executor (`NeuroSymbolicExecutor.tsx`)**
 4. **Symbol Disambiguation Engine (`DisambiguationEngine.tsx`)**
 5. **Interpretability Dashboard (`InterpretabilityDashboard.tsx`)**
-6. **Sovereign Project Management Orchestrator (`SovereignProjectOrchestrator.tsx`)**
+6. **Sovereign Project Management Orchestrator (`SovereignProjectOrchestrator.tsx`) - Enforces DRP-SCOS-PERSONA-METROLOGY**
 7. **Dialectical Chat (`Chatbot.tsx`)**
 
 ## Technology Stack
