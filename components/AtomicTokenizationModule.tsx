@@ -14,6 +14,12 @@ import {
 } from 'lucide-react';
 import { useAtomicTokenization, TokenAnalysis } from '@/hooks/useAtomicTokenization';
 
+/**
+ * Atomic Tokenization Module component.
+ * Analyzes natural language instructions to prevent semantic saponification by breaking them into atomic constraint tokens.
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
 export default function AtomicTokenizationModule() {
   const [inputMode, setInputMode] = useState<'extract' | 'list'>('extract');
   const [input, setInput] = useState('∇·F = ρ/ε₀ + ∂E/∂t');

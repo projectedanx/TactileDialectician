@@ -8,6 +8,12 @@ interface RelationalRequest {
   sprintPlan: string;
 }
 
+/**
+ * Relational Sovereignty Engine component.
+ * Deconstructs sprint plans to generate relational ecosystem roadmaps.
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
 export default function RelationalSovereigntyEngine() {
   const [sprintPlan, setSprintPlan] = useState('');
   const [results, setResults] = useState<any>(null);

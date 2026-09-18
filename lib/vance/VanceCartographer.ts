@@ -36,6 +36,14 @@ export interface NitinolScar {
   dccd_intervention: string;
 }
 
+/**
+ * The Vector-Anchored Node & Context Engineer (VANCE).
+ * Validates JSON-RPC 2.0 payloads for LSP operations.
+ */
+/**
+ * The Vector-Anchored Node & Context Engineer (VANCE).
+ * Validates JSON-RPC 2.0 payloads for LSP operations.
+ */
 export class VanceCartographer {
   private astNodes: Map<string, ASTNode> = new Map();
   private scars: NitinolScar[] = [];
@@ -50,18 +58,62 @@ export class VanceCartographer {
     });
   }
 
+    /**
+   * Retrieves all AST nodes mapped by VANCE.
+   *
+   * @returns {ASTNode[]} Array of AST nodes.
+   */
+  /**
+   * Retrieves all AST nodes mapped by VANCE.
+   *
+   * @returns {ASTNode[]} Array of AST nodes.
+   */
   public getNodes(): ASTNode[] {
     return Array.from(this.astNodes.values());
   }
 
+    /**
+   * Retrieves all Nitinol Scars (failures) logged by VANCE.
+   *
+   * @returns {NitinolScar[]} Array of Nitinol scars.
+   */
+  /**
+   * Retrieves all Nitinol Scars (failures) logged by VANCE.
+   *
+   * @returns {NitinolScar[]} Array of Nitinol scars.
+   */
   public getScars(): NitinolScar[] {
     return this.scars;
   }
 
+    /**
+   * Validates if the given payload conforms to the JSON-RPC 2.0 spec.
+   *
+   * @param {any} payload - The payload to validate.
+   * @returns {boolean} True if valid, false otherwise.
+   */
+  /**
+   * Validates if the given payload conforms to the JSON-RPC 2.0 spec.
+   *
+   * @param {any} payload - The payload to validate.
+   * @returns {boolean} True if valid, false otherwise.
+   */
   private validateJSONRPC(payload: any): boolean {
     return payload && payload.jsonrpc === "2.0" && payload.id !== undefined;
   }
 
+    /**
+   * Processes an incoming JSON-RPC payload.
+   *
+   * @param {any} request - The JSON-RPC request to process.
+   * @returns {JSONRPCResponse} The processed JSON-RPC response.
+   */
+  /**
+   * Processes an incoming JSON-RPC payload.
+   *
+   * @param {any} request - The JSON-RPC request to process.
+   * @returns {JSONRPCResponse} The processed JSON-RPC response.
+   */
   public processRequest(request: any): JSONRPCResponse {
     if (!this.validateJSONRPC(request)) {
       this.recordScar("Malformed JSON-RPC request", request);
@@ -85,6 +137,18 @@ export class VanceCartographer {
     };
   }
 
+    /**
+   * Handles the textDocument/didChange LSP request.
+   *
+   * @param {JSONRPCRequest} request - The JSON-RPC request.
+   * @returns {JSONRPCResponse} The processed JSON-RPC response.
+   */
+  /**
+   * Handles the textDocument/didChange LSP request.
+   *
+   * @param {JSONRPCRequest} request - The JSON-RPC request.
+   * @returns {JSONRPCResponse} The processed JSON-RPC response.
+   */
   private handleDidChange(request: JSONRPCRequest): JSONRPCResponse {
     const params = request.params;
     if (!params || !params.textDocument || params.textDocument.version === undefined) {
@@ -124,6 +188,18 @@ export class VanceCartographer {
     };
   }
 
+    /**
+   * Handles the textDocument/definition LSP request.
+   *
+   * @param {JSONRPCRequest} request - The JSON-RPC request.
+   * @returns {JSONRPCResponse} The processed JSON-RPC response.
+   */
+  /**
+   * Handles the textDocument/definition LSP request.
+   *
+   * @param {JSONRPCRequest} request - The JSON-RPC request.
+   * @returns {JSONRPCResponse} The processed JSON-RPC response.
+   */
   private handleDefinition(request: JSONRPCRequest): JSONRPCResponse {
      const params = request.params;
 
@@ -155,6 +231,18 @@ export class VanceCartographer {
      }
   }
 
+    /**
+   * Records a Nitinol Scar for an erroneous payload.
+   *
+   * @param {string} reason - The reason for the scar.
+   * @param {any} payload - The erroneous payload.
+   */
+  /**
+   * Records a Nitinol Scar for an erroneous payload.
+   *
+   * @param {string} reason - The reason for the scar.
+   * @param {any} payload - The erroneous payload.
+   */
   private recordScar(reason: string, payload: any) {
     this.scars.push({
       scar_id: `SYM-${Date.now()}`,
@@ -166,4 +254,14 @@ export class VanceCartographer {
   }
 }
 
+/**
+ * A singleton instance of the VanceCartographer class.
+ *
+ * @type {VanceCartographer}
+ */
+/**
+ * A singleton instance of the VanceCartographer class.
+ *
+ * @type {VanceCartographer}
+ */
 export const vanceCartographer = new VanceCartographer();
