@@ -2,6 +2,11 @@ import type {Metadata} from 'next';
 import 'katex/dist/katex.min.css';
 import './globals.css'; // Global styles
 
+/**
+ * Application metadata configuration for Next.js SEO and document head.
+ *
+ * @type {Metadata}
+ */
 export const metadata: Metadata = {
   title: 'Tactile Dialectician',
   description: 'Neuro-symbolic executor and symbol disambiguation engine',

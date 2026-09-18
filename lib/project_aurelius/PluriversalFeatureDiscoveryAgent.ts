@@ -19,6 +19,10 @@ export interface CoCSimulation {
   script: string;
 }
 
+/**
+ * Represents the Pluriversal Feature Discovery Agent, managing generative testing
+ * of proposed features via hypothetical domain overlaps.
+ */
 export class PluriversalFeatureDiscoveryAgent {
   /**
    * Synthesizes codebase features from maximally distant domains.

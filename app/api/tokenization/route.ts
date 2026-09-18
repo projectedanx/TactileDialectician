@@ -1,6 +1,13 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenAI, Type } from '@google/genai';
 
+/**
+ * API route for semantic tokenization.
+ * Breaks down prompts into constrained semantic tokens.
+ *
+ * @param {Request} request - The inbound HTTP request containing the prompt.
+ * @returns {Promise<Response>} The JSON response with semantic tokens.
+ */
 export async function POST(request: Request) {
   try {
     const { input, inputMode, domainContext } = await request.json();

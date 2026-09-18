@@ -1,6 +1,13 @@
 import { NextResponse } from 'next/server';
 import { GoogleGenAI, Type } from '@google/genai';
 
+/**
+ * API route to process Relational Sovereignty calculations.
+ * Evaluates sprint plans based on socio-technical constraints.
+ *
+ * @param {Request} request - The inbound HTTP request containing the sprint plan data.
+ * @returns {Promise<Response>} The JSON response with relational analysis metrics.
+ */
 export async function POST(request: Request) {
   try {
     const { sprintPlan } = await request.json();

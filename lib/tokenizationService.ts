@@ -23,6 +23,11 @@ export interface TokenAnalysis {
   fone_embedding: FoNEEmbedding;
 }
 
+/**
+ * Predefined library of tokens for fallback and deterministic substitution.
+ *
+ * @type {TokenAnalysis[]}
+ */
 export const PREDEFINED_LIBRARY: TokenAnalysis[] = [
   {
     symbol: '∇',
@@ -152,6 +157,24 @@ export const PREDEFINED_LIBRARY: TokenAnalysis[] = [
   }
 ];
 
+/**
+ * Analyzes the given input string using Google Gemini and maps it to semantic tokens.
+ *
+ * @param {string} input - The natural language input to analyze.
+ * @param {"extract" | "list"} inputMode - The parsing mode.
+ * @param {string} domainContext - The active domain context.
+ * @param {GoogleGenAI} ai - The Google GenAI client instance.
+ * @returns {Promise<TokenAnalysis[]>} The resolved semantic tokens.
+ */
+/**
+ * Analyzes the given input string using Google Gemini and maps it to semantic tokens.
+ *
+ * @param {string} input - The natural language input to analyze.
+ * @param {'extract' | 'list'} inputMode - The parsing mode.
+ * @param {string} domainContext - The active domain context.
+ * @param {GoogleGenAI} ai - The Google GenAI client instance.
+ * @returns {Promise<TokenAnalysis[]>} The resolved semantic tokens.
+ */
 export async function analyzeTokens(input: string, inputMode: 'extract' | 'list', domainContext: string, ai: GoogleGenAI): Promise<TokenAnalysis[]> {
   let foundSymbols: string[] = [];
 

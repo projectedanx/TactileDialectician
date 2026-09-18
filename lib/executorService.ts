@@ -20,6 +20,13 @@ import 'nerdamer/Solve.js';
 
 const DANGEROUS_KEYWORDS = /\b(__proto__|constructor|prototype|eval|Function|require|process|global|window|document|setTimeout|setInterval)\b/i;
 
+/**
+ * Determines whether the given mathematical expression is safe to execute.
+ * Implements basic heuristic checks to block dangerous operations.
+ *
+ * @param {string} input - The mathematical expression to validate.
+ * @returns {boolean} True if the expression is deemed safe, false otherwise.
+ */
 export const isSafeInput = (input: string): boolean => {
   return !DANGEROUS_KEYWORDS.test(input);
 };

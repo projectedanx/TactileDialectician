@@ -3,6 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldAlert, GitMerge, FileJson, AlertTriangle } from 'lucide-react';
 
+/**
+ * Vance LSP Dashboard component.
+ * Acts as a UI for the Vector-Anchored Node & Context Engineer (VANCE) displaying LSP constraints and failures.
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
 export default function VanceLSPDashboard() {
   const [requestPayload, setRequestPayload] = useState('{\n  "jsonrpc": "2.0",\n  "id": 1,\n  "method": "textDocument/didChange",\n  "params": {\n    "textDocument": { "uri": "file:///src/main.ts" }\n  }\n}');
   const [response, setResponse] = useState<any>(null);

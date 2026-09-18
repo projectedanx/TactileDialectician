@@ -87,3 +87,7 @@ To eradicate natural language ambiguity, this system uses strict mathematical me
 
 ## VANCE LSP Cartographer Dashboard
 Integrated within the application is the **VANCE LSP Cartographer Dashboard**, a realization of the Vector-Anchored Node & Context Engineer persona, demonstrating a mock JSON-RPC 2.0 interface and a Nitinol Failure Ledger (NFL).
+
+## JSDoc Standards
+
+Every public method, function, and class within this repository has been comprehensively annotated using JSDoc to ensure high visibility of code intent and usage. This explicit documentation bounds chaotic execution and mitigates Semantic Saponification when integrated with deterministic reasoning tools.

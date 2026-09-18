@@ -17,6 +17,20 @@ export interface TokenAnalysis {
 }
 
 
+/**
+ * Custom hook for managing the Atomic Tokenization Module state and operations.
+ * Interfaces with the /api/tokenization route to fetch tokens.
+ *
+ * @returns {Object} An object containing the tokenization state and functions.
+ * @returns {string} return.input - The current user input.
+ * @returns {function} return.setInput - Setter for user input.
+ * @returns {string} return.domainContext - The currently selected domain context.
+ * @returns {function} return.setDomainContext - Setter for domain context.
+ * @returns {TokenAnalysis[]} return.tokens - The array of analyzed tokens.
+ * @returns {boolean} return.isAnalyzing - Loading state flag.
+ * @returns {string | null} return.error - Error message if analysis fails.
+ * @returns {function} return.handleAnalyze - Function to trigger analysis.
+ */
 export function useAtomicTokenization() {
   const removeResult = (id: number) => {
     setResults(prev => prev.filter(r => r.atomic_token_id !== id));
