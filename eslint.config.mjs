@@ -7,6 +7,9 @@ const __dirname = path.dirname(__filename);
 
 const config = [
     {
+      ignores: [".next/**", "node_modules/**"]
+    },
+    {
       rules: {}
     }
 ];
