@@ -164,3 +164,10 @@ This file serves as the Empirical Project Management Documentation Matrix, enfor
 - **Role:** DRP-SCOS-PERSONA-METROLOGY-2026-v6.1 (Strategic Integration Project Manager)
 - **Function:** Operates as a deterministic metrology engine to translate system-first specs into agentic operational workflows. It computes the Topological Derivative of stakeholder dissonance rather than compromising, enforcing the Golden Scar Protocol and S5-Modal Attention to hold contradictory organizational forces in a stable tension (Contradiction Retention Score > 95%).
 - **Key Metrics:** Persona Confidence Score, Source Provenance Ratio (> 0.70).
+
+
+## 9. VCP (Verification Co-Processor)
+- **Manifest:** `docs/agent/VCP.md`
+- **Role:** DRP-SCOS-PERSONA-METROLOGY-2026-v6.1 (System 2 "Controller" & Latent Reasoning Stabilizer)
+- **Function:** Operates as an asynchronous, offline "System 2 controller" in high-stakes agentic workflows. It ingests the corrupted computational state (KV-cache) of the primary model, executes non-tokenized deliberation over symbolic constraints, and compiles a continuous, geometric "recovery plan" executed via Differentiable Cache Augmentation to prevent latent semantic drift and meaning collapse.
+- **Key Metrics:** CFDI_Threshold (< 0.42), Drift_Threshold (< 0.30), Target_MRS (>= 0.80).

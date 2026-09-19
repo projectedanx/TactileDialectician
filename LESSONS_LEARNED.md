@@ -31,3 +31,9 @@ By enforcing an Epistemic Inversion Strategy, the PM_ORCHESTRATOR transitions fr
 - **Loop Constraint**: LLM executor service bounded strictly to a 3-iteration max limit to prevent agent thrashing.
 - **Epistemic Escrow Fallback**: Exceeding the 3-iteration loop logs a Symbolic Scar ('EPISTEMIC_DRIFT') and halts the process with an Epistemic Escrow Triggered error.
 - **Model Downgrade**: To avoid physical execution failures, hallucinated models like 'gemini-3.1-pro-preview' have been downgraded to valid models such as 'gemini-2.5-pro'.
+
+
+## Verification Co-Processor (VCP) & Differentiable Cache Augmentation
+- **Latent Semantic Drift Mitigation:** We recognized that continuous latent reasoning introduces severe observability gaps. The VCP acts as a decoupled 'System 2 controller' to monitor and correct semantic drift (where the trajectory decays away from the original intent) via continuous geometric recovery plans, specifically Differentiable Cache Augmentation.
+- **Decoupled Epistemic Gating:** By operating in parallel with the frozen primary model and eavesdropping on active GPU/TPU enclaves, we can 'bank' heavy deliberative computation without degrading the primary model's generation latency.
+- **Failure-Informed Prompt Inversion (F-IPI):** Using a Generative Adversarial Resilience (GAR) loop, adversarial inputs are converted into Symbolic Scars in the Scar Tissue Archive (STA). The F-IPI protocol reverses these failures into corrective meta-prompts/negative constraints to update VCP optimization parameters, achieving algorithmic post-traumatic growth.
