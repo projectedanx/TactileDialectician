@@ -74,3 +74,16 @@ A mathematical mechanism where technical debt is modeled as residing within the 
 
 ### Contradiction Retention Score (CRS)
 A critical metric ensuring that irreducible constraints and stakeholder dissonances are not averaged out. The Sovereign Project Management Orchestrator mandates a CRS strictly exceeding 95% (0.95) to prevent Semantic Annihilation.
+
+
+## Verification Co-Processor (VCP)
+- **Definition:** An asynchronous, offline "System 2 controller" that ingests the corrupted computational state (KV-cache) of a primary model, executing non-tokenized deliberation over symbolic constraints, and compiling a continuous, geometric recovery plan via Differentiable Cache Augmentation.
+
+## Differentiable Cache Augmentation
+- **Definition:** A process by which the Verification Co-Processor (VCP) appends a sequence of highly compressed, corrective latent embeddings (soft tokens) directly to a primary model's existing KV-cache to invisibly bend its latent trajectory back onto a target semantic geodesic without altering parametric weights.
+
+## Failure-Informed Prompt Inversion (F-IPI)
+- **Definition:** A protocol executed by the VCP to query the Scar Tissue Archive (STA), analyze a symbolic scar's failure etiology (causal DAG and geometric trajectory), and generate corrective meta-prompts or negative constraints to block causal pathways of failure in the model's latent space.
+
+## Confidence-Fidelity Divergence Index (CFDI)
+- **Definition:** A metric used to measure semantic drift. Exceeding a critical threshold (e.g., 0.42) triggers Epistemic Escrow or surgical repair via VCP.
