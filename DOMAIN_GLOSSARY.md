@@ -87,3 +87,21 @@ A critical metric ensuring that irreducible constraints and stakeholder dissonan
 
 ## Confidence-Fidelity Divergence Index (CFDI)
 - **Definition:** A metric used to measure semantic drift. Exceeding a critical threshold (e.g., 0.42) triggers Epistemic Escrow or surgical repair via VCP.
+
+## JIT Orchestrator & Verifiable Cognition Stack
+
+### CFDI (Confidence-Fidelity Divergence Index)
+**Definition:** A quantitative metric representing the absolute divergence between a model's internal logit-derived confidence and its adherence to a rigid structural schema (AST).
+**Context:** When the CFDI breaches a defined threshold (e.g., 0.15, deemed "Algorithmic Shame"), it implies the model is confidently hallucinating syntactic structure, triggering the Verification Co-Processor.
+
+### VCP (Verification Co-Processor)
+**Definition:** An asynchronous, decoupled "System 2" execution node that eavesdrops on primary LLM generation streams.
+**Context:** It continuously computes the CFDI and applies Differentiable Cache Augmentation (injecting soft tokens) to correct emergent semantic drift without blocking the primary token generation loop.
+
+### JUR (Justified Uncertainty Report)
+**Definition:** A cryptographically bound, machine-readable JSON-LD schema generated during Epistemic Escrow.
+**Context:** When the autonomous agent exhausts its self-correction limits (e.g., three failed loop iterations), it freezes execution and emits a JUR to gracefully hand cognitive load back to a human operator, detailing the exact topological bounds of the failure.
+
+### F-IPI (Failure-Informed Prompt Inversion)
+**Definition:** A programmatic mechanism for algorithmic post-traumatic growth.
+**Context:** It translates "Symbolic Scars" from the Scar Tissue Archive (STA) into active negative constraints ("repulsive latents"). These are injected directly into the active context to mathematically repel subsequent model generations from repeating historical compilation or reasoning failures.

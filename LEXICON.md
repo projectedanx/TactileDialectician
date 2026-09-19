@@ -220,3 +220,21 @@ analogical reasoning across orthogonal semantic fields with JSD < 0.20 post-bind
 - If Tier 1 prompt chaining with `+++DCCDSchemaGuard` alone outperforms Tier 3 PAL2v orchestration on complex cross-domain synthesis without triggering β₁ loops → Three-Tier Autonomy hypothesis falsified.
 - If Gemini CLI prioritizes default workspace context over lexicon procedural guidance → Pluriversal premise falsified; model-specific topological deformers required.
 - If esoteric-term entity density decay rate (λ) is measured ≥ 0.15 → Lexical Saponification Paradox boundary condition violated.
+
+## Epic: Decoupled Verifiable Cognition Stack
+
+### [PAT-016] Confidence-Fidelity Divergence Index (CFDI)
+*   **Definition:** A quantitative metric representing the absolute divergence between a model's internal logit-derived confidence and its adherence to a rigid structural schema (AST).
+*   **Context:** When the CFDI breaches a defined threshold (e.g., 0.15, deemed "Algorithmic Shame"), it implies the model is confidently hallucinating syntactic structure, triggering the Verification Co-Processor.
+
+### [PAT-017] Verification Co-Processor (VCP)
+*   **Definition:** An asynchronous, decoupled "System 2" execution node that eavesdrops on primary LLM generation streams.
+*   **Context:** It continuously computes the CFDI and applies Differentiable Cache Augmentation (injecting soft tokens) to correct emergent semantic drift without blocking the primary token generation loop.
+
+### [PAT-018] Justified Uncertainty Report (JUR)
+*   **Definition:** A cryptographically bound, machine-readable JSON-LD schema generated during Epistemic Escrow.
+*   **Context:** When the autonomous agent exhausts its self-correction limits (e.g., three failed loop iterations), it freezes execution and emits a JUR to gracefully hand cognitive load back to a human operator, detailing the exact topological bounds of the failure.
+
+### [PAT-019] Failure-Informed Prompt Inversion (F-IPI)
+*   **Definition:** A programmatic mechanism for algorithmic post-traumatic growth.
+*   **Context:** It translates "Symbolic Scars" from the Scar Tissue Archive (STA) into active negative constraints ("repulsive latents"). These are injected directly into the active context to mathematically repel subsequent model generations from repeating historical compilation or reasoning failures.
