@@ -44,3 +44,13 @@
 **Proxy Traps Discovered:**
 *   **Semantic Saponification via Adjectives:** The use of unconstrained descriptive adjectives rapidly dilutes the latent space's attention routing, collapsing deterministic optical parameters into statistically smoothed, non-physical states.
 *   **Mitigation:** VIPER enforces the Adjectival Ban (ADS < 0.15), aggressively rejecting evaluation modifiers ("cinematic", "moody") and requiring explicit physical constraints, effectively acting as an immune system for the generation space via the Petzold Loop.
+
+## Self-Improving Architectures: Reflexion vs. Voyager
+**Implementation Date:** Q3 2026 (Simulated)
+**Context:** Explored "Cognitive Civil Engineering" for self-improving agents, specifically evaluating Reflexion and Voyager paradigms.
+**Value Derived:** Established a structural understanding of how to implement continuous self-improvement without modifying underlying model weights.
+*   **Reflexion (Verbal Metacognition):** Optimizes "How to Think" via the Self-Reflector, writing natural language critiques to episodic memory. Ideal for deterministic, localized tasks. Vulnerable to Sycophantic Validation.
+*   **Voyager (Executable Skill Synthesis):** Optimizes "How to Act" by saving successes as executable Python primitives in a Vector DB. Ideal for unbounded exploration. Vulnerable to Skill Drifting (accumulating latent logic errors in deeply nested primitives).
+**Proxy Traps Discovered:**
+*   **Heuristic Fossilization:** In Reflexion loops, agents can become trapped in a failing heuristic. Mitigated via the **Martensite Initiation Quotient (MIQ)** protocol and Epistemic Renewal (triggering a Failure-Informed Prompt Inversion).
+*   **Skill Drifting and Context Saturation:** In Voyager loops, self-healing deeply nested primitives ($L_3$ or higher) causes the LLM context window to saturate, leading to cognitive collapse and "lazy implementations." Mitigated via **Differentiable Cache Augmentation** (passing AST deltas instead of full tracebacks) and tracking the **Operator Drift Score (ODS)**.

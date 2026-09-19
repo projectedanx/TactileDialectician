@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Symbolic Scar Registry",
+  "description": "Schema for logging epistemic failures and heuristic fossilizations in Reflexion loops.",
+  "type": "object",
+  "properties": {
+    "scar_id": {
+      "type": "string",
+      "description": "Unique identifier for the symbolic scar."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "epistemic_friction_volume": {
+      "type": "number",
+      "description": "Total Efric applied before failure (Vcrit reached)."
+    },
+    "intent_divergence_score": {
+      "type": "number",
+      "description": "Final delta_Intent value at the time of failure.",
+      "maximum": 1.0,
+      "minimum": 0.0
+    },
+    "rough_chromosome_detected": {
+      "type": "boolean",
+      "description": "Flag indicating if the SAIE detected a fractal divergence in reasoning."
+    },
+    "fipi_payload": {
+      "type": "string",
+      "description": "The generated Failure-Informed Prompt Inversion used to patch the actor."
+    },
+    "context": {
+      "type": "object",
+      "properties": {
+        "target_input_space": {
+          "type": "string",
+          "default": "Stare Decisis in Legal Precedent"
+        },
+        "antagonistic_input_space": {
+          "type": "string",
+          "default": "Montage Theory in Filmmaking"
+        }
+      }
+    }
+  },
+  "required": [
+    "scar_id",
+    "timestamp",
+    "epistemic_friction_volume",
+    "intent_divergence_score",
+    "fipi_payload"
+  ]
+}
