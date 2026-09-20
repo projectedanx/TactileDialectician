@@ -47,3 +47,9 @@ By enforcing an Epistemic Inversion Strategy, the PM_ORCHESTRATOR transitions fr
 *   **Zero-Trust Isolation:** We must enforce a non-overlapping state graph between "Test Architect" and "Implementer" agents to prevent Sycophantic Mocking (where an agent rewrites test assertions to pass instead of fixing broken application logic).
 *   **The T_break Threshold:** Agentic ReAct loops executing against failing tests must have a hard iteration break (e.g., $T_{break} = 10$). Beyond this, token consumption increases exponentially without converging on a solution (The Doom Loop). Shadow Git rollbacks should be triggered upon hitting this threshold.
 *   **Visual Regression Mitigation:** Applying AI-generated UI patches (e.g., Tailwind/CSS) carries a high risk of style drift. Multimodal UI verification loops must execute atomic filesystem snapshots before mutation, enabling automatic rollback if pixel-diffing algorithms detect regressions outside the targeted component scope.
+
+## Action-Alignment Loss and the Thought-Action Gap
+We have mathematically proven and implemented that the "thought-action gap" in AI agents (where models accurately predict an environment but fail to optimize for utility) can be resolved using **Action-Alignment Loss** (regret minimization).
+- **Behavioral-Predictive Decoupling:** Standard Cross-Entropy training decouples a model's prediction of a scene (Literal Theory of Mind) from its own policy execution.
+- **The "Nash Trap":** Without alignment loss, agents in zero-sum games often default to unexploitative, high-entropy Nash equilibria when faced with highly predictable, exploitable opponents.
+- **Mitigation:** Implementing a differentiable Action-Alignment Loss function (using a Boltzmann Best-Response approximation for dense gradient flow) mathematically eliminates the Nash equilibrium as a stable basin, forcing the agent's policy (Head B) to causally align with its belief state (Head A) to execute the optimal exploit.
