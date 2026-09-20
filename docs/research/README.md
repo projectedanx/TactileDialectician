@@ -15,3 +15,10 @@ This directory contains conceptual models, algorithmic proofs, simulation script
 
 ## Contribution Guidelines
 Any simulation code (e.g., Python, Rust) or theoretical designs must remain in this directory and its subdirectories to prevent violating the core React/TypeScript "Tech Stack Fidelity" constraint of the main application.
+*   `parsimonious_architecture/`: Research into automated parsimonious theory selection and the application of Occam's Razor within AI harnesses.
+    *   `OCCAM_LOSS_COMPILER.md`: Specification for the Occam Loss Compiler, using Bayesian structural penalties to avoid parameter over-fitting.
+    *   `occam_compiler.py`: Simulation of Pareto Optimization over competing cosmological theories.
+    *   `BMR_COGNITIVE_HARNESS.md`: Architecture for Bayesian Model Reduction to actively prune assumptions and compress logic into fictive principles.
+    *   `bmr_harness.py`: Simulation of the Axiomatic Pruning Module calculating marginal likelihoods.
+    *   `MODEL_TRAVEL_AUDITOR.md`: Audit harness for interdisciplinary model travel to prevent semantic slippage and boundary condition violation.
+    *   `travel_auditor.py`: Simulation for validating asymptotic bounds and ensuring dimensional reducibility.
