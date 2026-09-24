@@ -15,6 +15,11 @@ This directory contains conceptual models, algorithmic proofs, simulation script
 
 ## Contribution Guidelines
 Any simulation code (e.g., Python, Rust) or theoretical designs must remain in this directory and its subdirectories to prevent violating the core React/TypeScript "Tech Stack Fidelity" constraint of the main application.
+*   `cognitive_harness/`: Research and specifications for run-time cognitive governance, latency mitigation, and anomaly detection in agent operations.
+    *   `ALA_SPECIFICATION.md`: The formal engineering specification and architecture blueprint for the Anomaly Learning Agent (ALA).
+    *   `ala_threshold_dynamics_sim.py`: Simulation of the threshold dynamics (homeostatic balance) for the Anomaly Learning Agent.
+    *   `spherical_latent_topology_sim.py`: Simulation mapping continuous latent thought trajectories to a unit hypersphere, checking logical invariant constraints.
+    *   `f_ipi_symbolic_scar_sim.py`: Simulation generating a causal DAG for failure modes and executing Failure-Informed Prompt Inversion (F-IPI).
 *   `parsimonious_architecture/`: Research into automated parsimonious theory selection and the application of Occam's Razor within AI harnesses.
     *   `OCCAM_LOSS_COMPILER.md`: Specification for the Occam Loss Compiler, using Bayesian structural penalties to avoid parameter over-fitting.
     *   `occam_compiler.py`: Simulation of Pareto Optimization over competing cosmological theories.
