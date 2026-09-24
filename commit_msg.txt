@@ -1,0 +1,7 @@
+feat(tbe): formalize CPI constraint and epistemic rheology
+
+- Implements the isomorphic formalization of the Temporal Blending Engine (TBE) via `CPI_CONSTRAINT_SPECIFICATION.md`.
+- Mathematical proofs (Security Camera Lemma & Rheological Stability) modeled and validated via `cpi_constraint_sim.py`.
+- Enforces strict Causal Path Integrity (CPI) >= 0.95 boundary in multi-agent orchestration.
+- Documents Epistemic Rheology models and Parametric Trade-off bounds (CCH vs. CSD).
+- Inversion plans, checklists, and README indexed for the new `temporal_blending_engine` active research directory.
