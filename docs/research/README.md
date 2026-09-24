@@ -27,3 +27,4 @@ Any simulation code (e.g., Python, Rust) or theoretical designs must remain in t
     *   `bmr_harness.py`: Simulation of the Axiomatic Pruning Module calculating marginal likelihoods.
     *   `MODEL_TRAVEL_AUDITOR.md`: Audit harness for interdisciplinary model travel to prevent semantic slippage and boundary condition violation.
     *   `travel_auditor.py`: Simulation for validating asymptotic bounds and ensuring dimensional reducibility.
+* `temporal_blending_engine/`: Formal mathematical specifications, causal integrity constraints (CPI), and epistemic rheology models for the Temporal Blending Engine.
