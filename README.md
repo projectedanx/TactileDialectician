@@ -91,3 +91,7 @@ Integrated within the application is the **VANCE LSP Cartographer Dashboard**, a
 ## JSDoc Standards
 
 Every public method, function, and class within this repository has been comprehensively annotated using JSDoc to ensure high visibility of code intent and usage. This explicit documentation bounds chaotic execution and mitigates Semantic Saponification when integrated with deterministic reasoning tools.
+
+## Epistemic Taxonomy Registry
+The hierarchical epistemic architecture (L0 through L11) has been rigorously mapped and instantiated into discrete Pluriversal Knowledge Capsules.
+**👉 [View the Epistemic Taxonomy Registry](docs/research/EPISTEMIC_TAXONOMY.md)**
